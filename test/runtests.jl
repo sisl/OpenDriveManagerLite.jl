@@ -1,5 +1,11 @@
-using OpenDriveManagerLite
 using Base.Test
+using Lint
 
-# write your own tests here
-@test 1 == 1
+lintpkg("OpenDriveManagerLite")
+
+using OpenDriveManagerLite
+
+@test ccall( (:libexists, OpenDriveManagerLite.LIB_ODRMGR), Bool, ())
+
+include("test_trackcoord.jl")
+
