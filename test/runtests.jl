@@ -8,4 +8,4 @@ using OpenDriveManagerLite
 @test ccall( (:libexists, OpenDriveManagerLite.LIB_ODRMGR), Bool, ())
 
 include("test_trackcoord.jl")
-
+include("test_odrmanagerlite.jl")
