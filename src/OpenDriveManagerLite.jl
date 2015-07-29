@@ -1,6 +1,7 @@
 module OpenDriveManagerLite
 
 using Lint
+using Compat
 
 macro lintpragma(s)
 end
@@ -24,5 +25,6 @@ if isempty(LIB_ODRMGR)
 end
     
 include("includes/trackcoord.jl")
+include("includes/odrmanagerlite.jl")
 
 end # module

@@ -22,5 +22,6 @@ extern "C" void * createOdrManagerLite();
 extern "C" void freeOdrManagerLite(void * void_odr_manager);
 extern "C" bool odr_manager_loadFile(void * void_odr_manager, char * name);
 extern "C" void odr_manager_printData(void * void_odr_manager);
+extern "C" void * odr_manager_getTrackPos(void * void_odr_manager);
 
 #endif

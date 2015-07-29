@@ -22,3 +22,11 @@ void odr_manager_printData(void * void_odr_manager)
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     mgr->printData();
 }
+
+void * odr_manager_getTrackPos(void * void_odr_manager)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    OpenDrive::TrackCoord coord = mgr->getTrackPos();
+    void * retval = &coord;
+    return retval;
+}
