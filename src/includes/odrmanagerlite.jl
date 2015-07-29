@@ -19,6 +19,18 @@ type OdrManagerLite
     end
 end
 
+type Position
+    ptr::Ptr{Void}
+
+    function Position(ptr::Ptr{Void})
+        pos = new(ptr)
+        finalizer(pos, obj -> begin
+            ccall( (:freePosition, LIB_ODRMGR), Void, (Ptr{Void},), obj.ptr )
+        end)
+        pos 
+    end
+end
+
 loadfile(mgr::OdrManagerLite, name::AbstractString) =
     ccall( (:odr_manager_loadFile, LIB_ODRMGR), Bool, (Ptr{Void}, Ptr{UInt8}), mgr.ptr, name)
 
