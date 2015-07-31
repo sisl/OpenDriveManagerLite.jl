@@ -33,7 +33,7 @@ extern "C" void odr_manager_set_track_pos_s_t(void * void_odr_manager, int id, d
 extern "C" void odr_manager_set_track_pos_track_coord(void * void_odr_manager, void * void_track_coord);
 extern "C" void odr_manager_setpos_lane_coord(void * void_odr_manager, void * void_lane_coord);
 extern "C" void odr_manager_setLanePos(void * void_odr_manager, int trackId, int laneId, double s, double offset);
-extern "C" void odr_manager_setLanePos(void * void_odr_manager, void * void_lane_coord);
+extern "C" void odr_manager_setLanePos_with_lanecoord(void * void_odr_manager, void * void_lane_coord);
 extern "C" void odr_manager_setpos_coord(void * void_odr_manager, void * void_coord);
 extern "C" void odr_manager_setInertialPos(void * void_odr_manager, double x, double y, double z);
 extern "C" bool odr_manager_track2inertial(void * void_odr_manager);
@@ -76,8 +76,8 @@ extern "C" void trackcoord_print();
 
 extern "C" void createOdrManagerLite();
 extern "C" void freeOdrManagerLite(void * void_coord);
-extern "C" void lane_coord_plusequal(void * void_coordA, void void_coordB);
-extern "C" void lane_coord_plusequal(void * void_coordA, void void_coordB);
+extern "C" void lane_coord_plusequal(void * void_coordA, void * void_coordB);
+extern "C" void lane_coord_plusequal(void * void_coordA, void * void_coordB);
 extern "C" int lane_coord_get_laneid(void * void_coord);
 extern "C" double lane_coord_get_offset(void * void_coord);
 extern "C" void lane_coord_set_laneid(void * void_coord, int value);
