@@ -78,7 +78,6 @@ function get_trackpos(mgr::OdrManagerLite)
     end
 end
 
-#= Deon added
 fucntion get_lanepos(mgr::OdrManagerLite)
     ptr = ccall((:odr_manager_getLanePos, LIB_ODRMGR), Ptr{LaneCoord}, (Ptr{Void},), mgr.ptr )
     return unsafe_load(ptr, 1)::LaneCoord
@@ -151,4 +150,4 @@ end
 
 copy_foot_point_to_inertial(mgr::OdrManagerLite) = 
     ccall((:odr_manager_footPoint2inertial, LIB_ODRMGR), Void, (Ptr{Void},), mgr.ptr)
-=#
+
