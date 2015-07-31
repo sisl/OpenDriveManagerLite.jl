@@ -9,3 +9,5 @@ using OpenDriveManagerLite
 
 include("test_trackcoord.jl")
 include("test_odrmanagerlite.jl")
+include("test_odrcoord.jl")
+include("test_odrlanecoord.jl")
