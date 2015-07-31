@@ -26,9 +26,10 @@ void odr_manager_createPosition(void * void_odr_manager)
     mgr->createPosition();
 }
 //TODO(Deon) fix Position * pos
-void odr_manager_activatePosition(void * void_odr_manager, Position * pos)
+void odr_manager_activatePosition(void * void_odr_manager, void * void_pos)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    OpenDrive::OdrManagerLite * pos = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_pos);
     mgr->activatePosition(pos);
 }
 float * odr_manager_getTrackPos(void * void_odr_manager)
@@ -60,40 +61,45 @@ float odr_manager_getFootPoint(void * void_odr_manager)
     return retval;
 }
 // TODO(Deon) Check trackcoord value
-void odr_manager_setpos_track_coord(void * void_odr_manager, TrackCoord * value)
+void odr_manager_setpos_track_coord(void * void_odr_manager, void * void_track_coord)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    OpenDrive::OdrManagerLite * value = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_track_coord); 
     mgr->setPos(value);
 }
-void odr_manager_set_track_pos_s_t(void * void_odr_manager, int * id, double * s, double * t=0.0)
+void odr_manager_set_track_pos_s_t(void * void_odr_manager, int * id, double * s, double * t)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     mgr->setTrackPos(id, s, t);
 }
-void odr_manager_set_track_pos_track_coord(void * void_odr_manager, TrackCoord * value)
+void odr_manager_set_track_pos_track_coord(void * void_odr_manager, void * void_track_coord)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    OpenDrive::OdrManagerLite * value = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_track_coord);
     mgr->setTrackPos(value);
 }
-void odr_manager_setpos_lane_coord(void * void_odr_manager, LaneCoord * value)
+void odr_manager_setpos_lane_coord(void * void_odr_manager, void * void_lane_coord)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    OpenDrive::OdrManagerLite * value = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_lane_coord);
     mgr->setPos(value);
 }
 //check if_i can set defaultval here
-void odr_manager_setLanePos(void * void_odr_manager, int * trackId, int * laneId, double * s, double * offset = 0.0)
+void odr_manager_setLanePos(void * void_odr_manager, int * trackId, int * laneId, double * s, double * offset)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     mgr->setLanePos(trackId, laneId, s, offset);
 }
-void odr_manager_setLanePos(void * void_odr_manager, LaneCoord * value)
+void odr_manager_setLanePos(void * void_odr_manager, void * void_lane_coord)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    OpenDrive::OdrManagerLite * value = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_lane_coord);
     mgr->setLanePos(value);
 }
-void odr_manager_setpos_coord(void * void_odr_manager, Coord * value)
+void odr_manager_setpos_coord(void * void_odr_manager, void * void_coord);
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    OpenDrive::OdrManagerLite * value = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_coord);
     mgr->setPos(value);
 }
 void odr_manager_setInertialPos(void * void_odr_manager, double * x, double * y, double * z)
@@ -121,7 +127,7 @@ bool odr_manager_inertial2lane(void * void_odr_manager)
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     return mgr->inertial2lane();
 }
-void odr_manager_print(void * void_odr_manager, int ident=0)
+void odr_manager_print(void * void_odr_manager, int ident)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     mgr->print(ident);

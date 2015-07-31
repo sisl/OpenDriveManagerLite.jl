@@ -96,7 +96,7 @@ end
 set_pos(mgr::OdrManagerLite, value::TrackCoord) =
     ccall((:odr_manager_setpos_track_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{TrackCoord}), mgr.ptr, value)
 
-set_trackpos(mgr::OdrManagerLite, id::Integer, s::double, t::double=0.0)
+set_trackpos(mgr::OdrManagerLite, id::Integer, s::Double, t::Double=0.0)
     ccall((:odr_manager_set_track_pos_s_t, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Integer}, Ptr{Double}, Ptr{Double}), mgr.ptr, id, s, t)
 
 set_trackpos(mgr::OdrManagerLite, value::TrackCoord) =
