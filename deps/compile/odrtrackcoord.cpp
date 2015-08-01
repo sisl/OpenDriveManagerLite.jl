@@ -6,7 +6,6 @@
 // }
 
 //TODO(Deon) do i need this?
-
 // void * createTrackCoord()
 // {
 //     OpenDrive::TrackCoord * coord = new OpenDrive::TrackCoord();

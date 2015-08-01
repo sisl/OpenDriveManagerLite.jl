@@ -50,7 +50,7 @@ extern "C" void odr_manager_activatePosition(void * void_odr_manager, void * voi
 //          TRACK COORD              //
 ///////////////////////////////////////
 
-// extern "C" void * createTrackCoord();
+// extern "C" void * createOdrManagerLite_trackCoord();
 // extern "C" void freeTrackCoord(void * void_coord);
 // extern "C" void trackcoord_plusequal(void * void_coordA, void * void_coordB);
 // extern "C" int trackcoord_get_trackid(void * void_coord);
@@ -74,7 +74,7 @@ extern "C" void odr_manager_activatePosition(void * void_odr_manager, void * voi
 //         LANE COORD              //
 /////////////////////////////////////
 
-extern "C" void * createOdrManagerLite();
+extern "C" void * createOdrManagerLite_laneCoord();
 extern "C" void freeOdrManagerLite(void * void_coord);
 extern "C" void track_coord_plusequal(void * void_coordA, void * void_coordB);
 extern "C" void lane_coord_plusequal(void * void_coordA, void * void_coordB);

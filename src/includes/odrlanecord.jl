@@ -30,7 +30,6 @@ type LaneCoord
     end
 end
 
-
 function track_coord_plusequal(a::TrackCoord, b::TrackCoord)
     (ccall( (:trackcoord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))

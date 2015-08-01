@@ -1,4 +1,4 @@
-void * createOdrManagerLite()
+void * createOdrManagerLite_laneCoord()
 {
     OpenDrive::LaneCoord * coord = new OpenDrive::LaneCoord();
     void * retval = coord;
