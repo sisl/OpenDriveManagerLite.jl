@@ -64,7 +64,7 @@ function create_position(mgr::OdrManagerLite)
     mgr.has_activated_position = true
     return ccall((:odr_manager_createPosition, LIB_ODRMGR), Ptr{Position}, (Ptr{Void},) mgr.ptr)
 end
-function activate_position(mgr::OdrManagerLite, pos::Position)
+function activate_position(mgr::OdrManagerLite, pos::OdrManagerLite)
     mgr.has_activated_position = true
     ccall((:odr_manager_activatePosition, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Position}), mgr.ptr, pos)
 end
@@ -93,28 +93,28 @@ fucntion get_footpoint(mgr::OdrManagerLite)
     return unsafe_load(ptr, 1)::Coord
 end
 
-set_pos(mgr::OdrManagerLite, value::TrackCoord) =
+set_pos(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setpos_track_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{TrackCoord}), mgr.ptr, value)
 
 set_trackpos(mgr::OdrManagerLite, id::Integer, s::Double, t::Double=0.0)
     ccall((:odr_manager_set_track_pos_s_t, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Integer}, Ptr{Double}, Ptr{Double}), mgr.ptr, id, s, t)
 
-set_trackpos(mgr::OdrManagerLite, value::TrackCoord) =
+set_trackpos(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_set_track_pos_track_coord, LIB_ODRMGR), Void, (Ptr{Void},
     Ptr{TrackCoord}), mgr.ptr, value)
 
 
-set_pos(mgr::OdrManagerLite, value::LaneCoord) =
+set_pos(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setpos_lane_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{LaneCoord}), mgr.ptr, value)
 
 set_lanepos(mgr::OdrManagerLite, trackId::Integer, laneId::Integer, s::Double, offset::Double=0.0) =
     ccall((:odr_manager_setLanePos, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Integer}, Ptr{Integer}, Ptr{Double}, Ptr{Double}), mgr.ptr, trackId, laneId, s, t)
 
-set_lanepos(mgr::OdrManagerLite, value::Coord) =
+set_lanepos(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setLanePos_with_lanecoord, LIB_ODRMGR), Void, (Ptr{Void},
     Ptr{Coord}), mgr.ptr, value)
 
-set_pos(mgr::OdrManagerLite, value::Coord) =
+set_pos(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setpos_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Coord}), mgr.ptr, value)
 
 set_inertialpos(mgr::OdrManagerLite, x::Double, y::Double, z::Double)

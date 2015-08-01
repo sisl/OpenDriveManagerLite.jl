@@ -10,7 +10,7 @@ void freeOdrManagerLite(void * void_odr_manager)
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     delete mgr;
 }
-bool odr_manager_loadFile(void * void_odr_manager, char * name)
+bool odr_manager_loadFile(void * void_odr_manager, char name)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     return mgr->loadFile(name);
@@ -32,21 +32,21 @@ void odr_manager_activatePosition(void * void_odr_manager, void * void_pos)
     OpenDrive::OdrManagerLite * pos = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_pos);
     mgr->activatePosition(pos);
 }
-float * odr_manager_getTrackPos(void * void_odr_manager)
+float odr_manager_getTrackPos(void * void_odr_manager)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-    OpenDrive::TrackCoord coord = mgr->getTrackPos();
+    mgr->getTrackPos();
     void * retval = &coord;
     return retval;
 }
-float * odr_manager_getLanePos(void * void_odr_manager)
+float odr_manager_getLanePos(void * void_odr_manager)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-     OpenDrive::TrackCoord coord = mgr->getLanePos();  
+     OpenDrive::OdrManagerLite coord = mgr->getLanePos();  
     void * retval = &coord;
     return retval; 
 }
-float * odr_manager_getInertialPos(void * void_odr_manager)
+float odr_manager_getInertialPos(void * void_odr_manager)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     OpenDrive::Coord coord = mgr->getInertialPos();  
@@ -132,7 +132,7 @@ void odr_manager_print(void * void_odr_manager, int ident)
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     mgr->print(ident);
 }
-double * odr_manager_getCurvature(void * void_odr_manager)
+double odr_manager_getCurvature(void * void_odr_manager)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
      return mgr->getCurvature(); 
@@ -142,7 +142,7 @@ double odr_manager_getTrackLen(void * void_odr_manager, int trackId)
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
      return mgr->getTrackLen(trackId); 
 }
-double * odr_manager_getLaneWidth(void * void_odr_manager)
+double odr_manager_getLaneWidth(void * void_odr_manager)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     return mgr->getLaneWidth();  
