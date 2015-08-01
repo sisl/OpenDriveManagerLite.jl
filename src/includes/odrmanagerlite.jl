@@ -6,26 +6,26 @@ export
     printdata,
     create_position,
     activate_position,
-    get_trackpos,
-    get_lanepos,
-    get_inertialpos,
-    get_footpoint,
-    set_pos,
-    set_trackpos,
-    set_trackpos,
-    set_pos,
-    set_lanepos,
-    set_lanepos,
-    set_pos,
-    set_inertialpos,
-    convert_track_to_inertial,
-    convert_inertial_to_track,
-    convert_lane_to_inertial,
-    print,
-    get_curvature,
-    get_track_len,
-    get_lane_width,
-    copy_foot_point_to_inertial
+    # get_trackpos,
+    # get_lanepos,
+    # get_inertialpos,
+    # get_footpoint,
+    # set_pos,
+    # set_trackpos,
+    # set_trackpos,
+    # set_pos,
+    # set_lanepos,
+    # set_lanepos,
+    # set_pos,
+    # set_inertialpos,
+    # convert_track_to_inertial,
+    # convert_inertial_to_track,
+    # convert_lane_to_inertial,
+    # print,
+    # get_curvature,
+    # get_track_len,
+    # get_lane_width,
+    # copy_foot_point_to_inertial
 
 type OdrManagerLite
     ptr::Ptr{Void}
@@ -53,7 +53,8 @@ type Position
     end
 end
 
-loadfile(mgr::OdrManagerLite, name::AbstractString) =
+#loadfile(mgr::OdrManagerLite, name::AbstractString) =
+loadfile(mgr::OdrManagerLite, name::OdrManagerLite) =
     ccall((:odr_manager_loadFile, LIB_ODRMGR), Bool, (Ptr{Void}, Ptr{UInt8}), mgr.ptr, name)
 
 printdata(mgr::OdrManagerLite) =
@@ -64,9 +65,10 @@ function create_position(mgr::OdrManagerLite)
     mgr.has_activated_position = true
     return ccall((:odr_manager_createPosition, LIB_ODRMGR), Ptr{Position}, (Ptr{Void},) mgr.ptr)
 end
-function activate_position(mgr::OdrManagerLite, pos::OdrManagerLite)
+function activate_position(mgr::OdrManagerLite, pos::Position)
     mgr.has_activated_position = true
-    ccall((:odr_manager_activatePosition, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Position}), mgr.ptr, pos.ptr)
+    #ccall((:odr_manager_activatePosition, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Position}), mgr.ptr, pos.ptr)
+    ccall((:odr_manager_activatePosition, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Void}), mgr.ptr, pos.ptr)
 end
 
 function get_trackpos(mgr::OdrManagerLite)
