@@ -53,9 +53,8 @@ type Position
     end
 end
 
-#loadfile(mgr::OdrManagerLite, name::AbstractString) =
-loadfile(mgr::OdrManagerLite, name::OdrManagerLite) =
-    ccall((:odr_manager_loadFile, LIB_ODRMGR), Bool, (Ptr{Void}, Ptr{UInt8}), mgr.ptr, name)
+loadfile(mgr::OdrManagerLite, name::AbstractString) =
+    ccall((:odr_manager_loadFile, LIB_ODRMGR), Bool, (Ptr{Void}, Ptr{UInt8}), mgr.ptr, name.ptr)
 
 printdata(mgr::OdrManagerLite) =
     ccall((:odr_manager_printData, LIB_ODRMGR), Void, (Ptr{Void},), mgr.ptr )
