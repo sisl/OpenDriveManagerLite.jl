@@ -76,7 +76,7 @@ extern "C" void trackcoord_plusequal(void * void_coordA, void * void_coordB);
 
 extern "C" void * createOdrManagerLite();
 extern "C" void freeOdrManagerLite(void * void_coord);
-extern "C" void lane_coord_plusequal(void * void_coordA, void * void_coordB);
+extern "C" void track_coord_plusequal(void * void_coordA, void * void_coordB);
 extern "C" void lane_coord_plusequal(void * void_coordA, void * void_coordB);
 extern "C" int lane_coord_get_laneid(void * void_coord);
 extern "C" double lane_coord_get_offset(void * void_coord);

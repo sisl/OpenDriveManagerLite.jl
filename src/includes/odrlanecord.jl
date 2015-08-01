@@ -1,6 +1,8 @@
 export
 LaneCoord,
 
+track_coord_plusequal,
+lane_coord_plusequal,
 get_laneid,
 get_offset,
 set_laneid,
@@ -29,6 +31,16 @@ type LaneCoord
 end
 
 
+function track_coord_plusequal(a::TrackCoord, b::TrackCoord)
+    (ccall( (:trackcoord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
+        pointer_from_objref(a), pointer_from_objref(b)))
+    a
+end
+function lane_coord_plusequal(a::LaneCoord, b::LaneCoord)
+    (ccall( (:lane_coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
+        pointer_from_objref(a), pointer_from_objref(b)))
+    a
+end
 
 function get_laneid(coord::TrackCoord) 
     ccall((:lane_coord_get_laneid, LIB_ODRMGR), Int, (Ptr{Void},), coord.ptr)
