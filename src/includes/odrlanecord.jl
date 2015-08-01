@@ -40,7 +40,6 @@ function lane_coord_plusequal(a::LaneCoord, b::LaneCoord)
         pointer_from_objref(a), pointer_from_objref(b)))
     a
 end
-
 function get_laneid(coord::TrackCoord) 
     ccall((:lane_coord_get_laneid, LIB_ODRMGR), Int, (Ptr{Void},), coord.ptr)
     return coord->getLaneId();

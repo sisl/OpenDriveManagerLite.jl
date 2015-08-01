@@ -18,9 +18,9 @@ extern "C" void trackcoord_plusequal(void * void_coordA, void * void_coordB);
 //        ODR MANAGER LITE         //
 /////////////////////////////////////
 
-extern "C" void * createOdrManagerLite();
-extern "C" void freeOdrManagerLite(void * void_odr_manager);
-extern "C" bool odr_manager_loadFile(void * void_odr_manager, char * name);
+// extern "C" void * createOdrManagerLite();
+// extern "C" void freeOdrManagerLite(void * void_odr_manager);
+// extern "C" bool odr_manager_loadFile(void * void_odr_manager, char * name);
 // extern "C" void odr_manager_printData(void * void_odr_manager);
 // extern "C" void odr_manager_createPosition(void * void_odr_manager);
 // extern "C" void odr_manager_activatePosition(void * void_odr_manager, void * void_pos);
