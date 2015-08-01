@@ -16,23 +16,23 @@ bool odr_manager_loadFile(void * void_odr_manager, char * odr_name)
     OpenDrive::OdrManagerLite * name = reinterpret_cast<OpenDrive::OdrManagerLite*>(odr_name);
     return mgr->loadFile(name);
 }
-void odr_manager_printData(void * void_odr_manager) 
-{     
-    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-    mgr->printData();
-}
-void odr_manager_createPosition(void * void_odr_manager)
-{
-    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-    mgr->createPosition();
-}
-//TODO(Deon) fix Position * pos
-void odr_manager_activatePosition(void * void_odr_manager, void * void_pos)
-{
-    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-    OpenDrive::OdrManagerLite * pos = reinterpret_cast<OpenDrive::Position*>(void_pos);
-    mgr->activatePosition(pos);
-}
+// void odr_manager_printData(void * void_odr_manager) 
+// {     
+//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+//     mgr->printData();
+// }
+// void odr_manager_createPosition(void * void_odr_manager)
+// {
+//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+//     mgr->createPosition();
+// }
+// //TODO(Deon) fix Position * pos
+// void odr_manager_activatePosition(void * void_odr_manager, void * void_pos)
+// {
+//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+//     OpenDrive::OdrManagerLite * pos = reinterpret_cast<OpenDrive::Position*>(void_pos);
+//     mgr->activatePosition(pos);
+// }
 // float odr_manager_getTrackPos(void * void_odr_manager)
 // {
 //     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
