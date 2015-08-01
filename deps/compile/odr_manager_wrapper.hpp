@@ -15,7 +15,7 @@ extern "C" bool libexists() { return true; }
 extern "C" void trackcoord_plusequal(void * void_coordA, void * void_coordB);
 
 /////////////////////////////////////
-         ODR MANAGER LITE         //
+//        ODR MANAGER LITE         //
 /////////////////////////////////////
 
 extern "C" void * createOdrManagerLite();
