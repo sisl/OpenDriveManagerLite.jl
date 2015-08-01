@@ -33,12 +33,12 @@ double lane_coord_get_offset(void * void_coord)
 	OpenDrive::LaneCoord * coord = reinterpret_cast<OpenDrive::LaneCoord*>(void_coord);
 	return coord->getOffset();
 }
-void lane_coord_set_laneid(void * void_coord, int * value)
+void lane_coord_set_laneid(void * void_coord, int value)
 {
 	OpenDrive::LaneCoord * coord = reinterpret_cast<OpenDrive::LaneCoord*>(void_coord);
 	coord->setLaneId(value);
 }
-void lane_coord_set_offset(void * void_coord,  double * value)
+void lane_coord_set_offset(void * void_coord,  double value)
 {
 	OpenDrive::LaneCoord * coord = reinterpret_cast<OpenDrive::LaneCoord*>(void_coord);
 	coord->setOffset(value);
