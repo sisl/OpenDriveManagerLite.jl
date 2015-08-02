@@ -99,12 +99,12 @@ void trackcoord_setR(void * void_coord, double value )
  	OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_coord);
     coord->setR(value);
 }
-void trackcoord_init()
+void trackcoord_init(void * void_coord)
 {
  	OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_coord);
     coord->init();
 }
-void trackcoord_print() 
+void trackcoord_print(void * void_coord) 
 {
 	OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_coord);
     coord->print(); 	
