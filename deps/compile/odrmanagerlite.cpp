@@ -49,20 +49,23 @@ void * odr_manager_getLanePos(void * void_odr_manager, void * void_lane_coord)
     void * retval = &coord;
     return retval;
 }
-// double odr_manager_getInertialPos(void * void_odr_manager)
-// {
-//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-//     OpenDrive::Coord coord = mgr->getInertialPos();  
-//     void * retval = &coord;
-//     return retval; 
-// }
-// double odr_manager_getFootPoint(void * void_odr_manager)
-// {
-//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-//     OpenDrive::Coord coord = mgr->getFootPoint();  
-//     void * retval = &coord;
-//     return retval;
-// }
+void * odr_manager_getInertialPos(void * void_odr_manager, void * void_coord)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    OpenDrive::OdrManagerLite * coord = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_coord);
+    mgr->getInertialPos();
+    void * retval = &coord;
+    return retval;
+}
+void * odr_manager_getFootPoint(void * void_odr_manager, void * void_coord)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    OpenDrive::OdrManagerLite * coord = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_coord);
+    mgr->getFootPoint();
+    void * retval = &coord;
+    return retval;
+}
+
 // TODO(Deon) Check trackcoord value
 // void odr_manager_setpos_track_coord(void * void_odr_manager, void * void_track_coord)
 // {
