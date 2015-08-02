@@ -103,11 +103,11 @@ void free_OdrManagerLite(void * void_odr_manager)
 //     OpenDrive::OdrManagerLite * value = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_coord);
 //     mgr->setPos(value);
 // }
-// void odr_manager_setInertialPos(void * void_odr_manager, double * x, double * y, double * z)
-// {
-//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-//     mgr->setInertialPos(x, y, z);
-// }
+void odr_manager_setInertialPos(void * void_odr_manager, double * x, double * y, double * z)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    mgr->setInertialPos(x, y, z);
+}
 bool odr_manager_track2inertial(void * void_odr_manager)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
