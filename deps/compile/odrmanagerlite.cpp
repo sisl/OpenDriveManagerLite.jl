@@ -91,13 +91,13 @@ void free_OdrManagerLite(void * void_odr_manager)
 //     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
 //     mgr->setLanePos(trackId, laneId, s, offset);
 // }
-// void odr_manager_setLanePos_with_lanecoord(void * void_odr_manager, void * void_lane_coord)
-// {
-//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-//     OpenDrive::OdrManagerLite * value = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_lane_coord);
-//     mgr->setLanePos(value);
-// }
-void odr_manager_setpos_coord(void * void_odr_manager, void * void_coord);
+void odr_manager_setLanePos_with_lanecoord(void * void_odr_manager, void * void_lane_coord)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    OpenDrive::OdrManagerLite * value = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_lane_coord);
+    mgr->setLanePos(value);
+}
+void odr_manager_setpos_coord(void * void_odr_manager, void * void_coord)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     OpenDrive::OdrManagerLite * value = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_coord);

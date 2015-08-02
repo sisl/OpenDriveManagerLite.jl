@@ -26,7 +26,7 @@ extern "C" void free_OdrManagerLite(void * void_odr_manager);
 // extern "C" void odr_manager_set_track_pos_track_coord(void * void_odr_manager, void * void_track_coord);
 // extern "C" void odr_manager_setpos_lane_coord(void * void_odr_manager, void * void_lane_coord);
 // extern "C" void odr_manager_setLanePos(void * void_odr_manager, int trackId, int laneId, double s, double offset);
-// extern "C" void odr_manager_setLanePos_with_lanecoord(void * void_odr_manager, void * void_lane_coord);
+extern "C" void odr_manager_setLanePos_with_lanecoord(void * void_odr_manager, void * void_lane_coord);
 extern "C" void odr_manager_setpos_coord(void * void_odr_manager, void * void_coord);
 extern "C" void odr_manager_setInertialPos(void * void_odr_manager, double x, double y, double z);
 extern "C" bool odr_manager_track2inertial(void * void_odr_manager);
