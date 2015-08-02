@@ -92,8 +92,8 @@ extern "C" void lane_coord_print(void * void_coord);
 
 extern "C" void * createCoord();
 extern "C" void freeCoord(void * void_coord);
-extern "C" double coord_getDist(void * void_coord,  void * void_coord1, void * void_coord2 ); 
-extern "C" double coord_getDist2d(void * void_coord,  void * void_coord1, void * void_coord2 );  
+extern "C" static double coord_getDist(void * void_coord,  void * void_coord1, void * void_coord2 ); 
+extern "C" static double coord_getDist2d(void * void_coord,  void * void_coord1, void * void_coord2 );  
 extern "C" void coord_equal(void * void_coordA, void * void_coordB);
 extern "C" void coord_multiply(void * void_coordA, double coordB);
 extern "C" void coord_plus(void * void_coordA, void * void_coordB);
