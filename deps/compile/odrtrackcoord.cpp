@@ -69,35 +69,35 @@ void trackcoord_set_trackid(void * void_coord, int value )
  	OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_coord);
     coord->setTrackId(*value);
 }
-void trackcoord_setS(void * void_coord, double * value )
+void trackcoord_setS(void * void_coord, double value )
 {
  	OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_coord);
-    coord->setS(value);
+    coord->setS(*value);
 }
-void trackcoord_setT(void * void_coord, double * value )
+void trackcoord_setT(void * void_coord, double value )
 {
  	OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_coord);
-    coord->setT(value);
+    coord->setT(*value);
 }
-void trackcoord_setZ(void * void_coord, double * value )
+void trackcoord_setZ(void * void_coord, double value )
 {
  	OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_coord);
-    coord->setZ(value);
+    coord->setZ(*value);
 }
-void trackcoord_setH(void * void_coord, double * value )
+void trackcoord_setH(void * void_coord, double value )
 {
  	OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_coord);
-    coord->setH(value);
+    coord->setH(*value);
 }
-void trackcoord_setP(void * void_coord, double * value )
+void trackcoord_setP(void * void_coord, double value )
 {
  	OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_coord);
-    coord->setP(value);
+    coord->setP(*value);
 }
-void trackcoord_setR(void * void_coord, double * value )
+void trackcoord_setR(void * void_coord, double value )
 {
  	OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_coord);
-    coord->setR(value);
+    coord->setR(*value);
 }
 void trackcoord_init()
 {
