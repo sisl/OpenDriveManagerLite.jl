@@ -86,7 +86,7 @@ void free_OdrManagerLite(void * void_odr_manager)
 //     mgr->setPos(value);
 // }
 // //check if_i can set defaultval here
-void odr_manager_setLanePos(void * void_odr_manager, int * trackId, int * laneId, double * s, double * offset)
+void odr_manager_setLanePos(void * void_odr_manager, int trackId, int laneId, double s, double offset)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     mgr->setLanePos(trackId, laneId, s, offset);
