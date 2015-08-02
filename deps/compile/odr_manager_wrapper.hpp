@@ -7,13 +7,6 @@
 
 extern "C" bool libexists() { return true; }
 
-///////////////////////////////////////
-//           ODR TRACK COORD         //
-///////////////////////////////////////
-
-// extern "C" double trackcoord_getT(void * void_coord);
-extern "C" void trackcoord_plusequal(void * void_coordA, void * void_coordB);
-
 /////////////////////////////////////
 //        ODR MANAGER LITE         //
 /////////////////////////////////////
@@ -47,7 +40,7 @@ extern "C" double odr_manager_getLaneWidth(void * void_odr_manager);
 extern "C" void odr_manager_footPoint2inertial(void * void_odr_manager);
 
 ///////////////////////////////////////
-//          TRACK COORD              //
+//          ODR TRACK COORD          //
 ///////////////////////////////////////
 
 extern "C" void * createOdrManagerLite_trackCoord();
@@ -71,7 +64,7 @@ extern "C" void trackcoord_init();
 extern "C" void trackcoord_print();
 
 /////////////////////////////////////
-//         LANE COORD              //
+//         ODR LANE COORD          //
 /////////////////////////////////////
 
 extern "C" void * createOdrManagerLite_laneCoord();
