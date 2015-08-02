@@ -85,10 +85,36 @@ extern "C" void lane_coord_set_offset(void * void_coord,  double value);
 extern "C" void lane_coord_initialize(void * void_coord);
 extern "C" void lane_coord_print(void * void_coord);
 
+/////////////////////////////////////
+//              COORD              //
+/////////////////////////////////////
 
 
-
-
-
+extern "C" void * createCoord();
+extern "C" void freeCoord(void * void_odr_manager);
+extern "C" double getDist(void * void_odr_manager,  void * void_coord1, void * void_coord2 ); 
+extern "C" double getDist2d(void * void_odr_manager,  void * void_coord1, void * void_coord2 );  
+extern "C" void coord_equal(void * void_coordA, void * void_coordB);
+extern "C" void coord_multiply(void * void_coordA, double coordB);
+extern "C" void coord_plus(void * void_coordA, void * void_coordB);
+extern "C" void coord_subtract(void * void_coordA, void * void_coordB);
+extern "C" void coord_plusequal(void * void_coordA, void * void_coordB);
+extern "C" void coord_minusequal(void * void_coordA, void * void_coordB);
+extern "C" double coord_getX(void * void_coord, double value );
+extern "C" double coord_getY(void * void_coord, double value );
+extern "C" double coord_getZ(void * void_coord, double value );
+extern "C" double coord_getH(void * void_coord, double value );
+extern "C" double coord_getP(void * void_coord, double value );
+extern "C" double coord_getR(void * void_coord, double value );
+extern "C" void coord_set(void * void_coord, double x, double y, double z, double h,  double p, double r);
+extern "C" void coord_setX(void * void_coord, double value );
+extern "C" void coord_setY(void * void_coord, double value );
+extern "C" void coord_setZ(void * void_coord, double value );
+extern "C" void coord_setH(void * void_coord, double value );
+extern "C" void coord_setP(void * void_coord, double value );
+extern "C" void coord_setR(void * void_coord, double value );
+extern "C" void coord_init(void * void_coord);
+extern "C" void coord_print(void * void_coord) ;
+extern "C" double coord_getValue(void * void_coord);
 
 #endif
