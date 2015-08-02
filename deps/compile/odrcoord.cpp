@@ -17,12 +17,12 @@ double getDist(void * void_coord,  void * void_coord1,  void * void_coord2 )
     OpenDrive::Coord * coord2 = reinterpret_cast<OpenDrive::Coord*>(void_coord2);
     return coord->getDist(coord1, coord2);
 }
-double getDist2d(void * void_odr_manager,  void * void_coord1,  void * void_coord2 ) 
+double getDist2d(void * void_coord,  void * void_coord1,  void * void_coord2 ) 
 {
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
     OpenDrive::Coord * coord1 = reinterpret_cast<OpenDrive::Coord*>(void_coord1);
     OpenDrive::Coord * coord2 = reinterpret_cast<OpenDrive::Coord*>(void_coord2);
-    return coord->getDist(coord1, coord2);
+    return coord->get2Dist(coord1, coord2);
 }
 void coord_equal(void * void_coordA, void * void_coordB)
 {
@@ -64,32 +64,32 @@ void coord_minusequal(void * void_coordA, void * void_coordB)
 double coord_getX(void * void_coord, double value )
 {
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
-    return coord->getX(value);
+    return coord->getX();
 }
 double coord_getY(void * void_coord, double value )
 {
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
-    return coord->getY(value);
+    return coord->getY();
 }
 double coord_getZ(void * void_coord, double value )
 {
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
-    return coord->getZ(value);
+    return coord->getZ();
 }
 double coord_getH(void * void_coord, double value )
 {
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
-    return coord->getH(value);
+    return coord->getH();
 }
 double coord_getP(void * void_coord, double value )
 {
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
-    return coord->getP(value);
+    return coord->getP();
 }
 double coord_getR(void * void_coord, double value )
 {
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
-    return coord->getR(value);
+    return coord->getR();
 }
 void coord_set(void * void_coord, double x, double y, double z, double h,  double p, double r)
 {
