@@ -10,7 +10,7 @@
 #include <iostream>
 #include <vector>
 
-// #include "odrtrackcoord.cpp"
-// #include "odrmanagerlite.cpp"
+#include "odrtrackcoord.cpp"
+#include "odrmanagerlite.cpp"
 #include "odrlanecoord.cpp"
 #include "odrcoord.cpp"
