@@ -108,21 +108,21 @@ void free_OdrManagerLite(void * void_odr_manager)
 //     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
 //     mgr->setInertialPos(x, y, z);
 // }
-// bool odr_manager_track2inertial(void * void_odr_manager)
-// {
-//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-//     return mgr->track2inertial();
-// }
-// bool odr_manager_inertial2track(void * void_odr_manager)
-// {
-//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-//     return mgr->inertial2track();
-// }
-// bool odr_manager_lane2inertial(void * void_odr_manager)
-// {
-//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-//     return mgr->lane2inertial();
-// }
+bool odr_manager_track2inertial(void * void_odr_manager)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    return mgr->track2inertial();
+}
+bool odr_manager_inertial2track(void * void_odr_manager)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    return mgr->inertial2track();
+}
+bool odr_manager_lane2inertial(void * void_odr_manager)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    return mgr->lane2inertial();
+}
 bool odr_manager_inertial2lane(void * void_odr_manager)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
