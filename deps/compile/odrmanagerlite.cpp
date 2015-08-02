@@ -4,7 +4,7 @@ void * createOdrManagerLite()
     void * retval = mgr;
     return retval;
 }
-void freeOdrManagerLite(void * void_odr_manager)
+void free_OdrManagerLite(void * void_odr_manager)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     delete mgr;
