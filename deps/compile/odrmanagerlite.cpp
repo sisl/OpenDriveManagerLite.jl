@@ -133,21 +133,21 @@ void free_OdrManagerLite(void * void_odr_manager)
 //     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
 //     mgr->print(ident);
 // }
-// double odr_manager_getCurvature(void * void_odr_manager)
-// {
-//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-//      return mgr->getCurvature(); 
-// }
-// double odr_manager_getTrackLen(void * void_odr_manager, int trackId)
-// {
-//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-//      return mgr->getTrackLen(trackId); 
-// }
-// double odr_manager_getLaneWidth(void * void_odr_manager)
-// {
-//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-//     return mgr->getLaneWidth();  
-// }
+double odr_manager_getCurvature(void * void_odr_manager)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+     return mgr->getCurvature(); 
+}
+double odr_manager_getTrackLen(void * void_odr_manager, int trackId)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+     return mgr->getTrackLen(trackId); 
+}
+double odr_manager_getLaneWidth(void * void_odr_manager)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    return mgr->getLaneWidth();  
+}
 void odr_manager_footPoint2inertial(void * void_odr_manager)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
