@@ -10,14 +10,14 @@ void freeCoord(void * void_coord)
     delete coord;
 }
 
-double getDist(void * void_coord,  void * void_coord1,  void * void_coord2 )
+double coord_getDist(void * void_coord,  void * void_coord1,  void * void_coord2 )
 {
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
     OpenDrive::Coord * coord1 = reinterpret_cast<OpenDrive::Coord*>(void_coord1);
     OpenDrive::Coord * coord2 = reinterpret_cast<OpenDrive::Coord*>(void_coord2);
     return coord->getDist(coord1, coord2);
 }
-double getDist2d(void * void_coord,  void * void_coord1,  void * void_coord2 ) 
+double coord_getDist2d(void * void_coord,  void * void_coord1,  void * void_coord2 ) 
 {
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
     OpenDrive::Coord * coord1 = reinterpret_cast<OpenDrive::Coord*>(void_coord1);
