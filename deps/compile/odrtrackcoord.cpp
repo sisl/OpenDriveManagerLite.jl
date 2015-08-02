@@ -67,7 +67,7 @@ double trackcoord_getR(void * void_coord)
 void trackcoord_set_trackid(void * void_coord, int value )
 {
  	OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_coord);
-    *coord->setTrackId(*value);
+    coord->setTrackId(value);
 }
 void trackcoord_setS(void * void_coord, double value )
 {
