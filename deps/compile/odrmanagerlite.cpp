@@ -41,13 +41,14 @@ void * odr_manager_getTrackPos(void * void_odr_manager, void * void_track_coord)
     void * retval = &coord;
     return retval;
 }
-// double odr_manager_getLanePos(void * void_odr_manager)
-// {
-//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-//      OpenDrive::OdrManagerLite coord = mgr->getLanePos();  
-//     void * retval = &coord;
-//     return retval; 
-// }
+void * odr_manager_getLanePos(void * void_odr_manager, void * void_lane_coord)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    OpenDrive::OdrManagerLite * coord = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_lane_coord);
+    mgr->getLanePos();
+    void * retval = &coord;
+    return retval;
+}
 // double odr_manager_getInertialPos(void * void_odr_manager)
 // {
 //     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
