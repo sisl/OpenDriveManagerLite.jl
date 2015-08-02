@@ -17,7 +17,7 @@ extern "C" void free_OdrManagerLite(void * void_odr_manager);
 extern "C" void odr_manager_printData(void * void_odr_manager);
 extern "C" void odr_manager_createPosition(void * void_odr_manager);
 // extern "C" void odr_manager_activatePosition(void * void_odr_manager, void * void_pos);
-extern "C" void odr_manager_getTrackPos(void * void_odr_manager);
+extern "C" double odr_manager_getTrackPos(void * void_odr_manager);
 // extern "C" float odr_manager_getLanePos(void * void_odr_manager);
 // extern "C" float odr_manager_getInertialPos(void * void_odr_manager);
 // extern "C" float odr_manager_getFootPoint(void * void_odr_manager);
