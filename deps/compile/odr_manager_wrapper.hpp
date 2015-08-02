@@ -61,12 +61,12 @@ extern "C" double trackcoord_getH(void * void_coord);
 extern "C" double trackcoord_getP(void * void_coord);
 extern "C" double trackcoord_getR(void * void_coord);
 extern "C" void trackcoord_set_trackid(void * void_coord, int * value);
-extern "C" void trackcoord_setS(void * void_coord, double value);
-extern "C" void trackcoord_setT(void * void_coord, double value);
-extern "C" void trackcoord_setZ(void * void_coord, double value);
-extern "C" void trackcoord_setH(void * void_coord, double value);
-extern "C" void trackcoord_setP(void * void_coord, double value);
-extern "C" void trackcoord_setR(void * void_coord, double value);
+extern "C" void trackcoord_setS(void * void_coord, double * value);
+extern "C" void trackcoord_setT(void * void_coord, double * value);
+extern "C" void trackcoord_setZ(void * void_coord, double * value);
+extern "C" void trackcoord_setH(void * void_coord, double * value);
+extern "C" void trackcoord_setP(void * void_coord, double * value);
+extern "C" void trackcoord_setR(void * void_coord, double * value);
 extern "C" void trackcoord_init();
 extern "C" void trackcoord_print();
 
