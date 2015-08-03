@@ -1,7 +1,7 @@
 export
 
 coord_get_dist,
-coord_get_dist2d
+coord_get_dist2d,
 coord_equal,
 coord_multiply,
 coord_plus,
