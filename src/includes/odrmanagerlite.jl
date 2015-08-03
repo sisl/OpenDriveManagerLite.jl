@@ -120,7 +120,7 @@ set_pos(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setpos_track_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{TrackCoord}), mgr.ptr, value.ptr)
 
 set_trackpos(mgr::OdrManagerLite, id::Cint, s::Cdouble, t::Cdouble=0.0) =
-    ccall((:odr_manager_set_track_pos_s_t, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Integer}, Ptr{Double}, Ptr{Double}), mgr.ptr, id, s, t)
+    ccall((:odr_manager_set_track_pos_s_t, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Int}, Ptr{Double}, Ptr{Double}), mgr.ptr, id, s, t)
 
 set_trackpos(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_set_track_pos_track_coord, LIB_ODRMGR), Void, (Ptr{Void},
@@ -131,7 +131,7 @@ set_pos(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setpos_lane_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{LaneCoord}), mgr.ptr, value.ptr)
 
 set_lanepos(mgr::OdrManagerLite, trackId::Cint, laneId::Cint, s::Cdouble, offset::Cdouble=0.0) =
-    ccall((:odr_manager_setLanePos, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Integer}, Ptr{Integer}, Ptr{Double}, Ptr{Double}), mgr.ptr, trackId, laneId, s, t)
+    ccall((:odr_manager_setLanePos, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Int}, Ptr{Int}, Ptr{Double}, Ptr{Double}), mgr.ptr, trackId, laneId, s, t)
 
 set_lanepos(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setLanePos_with_lanecoord, LIB_ODRMGR), Void, (Ptr{Void},
@@ -159,12 +159,12 @@ print(mgr::OdrManagerLite) =
     ccall((:odr_manager_print, LIB_ODRMGR), Void, (Ptr{Void},), mgr.ptr)
 
 function get_curvature(mgr::OdrManagerLite)
-    ptr = ccall((:odr_manager_getCurvature, LIB_ODRMGR), Double, Ptr{Double}, (Ptr{Void},), mgr.ptr)
+    ptr = ccall((:odr_manager_getCurvature, LIB_ODRMGR), Double, (Ptr{Void},), mgr.ptr)
     return unsafe_load(ptr, 1)::Cdouble
 end
 
 get_track_len(mgr::OdrManagerLite, trackId::Cint) =
-    ccall((:odr_manager_getTrackLen, LIB_ODRMGR), Double, (Ptr{Void}, Ptr{Integer}), mgr.ptr, trackId)
+    ccall((:odr_manager_getTrackLen, LIB_ODRMGR), Double, (Ptr{Void}, Ptr{Int}), mgr.ptr, trackId)
 
 function get_lane_width(mgr::OdrManagerLite)
     ptr = ccall((:odr_manager_getLaneWidth, LIB_ODRMGR), Double, Ptr{Double}, (Ptr{Void},), mgr.ptr)
