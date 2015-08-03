@@ -119,7 +119,7 @@ end
 set_pos(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setpos_track_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{TrackCoord}), mgr.ptr, value.ptr)
 
-set_trackpos(mgr::OdrManagerLite, id::Integer, s::Double, t::Double=0.0) =
+set_trackpos(mgr::OdrManagerLite, id::Cint, s::Cdouble, t::Cdouble=0.0) =
     ccall((:odr_manager_set_track_pos_s_t, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Integer}, Ptr{Double}, Ptr{Double}), mgr.ptr, id, s, t)
 
 set_trackpos(mgr::OdrManagerLite, value::OdrManagerLite) =
@@ -130,7 +130,7 @@ set_trackpos(mgr::OdrManagerLite, value::OdrManagerLite) =
 set_pos(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setpos_lane_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{LaneCoord}), mgr.ptr, value.ptr)
 
-set_lanepos(mgr::OdrManagerLite, trackId::Integer, laneId::Integer, s::Double, offset::Double=0.0) =
+set_lanepos(mgr::OdrManagerLite, trackId::Cint, laneId::Cint, s::Cdouble, offset::Cdouble=0.0) =
     ccall((:odr_manager_setLanePos, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Integer}, Ptr{Integer}, Ptr{Double}, Ptr{Double}), mgr.ptr, trackId, laneId, s, t)
 
 set_lanepos(mgr::OdrManagerLite, value::OdrManagerLite) =
@@ -140,7 +140,7 @@ set_lanepos(mgr::OdrManagerLite, value::OdrManagerLite) =
 set_pos(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setpos_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Coord}), mgr.ptr, value.ptr)
 
-set_inertialpos(mgr::OdrManagerLite, x::Double, y::Double, z::Double) =
+set_inertialpos(mgr::OdrManagerLite, x::Cdouble, y::Cdouble, z::Cdouble) =
     ccall((:odr_manager_setInertialPos, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}, Ptr{Double}, Ptr{Double}), mgr.ptr, x, y, z)
 
 convert_track_to_inertial(mgr::OdrManagerLite) = 
@@ -160,15 +160,15 @@ print(mgr::OdrManagerLite) =
 
 function get_curvature(mgr::OdrManagerLite)
     ptr = ccall((:odr_manager_getCurvature, LIB_ODRMGR), Double, Ptr{Double}, (Ptr{Void},), mgr.ptr)
-    return unsafe_load(ptr, 1)::Double
+    return unsafe_load(ptr, 1)::Cdouble
 end
 
-get_track_len(mgr::OdrManagerLite, trackId::Integer) =
+get_track_len(mgr::OdrManagerLite, trackId::Cint) =
     ccall((:odr_manager_getTrackLen, LIB_ODRMGR), Double, (Ptr{Void}, Ptr{Integer}), mgr.ptr, trackId)
 
 function get_lane_width(mgr::OdrManagerLite)
     ptr = ccall((:odr_manager_getLaneWidth, LIB_ODRMGR), Double, Ptr{Double}, (Ptr{Void},), mgr.ptr)
-    return unsafe_load(ptr, 1)::Double
+    return unsafe_load(ptr, 1)::Cdouble
 end
 
 copy_foot_point_to_inertial(mgr::OdrManagerLite) = 
