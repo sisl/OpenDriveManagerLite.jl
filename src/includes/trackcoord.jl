@@ -16,7 +16,7 @@ export
     get_R,
     set_trackid,
     set_S,
-    se_T,
+    set_T,
     set_Z,
     set_H,
     set_P,
@@ -82,33 +82,33 @@ Base.print(io::IO, coord::TrackCoord) = @printf(io, "(%d, %.3f, %.3f, %.3f, %.3f
 
 function get_trackid(coord::TrackCoord)
     ccall((:trackcoord_getTrackId, LIB_ODRMGR), Int, (Ptr{Void},), coord.ptr)
-    return coord->getS();
+    # return coord->getS();
 end
 function get_S(coord::TrackCoord) 
     ccall((:trackcoord_getS, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
-    return coord->getS();
+    # return coord->getS();
 end
 
 function get_T(coord::TrackCoord) 
     ccall((:trackcoord_getT, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
-    return coord->getT();
+    # return coord->getT();
 end
 
 function get_Z(coord::TrackCoord) 
     ccall((:trackcoord_getZ, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
-    return coord->getZ();
+    # return coord->getZ();
 end
 function get_H(coord::TrackCoord) 
     ccall((:trackcoord_getH, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
-    return coord->getH();
+    # return coord->getH();
 end
 function get_P(coord::TrackCoord) 
     ccall((:trackcoord_getP, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
-    return coord->getP();
+    # return coord->getP();
 end
 function get_R(coord::TrackCoord) 
     ccall((:trackcoord_getR, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
-    return coord->getR();
+    # return coord->getR();
 end
 
 set_trackid(coord::TrackCoord, value::Cint) =
