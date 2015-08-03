@@ -35,9 +35,9 @@ type TrackCoord
     p::Cdouble    # pitch [rad]
     r::Cdouble    # roll [rad]
 
-    # TrackCoord() = new() # create one without setting any values
-    # TrackCoord(trackid::Int, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
-    #     new(trackid, s, t, z, h, p, r)
+    TrackCoord() = new() # create one without setting any values
+    TrackCoord(trackid::Int, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
+        new(trackid, s, t, z, h, p, r)
 
  #TODO(Deon) check this part 
     function TrackCoord() 
@@ -47,7 +47,7 @@ type TrackCoord
         end)
         trackcoord
     end
-     function TrackCoord(trackid::Cint, s::Cdouble, t::Cdouble, z::Cdouble=0.0, h::Cdouble=0.0, p::Cdouble=0.0, r::Cdouble=0.0)
+     function TrackCoord(trackid::Int, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0)
         trackcoord =  new(trackid, s, t, z, h, p, r)
         finalizer(trackcoord, obj ->begin
             ccall((:freeTrackCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
