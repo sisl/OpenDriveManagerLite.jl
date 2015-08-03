@@ -19,7 +19,7 @@ void free_Position(void * void_odr_manager)
 bool odr_manager_loadFile(void * void_odr_manager, char * odr_name)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-    string name(odr_name);
+    std::string name(odr_name);
     return mgr->loadFile(name);
 }
 
