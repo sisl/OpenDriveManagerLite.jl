@@ -67,23 +67,23 @@ function get_trackpos(mgr::OdrManagerLite)
     if !mgr.has_activated_position
         warn("OdrManagerLite does not have an activated position")
     else
-        ptr = ccall((:odr_manager_getTrackPos, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},), mgr.ptr )
+        ptr = ccall((:odr_manager_getTrackPos, LIB_ODRMGR), Ptr{TrackCoord}, (Ptr{Void},), mgr.ptr )
         return unsafe_load(ptr, 1)::TrackCoord
     end
 end
 
 function get_lanepos(mgr::OdrManagerLite)
-    ptr = ccall((:odr_manager_getLanePos, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},), mgr.ptr )
+    ptr = ccall((:odr_manager_getLanePos, LIB_ODRMGR), Ptr{Void}, (Ptr{LaneCoord},), mgr.ptr )
     return unsafe_load(ptr, 1)::LaneCoord
 end
 
 function get_inertialpos(mgr::OdrManagerLite)
-    ptr = ccall((:odr_manager_getInertialPos, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},), mgr.ptr )
+    ptr = ccall((:odr_manager_getInertialPos, LIB_ODRMGR), Ptr{Void}, (Ptr{Coord},), mgr.ptr )
     return unsafe_load(ptr, 1)::Coord
 end
 
 function get_footpoint(mgr::OdrManagerLite)
-    ptr = ccall((:odr_manager_getFootPoint, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},), mgr.ptr )
+    ptr = ccall((:odr_manager_getFootPoint, LIB_ODRMGR), Ptr{Void}, (Ptr{Coord},), mgr.ptr )
     return unsafe_load(ptr, 1)::Coord
 end
 
