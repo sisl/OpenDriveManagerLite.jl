@@ -26,5 +26,7 @@ end
     
 include("includes/trackcoord.jl")
 include("includes/odrmanagerlite.jl")
+include("include/odrlanecoord.jl")
+include("include/odrcoord.jl")
 
 end # module
