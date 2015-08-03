@@ -14,7 +14,7 @@ extern "C" bool libexists() { return true; }
 // extern "C" bool odr_manager_loadFile(void * void_odr_manager, char * name);
 extern "C" void odr_manager_printData(void * void_odr_manager);
 extern "C" void odr_manager_createPosition(void * void_odr_manager);
-// extern "C" void odr_manager_activatePosition(void * void_odr_manager, void * void_pos);
+extern "C" void odr_manager_activatePosition(void * void_odr_manager, void * void_pos);
 extern "C" void * odr_manager_getTrackPos(void * void_odr_manager, void * void_track_coord);
 extern "C" void * odr_manager_getLanePos(void * void_odr_manager, void * void_lane_coord);
 extern "C" void * odr_manager_getInertialPos(void * void_odr_manager, void * void_coord);
