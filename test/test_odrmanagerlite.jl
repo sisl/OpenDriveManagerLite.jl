@@ -1,7 +1,7 @@
  mgr = OdrManagerLite()
  loadfile(mgr, "sample1.1.xodr")
  printdata(mgr)
- pos= create_position(mgr)
+ pos = create_position(mgr)
  activate_position(mgr, pos)
  get_trackpos(mgr)
  get_lanepos(mgr)

@@ -37,7 +37,7 @@ void odr_manager_activatePosition(void * void_odr_manager, void * void_pos)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     OpenDrive::Position * pos = reinterpret_cast<OpenDrive::Position*>(void_pos);
-    mgr->activatePosition(*pos);
+    mgr->activatePosition(pos);
 }
 void * odr_manager_getTrackPos(void * void_odr_manager, void * void_track_coord)
 {
