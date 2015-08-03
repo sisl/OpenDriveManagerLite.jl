@@ -27,6 +27,8 @@ export
     get_lane_width,
     copy_foot_point_to_inertial
 
+abstract AbstractString
+
 type OdrManagerLite
     ptr::Ptr{Void}
     has_activated_position::Bool
