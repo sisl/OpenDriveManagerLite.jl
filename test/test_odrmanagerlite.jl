@@ -1,5 +1,5 @@
  mgr = OdrManagerLite()
- loadfile(mgr, "/Users/depet6/Downloads/V1.4.3lite/data/sample1.1.xodr")
+ loadfile(mgr, "~/sample1.1.xodr")
  printdata(mgr)
  # create_position(mgr)
  # activate_position(mgr)
