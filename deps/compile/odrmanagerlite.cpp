@@ -94,7 +94,6 @@ void odr_manager_setpos_lane_coord(void * void_odr_manager, void * void_lane_coo
     OpenDrive::LaneCoord * value = reinterpret_cast<OpenDrive::LaneCoord*>(void_lane_coord);
     mgr->setPos(*value);
 }
-
 void odr_manager_setLanePos(void * void_odr_manager, int trackId, int laneId, double s, double offset)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
