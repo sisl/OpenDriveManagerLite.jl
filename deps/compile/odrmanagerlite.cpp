@@ -75,7 +75,7 @@ void odr_manager_setpos_track_coord(void * void_odr_manager, void * void_track_c
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_track_coord);
-    mgr->setPos(*coord);
+    mgr->setPos(coord);
 }
 void odr_manager_set_track_pos_s_t(void * void_odr_manager, int id, double s, double t)
 {
