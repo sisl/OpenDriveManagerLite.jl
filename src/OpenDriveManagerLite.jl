@@ -25,8 +25,8 @@ if isempty(LIB_ODRMGR)
 end
     
 include("includes/trackcoord.jl")
-include("includes/odrmanagerlite.jl")
-# include("includes/odrlanecoord.jl")
+include("includes/odrlanecoord.jl")
 include("includes/odrcoord.jl")
+include("includes/odrmanagerlite.jl")
 
 end # module
