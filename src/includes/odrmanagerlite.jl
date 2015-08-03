@@ -54,12 +54,12 @@ printdata(mgr::OdrManagerLite) =
 
 function create_position(mgr::OdrManagerLite)
     mgr.has_activated_position = true
-    return ccall((:odr_manager_createPosition, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},), mgr.ptr)
+    return ccall((:odr_manager_createPosition, LIB_ODRMGR), Ptr{Position}, (Ptr{Void},), mgr.ptr)
 end
 
 function activate_position(mgr::OdrManagerLite, pos::Position)
     mgr.has_activated_position = true
-    ccall((:odr_manager_activatePosition, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Void}), mgr.ptr, pos.ptr)
+    ccall((:odr_manager_activatePosition, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Position}), mgr.ptr, pos.ptr)
 end
 
 function get_trackpos(mgr::OdrManagerLite)
