@@ -9,6 +9,22 @@ void free_OdrManagerLite(void * void_odr_manager)
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     delete mgr;
 }
+
+void free_Position(void * void_odr_manager)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    delete mgr;
+}
+
+void free_RoadData(void * void_odr_manager)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    delete mgr;
+}
+
+
+
+
 // bool odr_manager_loadFile(void * void_odr_manager, char * odr_name)
 // {
 //     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);

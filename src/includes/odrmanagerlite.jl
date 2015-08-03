@@ -1,6 +1,7 @@
 export
     OdrManagerLite,
     Position,
+    RoadData,
 
     loadfile,
     printdata,
@@ -35,11 +36,18 @@ type OdrManagerLite
         ptr = ccall( (:createOdrManagerLite, LIB_ODRMGR), Ptr{Void}, () )
         odrmanager = new(ptr, false)
         finalizer(odrmanager, obj -> begin
-            ccall( (:freeOdrManagerLite, LIB_ODRMGR), Void, (Ptr{Void},), obj.ptr )
+            ccall( (:free_OdrManagerLite, LIB_ODRMGR), Void, (Ptr{Void},), obj.ptr )
         end)
         odrmanager
     end
 end
+
+
+#TODO(Deon) check i need this
+# forward declarations of unpublished classes
+# class Position;
+# class RoadData;
+#or should they be empty type, do they need constructors?
 
 type Position
     ptr::Ptr{Void}
@@ -47,11 +55,24 @@ type Position
     function Position(ptr::Ptr{Void})
         pos = new(ptr)
         finalizer(pos, obj -> begin
-            ccall( (:freePosition, LIB_ODRMGR), Void, Ptr{Void},), obj.ptr )
+            ccall( (:free_Position, LIB_ODRMGR), Void, Ptr{Void},), obj.ptr )
         end)
         pos 
     end
 end
+
+type class RoadData 
+    ptr::Ptr{Void}
+
+    function RoadData(ptr::Ptr{Void})
+        data = new(ptr)
+        finalizer(data, obj -> begin
+            ccall( (:free_RoadData, LIB_ODRMGR), Void, Ptr{Void},), obj.ptr )
+        end)
+        data 
+    end
+end
+
 
 loadfile(mgr::OdrManagerLite, name::AbstractString) =
     ccall((:odr_manager_loadFile, LIB_ODRMGR), Bool, (Ptr{Void}, Ptr{UInt8}), mgr.ptr, name.ptr)
