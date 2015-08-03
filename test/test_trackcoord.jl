@@ -1,4 +1,4 @@
-coord = TrackCoord(convert(Cint, 0), 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
+coord = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
 @test coord.trackid == 0
 @test coord.s == 1.0
 @test coord.t == 2.0
