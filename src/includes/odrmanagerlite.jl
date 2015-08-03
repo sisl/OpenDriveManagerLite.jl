@@ -28,7 +28,9 @@ export
     copy_foot_point_to_inertial
 
 abstract AbstractString
-name <: AbstractString
+# name <: AbstractString
+
+
 type OdrManagerLite
     ptr::Ptr{Void}
     has_activated_position::Bool
@@ -50,7 +52,7 @@ type Position
        
 end
 
-loadfile(mgr::OdrManagerLite, name::AbstractString) =
+loadfile(mgr::OdrManagerLite, name<:AbstractString) =
     ccall((:odr_manager_loadFile, LIB_ODRMGR), Bool, (Ptr{Void}, Ptr{UInt8}), mgr.ptr, name.ptr)
 
 printdata(mgr::OdrManagerLite) =
