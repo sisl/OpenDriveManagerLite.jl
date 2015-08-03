@@ -5,7 +5,7 @@
 //              UTILITY              //
 ///////////////////////////////////////
 
-extern "C" bool libexists() { return true; }
+extern "C" bool libexists() { return true;
 
 /////////////////////////////////////
 //        ODR MANAGER LITE         //
