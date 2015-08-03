@@ -11,6 +11,7 @@
  set_pos(mgr, value)
  set_trackpos_s_t(mgr, 1, 1.0, 2.0)
  set_trackpos_track_coord(mgr, value)
+ value = LaneCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0, 1, 0.0)
  set_pos_with_lanecoord(mgr, value)
  # set_lanepos(mgr, trackId, laneId, s, offset)
  # set_lanepos_with_lanecoord(mgr, value)
