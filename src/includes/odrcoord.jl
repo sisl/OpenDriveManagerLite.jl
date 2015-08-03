@@ -22,11 +22,6 @@ type Coord
     Coord(x::Real, y::Real, z::Real, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
         new(x, y, z, h, p, r)
 
-    Coord() = new() # create one without setting any values
-    
-    Coord(trackid::Int, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
-        new(x, y, z, h, p, r)
-        
 end
 
 function coord_equal(a::CoordA, b::CoordB)
