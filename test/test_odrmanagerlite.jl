@@ -2,7 +2,7 @@
  loadfile(mgr, "sample1.1.xodr")
  printdata(mgr)
  create_position(mgr)
- activate_position(mgr)
+ activate_position(mgr, pos)
  get_trackpos(mgr)
  get_lanepos(mgr)
  get_inertialpos(mgr)
