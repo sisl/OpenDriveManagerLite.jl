@@ -27,10 +27,6 @@ export
     get_lane_width,
     copy_foot_point_to_inertial
 
-abstract AbstractString
-# name <: AbstractString
-
-
 type OdrManagerLite
     ptr::Ptr{Void}
     has_activated_position::Bool
@@ -52,8 +48,8 @@ type Position
        
 end
 
-loadfile(mgr::OdrManagerLite, name::AbstractString) =
-    ccall((:odr_manager_loadFile, LIB_ODRMGR), Bool, (Ptr{Void}, Ptr{UInt8}), mgr.ptr, name.ptr)
+loadfile(mgr::OdrManagerLite, name::String) =
+    ccall((:odr_manager_loadFile, LIB_ODRMGR), Bool, (Ptr{Void}, Ptr{UInt8}), mgr.ptr, name)
 
 printdata(mgr::OdrManagerLite) =
     ccall((:odr_manager_printData, LIB_ODRMGR), Void, (Ptr{Void},), mgr.ptr )
