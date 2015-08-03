@@ -1,14 +1,3 @@
-void * createOdrManagerLite_laneCoord()
-{
-    OpenDrive::LaneCoord * coord = new OpenDrive::LaneCoord();
-    void * retval = coord;
-    return retval;
-}
-void freeOdrManagerLite(void * void_coord)
-{
-    OpenDrive::LaneCoord * coord = reinterpret_cast<OpenDrive::LaneCoord*>(void_coord);
-    delete coord;
-}
 void track_coord_plusequal(void * void_coordA, void * void_coordB)
 {
     OpenDrive::TrackCoord * coordA = reinterpret_cast<OpenDrive::TrackCoord*>(void_coordA);

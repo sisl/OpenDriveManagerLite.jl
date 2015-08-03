@@ -31,28 +31,15 @@ type Coord
     p::Cdouble
     r::Cdouble
 
-    Deg2Rad::Cdouble 
-    Rad2Deg::Cdouble
-
     Coord()=new()
     Coord(x::Real, y::Real, z::Real, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
         new(x, y, z, h, p, r)
 
-    function Coord() 
-        coord = new() # create one without setting any values
-        finalizer(coord, obj ->begin
-            ccall((:freeCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
-        end)
-        ptr
-    end
-     function Coord(trackid::Int, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0)
-        coord =  new(x, y, z, h, p, r)
-        finalizer(coord, obj ->begin
-            ccall((:freeCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
-        end)
-        ptr
-    end
-
+    Coord() = new() # create one without setting any values
+    
+    Coord(trackid::Int, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
+        new(x, y, z, h, p, r)
+        
 end
 
 function coord_equal(a::CoordA, b::CoordB)

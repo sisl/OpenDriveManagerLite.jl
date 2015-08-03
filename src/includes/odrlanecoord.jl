@@ -14,20 +14,10 @@ type LaneCoord
 	laneid::Cint
     offset::Cdouble
 
-	function LaneCoord() 
-	    lanecoord = new() # create one without setting any values
-	    finalizer(trackcoord, obj ->begin
-	        ccall((:freeLaneCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
-	    end)
-	        lanecoord
-	end
-	function LaneCoord(track::Int, lane::Int, s::double, offset::double = 0.0 )
-	    lanecoord =  new(trackid, s, t, z, h, p, r)
-	    finalizer(trackcoord, obj ->begin
-	        ccall((:freeLaneCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
-	    end)
-	        lanecoord
-    end
+    LaneCoord() = new() # create one without setting any values
+    	   
+	LaneCoord(track::Integer, lane::Integer, s::Real, offset::Real = 0.0 ) =
+	    new(trackid, s, t, z, h, p, r)
 end
 
 function track_coord_plusequal(a::TrackCoord, b::TrackCoord)
@@ -41,18 +31,18 @@ function lane_coord_plusequal(a::LaneCoord, b::LaneCoord)
     a
 end
 function get_laneid(coord::TrackCoord) 
-    ccall((:lane_coord_get_laneid, LIB_ODRMGR), Int, (Ptr{Void},), coord.ptr)
+    ccall((:lane_coord_get_laneid, LIB_ODRMGR), Integer, (Ptr{Void},), coord.ptr)
     return coord->getLaneId();
 end
 function get_offset(coord::TrackCoord) 
-    ccall((:lane_coord_get_offset, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
+    ccall((:lane_coord_get_offset, LIB_ODRMGR), Real, (Ptr{Void},), coord.ptr)
     return coord->getOffset();
 end
-set_laneid(coord::TrackCoord, value::Int) =
+set_laneid(coord::TrackCoord, value::Integer) =
     ccall((:lane_coord_set_laneid, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Integer}), coord.ptr, value)
 
-set_offset(coord::TrackCoord, value::Double) =
-    ccall((:lane_coord_set_offset, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
+set_offset(coord::TrackCoord, value::Real) =
+    ccall((:lane_coord_set_offset, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Real}), coord.ptr, value)
 
 intitialize_lanecoord(coord::TrackCoord) =
     ccall((:lane_coord_initialize, LIB_ODRMGR), Void, (Ptr{Void},), coord.ptr)

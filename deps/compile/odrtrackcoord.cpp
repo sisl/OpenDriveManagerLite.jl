@@ -1,23 +1,9 @@
-void * createTrackCoord()
-{
-    OpenDrive::TrackCoord * coord = new OpenDrive::TrackCoord();
-    void * retval = coord;
-    return retval;
-}
-//
-void freeTrackCoord(void * void_trackcoord)
-{
-    OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_trackcoord);
-    delete coord;
-}
-//void operator= just adds the two corresponding points so we removed it
- // void operator+= ( const TrackCoord & rhs );
 void trackcoord_plusequal(void * void_trackcoordA, void * void_trackcoordB)
 {
     OpenDrive::TrackCoord * coordA = reinterpret_cast<OpenDrive::TrackCoord*>(void_trackcoordA);
     OpenDrive::TrackCoord * coordB = reinterpret_cast<OpenDrive::TrackCoord*>(void_trackcoordB);
     // coordA->operator+=(); 
-        (*coordA) += (*coordB);
+    (*coordA) += (*coordB);
 }
 //int & getTrackId() const;
  //do i need to do something for & like *

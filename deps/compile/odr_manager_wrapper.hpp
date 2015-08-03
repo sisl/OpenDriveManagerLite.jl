@@ -11,10 +11,6 @@ extern "C" bool libexists() { return true; }
 //        ODR MANAGER LITE         //
 /////////////////////////////////////
 
-extern "C" void * createOdrManagerLite();
-extern "C" void free_OdrManagerLite(void * void_odr_manager);
-extern "C" void free_Position(void * void_odr_manager);
-extern "C" void free_RoadData(void * void_odr_manager);
 // extern "C" bool odr_manager_loadFile(void * void_odr_manager, char * name);
 extern "C" void odr_manager_printData(void * void_odr_manager);
 extern "C" void odr_manager_createPosition(void * void_odr_manager);
@@ -45,8 +41,6 @@ extern "C" void odr_manager_footPoint2inertial(void * void_odr_manager);
 //          ODR TRACK COORD          //
 ///////////////////////////////////////
 
-extern "C" void * createOdrManagerLite_trackCoord();
-extern "C" void freeTrackCoord(void * void_trackcoord);
 extern "C" void trackcoord_plusequal(void * void_trackcoordA, void * void_trackcoordB);
 extern "C" int trackcoord_get_trackid(void * void_coord);
 extern "C" double trackcoord_getS(void * void_trackcoord);
@@ -87,8 +81,8 @@ extern "C" void lane_coord_print(void * void_coord);
 
 extern "C" void * createCoord();
 extern "C" void freeCoord(void * void_coord);
-//double coord_getDist(void * void_coord,  void * void_coord1, void * void_coord2 ); 
-//double coord_getDist2d(void * void_coord,  void * void_coord1, void * void_coord2 );  
+extern "C" double coord_getDist(void * void_coord1, void * void_coord2 ); 
+extern "C" double coord_getDist2d(void * void_coord1, void * void_coord2 );  
 extern "C" void coord_equal(void * void_coordA, void * void_coordB);
 extern "C" void coord_multiply(void * void_coordA, double coordB);
 extern "C" void coord_plus(void * void_coordA, void * void_coordB);
