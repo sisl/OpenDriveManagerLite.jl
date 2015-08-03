@@ -33,7 +33,7 @@ type OdrManagerLite
     has_activated_position::Bool
     
     function OdrManagerLite()
-        ptr = ccall( (:createOdrManagerLite, LIB_ODRMGR), Ptr{Void}, () )
+        ptr = ccall( (:createOdrManagerLite, LIB_ODRMGR), (Ptr{Void},), () )
         odrmanager = new(ptr, false)
         finalizer(odrmanager, obj -> begin
             ccall( (:free_OdrManagerLite, LIB_ODRMGR), Void, (Ptr{Void},), obj.ptr )
@@ -55,7 +55,7 @@ type Position
     function Position(ptr::Ptr{Void})
         pos = new(ptr)
         finalizer(pos, obj -> begin
-            ccall( (:free_Position, LIB_ODRMGR), Void, Ptr{Void},), obj.ptr )
+            ccall( (:free_Position, LIB_ODRMGR), Void, (Ptr{Void},), obj.ptr )
         end)
         pos 
     end
@@ -67,7 +67,7 @@ type class RoadData
     function RoadData(ptr::Ptr{Void})
         data = new(ptr)
         finalizer(data, obj -> begin
-            ccall( (:free_RoadData, LIB_ODRMGR), Void, Ptr{Void},), obj.ptr )
+            ccall( (:free_RoadData, LIB_ODRMGR), Void, (Ptr{Void},), obj.ptr )
         end)
         data 
     end
