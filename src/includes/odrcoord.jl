@@ -1,5 +1,7 @@
 export
 
+coord_get_dist,
+coord_get_dist2d
 coord_equal,
 coord_multiply,
 coord_plus,
@@ -22,6 +24,16 @@ type Coord
     Coord(x::Real, y::Real, z::Real, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
         new(x, y, z, h, p, r)
 
+end
+
+function coord_get_dist(a::Coord, b::Coord)
+    (ccall( (:coord_getdist, LIB_ODRMGR), Cdouble, (Ptr{Coord},Ptr{Coord}), 
+        pointer_from_objref(a), pointer_from_objref(b)))
+end
+
+function coord_get_dist2d(a::Coord, b::Coord)
+    (ccall( (:coord_getdist2d, LIB_ODRMGR), Cdouble, (Ptr{Coord},Ptr{Coord}), 
+        pointer_from_objref(a), pointer_from_objref(b)))
 end
 
 function coord_equal(a::Coord, b::Coord)
