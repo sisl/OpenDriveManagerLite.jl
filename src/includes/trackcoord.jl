@@ -114,22 +114,22 @@ set_trackid(coord::TrackCoord, value::Cint) =
     ccall((:trackcoord_set, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Int}), coord.ptr, value)
 
 set_S(coord::TrackCoord, value::Cdouble) =
-    ccall((:trackcoord_set_trackid, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
+    ccall((:trackcoord_set_trackid, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Cdouble}), coord.ptr, value)
 
 set_T(coord::TrackCoord, value::Cdouble) =
-    ccall((:trackcoord_setT, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
+    ccall((:trackcoord_setT, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Cdouble}), coord.ptr, value)
 
 set_Z(coord::TrackCoord, value::Cdouble) =
-    ccall((:trackcoord_setZ, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
+    ccall((:trackcoord_setZ, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Cdouble}), coord.ptr, value)
 
 set_H(coord::TrackCoord, value::Cdouble) =
-    ccall((:trackcoord_setH, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
+    ccall((:trackcoord_setH, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Cdouble}), coord.ptr, value)
 
 set_P(coord::TrackCoord, value::Cdouble) =
-    ccall((:trackcoord_setP, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
+    ccall((:trackcoord_setP, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Cdouble}), coord.ptr, value)
 
 set_R(coord::TrackCoord, value::Cdouble) =
-    ccall((:trackcoord_setR, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
+    ccall((:trackcoord_setR, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Cdouble}), coord.ptr, value)
 
 initialize(coord::TrackCoord) =
     ccall((:trackcoord_init, LIB_ODRMGR), Void, (Ptr{Void},), coord.ptr)
