@@ -1,3 +1,3 @@
  mgr = OdrManagerLite()
- loadfile(mgr, "/home/tim/V1.4.3lite/data/sample1.1.xodr")
+ loadfile(mgr, "/Users/depet6/Downloads/V1.4.3lite/data")
  printdata(mgr)
