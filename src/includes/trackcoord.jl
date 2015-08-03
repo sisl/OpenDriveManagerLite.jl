@@ -45,14 +45,14 @@ type TrackCoord
         finalizer(trackcoord, obj ->begin
             ccall((:freeTrackCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
         end)
-        ptr
+        trackcoord
     end
      function TrackCoord(trackid::Int, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0)
         trackcoord =  new(trackid, s, t, z, h, p, r)
         finalizer(trackcoord, obj ->begin
             ccall((:freeTrackCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
         end)
-        ptr
+        trackcoord
     end
 
 end
@@ -112,7 +112,7 @@ function get_R(coord::TrackCoord)
 end
 
 set_trackid(coord::TrackCoord, value::Cint) =
-    ccall((:track_coord_setS, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Integer}), coord.ptr, value)
+    ccall((:track_coord_setS, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Int}), coord.ptr, value)
 
 set_S(coord::TrackCoord, value::Cdouble) =
     ccall((:track_coord_setS, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
