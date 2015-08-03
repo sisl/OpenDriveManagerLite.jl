@@ -14,10 +14,10 @@ export
     set_pos,
     set_trackpos,
     set_trackpos,
-    set_pos,
+    set_pos_with_lanecoord,
     set_lanepos,
-    set_lanepos,
-    set_pos,
+    set_lanepos_with_lanecoord,
+    set_pos_with_coord,
     set_inertialpos,
     convert_track_to_inertial,
     convert_inertial_to_track,
@@ -127,17 +127,17 @@ set_trackpos(mgr::OdrManagerLite, value::OdrManagerLite) =
     Ptr{TrackCoord}), mgr.ptr, value)
 
 
-set_pos(mgr::OdrManagerLite, value::OdrManagerLite) =
+set_pos_with_lanecoord(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setpos_lane_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{LaneCoord}), mgr.ptr, value.ptr)
 
 set_lanepos(mgr::OdrManagerLite, trackId::Cint, laneId::Cint, s::Cdouble, offset::Cdouble=0.0) =
     ccall((:odr_manager_setLanePos, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Int}, Ptr{Int}, Ptr{Double}, Ptr{Double}), mgr.ptr, trackId, laneId, s, t)
 
-set_lanepos(mgr::OdrManagerLite, value::OdrManagerLite) =
+set_lanepos_with_lanecoord(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setLanePos_with_lanecoord, LIB_ODRMGR), Void, (Ptr{Void},
     Ptr{Coord}), mgr.ptr, value)
 
-set_pos(mgr::OdrManagerLite, value::OdrManagerLite) =
+set_pos_with_coord(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setpos_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Coord}), mgr.ptr, value.ptr)
 
 set_inertialpos(mgr::OdrManagerLite, x::Cdouble, y::Cdouble, z::Cdouble) =
