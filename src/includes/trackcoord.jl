@@ -111,25 +111,25 @@ function get_R(coord::TrackCoord)
     return coord->getR();
 end
 
-set_trackid(coord::TrackCoord, value::Int) =
+set_trackid(coord::TrackCoord, value::Cint) =
     ccall((:track_coord_setS, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Integer}), coord.ptr, value)
 
-set_S(coord::TrackCoord, value::Double) =
+set_S(coord::TrackCoord, value::Cdouble) =
     ccall((:track_coord_setS, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
 
-set_T(coord::TrackCoord, value::Double) =
+set_T(coord::TrackCoord, value::Cdouble) =
     ccall((:track_coord_setT, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
 
-set_Z(coord::TrackCoord, value::Double) =
+set_Z(coord::TrackCoord, value::Cdouble) =
     ccall((:track_coord_setZ, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
 
-set_H(coord::TrackCoord, value::Double) =
+set_H(coord::TrackCoord, value::Cdouble) =
     ccall((:track_coord_setH, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
 
-set_P(coord::TrackCoord, value::Double) =
+set_P(coord::TrackCoord, value::Cdouble) =
     ccall((:track_coord_setP, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
 
-set_R(coord::TrackCoord, value::Double) =
+set_R(coord::TrackCoord, value::Cdouble) =
     ccall((:track_coord_setR, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
 
 initialize(coord::TrackCoord) =
