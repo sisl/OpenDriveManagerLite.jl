@@ -41,13 +41,6 @@ type OdrManagerLite
     end
 end
 
-
-#TODO(Deon) check i need this
-# forward declarations of unpublished classes
-# class Position;
-# class RoadData;
-#or should they be empty type, do they need constructors?
-
 type Position
     ptr::Ptr{Void}
     Position(ptr::Ptr{Void}) = new(ptr)
@@ -60,7 +53,6 @@ loadfile(mgr::OdrManagerLite, name::AbstractString) =
 printdata(mgr::OdrManagerLite) =
     ccall((:odr_manager_printData, LIB_ODRMGR), Void, (Ptr{Void},), mgr.ptr )
 
-#TODO(Deon) check typeof funct
 function create_position(mgr::OdrManagerLite)
     mgr.has_activated_position = true
     return ccall((:odr_manager_createPosition, LIB_ODRMGR), Ptr{Position}, (Ptr{Void},), mgr.ptr)
@@ -68,7 +60,6 @@ end
 
 function activate_position(mgr::OdrManagerLite, pos::Position)
     mgr.has_activated_position = true
-    #ccall((:odr_manager_activatePosition, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Position}), mgr.ptr, pos.ptr)
     ccall((:odr_manager_activatePosition, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Void}), mgr.ptr, pos.ptr)
 end
 
@@ -76,26 +67,22 @@ function get_trackpos(mgr::OdrManagerLite)
     if !mgr.has_activated_position
         warn("OdrManagerLite does not have an activated position")
     else
-        # ptr = ccall((:odr_manager_getTrackPos, LIB_ODRMGR), Ptr{TrackCoord}, (Ptr{Void},), mgr.ptr )
         ptr = ccall((:odr_manager_getTrackPos, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},), mgr.ptr )
         return unsafe_load(ptr, 1)::TrackCoord
     end
 end
 
 function get_lanepos(mgr::OdrManagerLite)
-    # ptr = ccall((:odr_manager_getLanePos, LIB_ODRMGR), Ptr{LaneCoord}, (Ptr{Void},), mgr.ptr )
     ptr = ccall((:odr_manager_getLanePos, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},), mgr.ptr )
     return unsafe_load(ptr, 1)::LaneCoord
 end
 
 function get_inertialpos(mgr::OdrManagerLite)
-    # ptr = ccall((:odr_manager_getInertialPos, LIB_ODRMGR), Ptr{Coord}, (Ptr{Void},), mgr.ptr )
     ptr = ccall((:odr_manager_getInertialPos, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},), mgr.ptr )
     return unsafe_load(ptr, 1)::Coord
 end
 
 function get_footpoint(mgr::OdrManagerLite)
-    # ptr = ccall((:odr_manager_getFootPoint, LIB_ODRMGR), Ptr{Coord}, (Ptr{Void},), mgr.ptr )
     ptr = ccall((:odr_manager_getFootPoint, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},), mgr.ptr )
     return unsafe_load(ptr, 1)::Coord
 end
@@ -112,17 +99,14 @@ set_trackpos_track_coord(mgr::OdrManagerLite, value::OdrManagerLite) =
 
 set_pos_with_lanecoord(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setpos_lane_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Void}), mgr.ptr, value.ptr)
-    # ccall((:odr_manager_setpos_lane_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{LaneCoord}), mgr.ptr, value.ptr)
 
 set_lanepos(mgr::OdrManagerLite, trackId::Cint, laneId::Cint, s::Cdouble, offset::Cdouble=0.0) =
     ccall((:odr_manager_setLanePos, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Int}, Ptr{Int}, Ptr{Cdouble}, Ptr{Cdouble}), mgr.ptr, trackId, laneId, s, offset)
 
 set_lanepos_with_lanecoord(mgr::OdrManagerLite, value::OdrManagerLite) =
-    # ccall((:odr_manager_setLanePos_with_lanecoord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Coord}), mgr.ptr, value)
     ccall((:odr_manager_setLanePos_with_lanecoord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Void}), mgr.ptr, value)
 
 set_pos_with_coord(mgr::OdrManagerLite, value::OdrManagerLite) =
-    # ccall((:odr_manager_setpos_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Coord}), mgr.ptr, value.ptr)
     ccall((:odr_manager_setpos_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Void}), mgr.ptr, value.ptr)
 
 set_inertialpos(mgr::OdrManagerLite, x::Cdouble, y::Cdouble, z::Cdouble) =
