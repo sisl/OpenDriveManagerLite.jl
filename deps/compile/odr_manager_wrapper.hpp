@@ -10,7 +10,7 @@ extern "C" bool libexists() { return true; }
 /////////////////////////////////////
 //        ODR MANAGER LITE         //
 /////////////////////////////////////
-
+extern "C" void * createOdrManagerLite();
 extern "C" bool odr_manager_loadFile(void * void_odr_manager, char * name);
 extern "C" void odr_manager_printData(void * void_odr_manager);
 extern "C" void odr_manager_createPosition(void * void_odr_manager);
