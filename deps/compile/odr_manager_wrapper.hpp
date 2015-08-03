@@ -21,9 +21,9 @@ extern "C" void * odr_manager_getTrackPos(void * void_odr_manager, void * void_t
 extern "C" void * odr_manager_getLanePos(void * void_odr_manager, void * void_lane_coord);
 extern "C" void * odr_manager_getInertialPos(void * void_odr_manager, void * void_coord);
 extern "C" void * odr_manager_getFootPoint(void * void_odr_manager, void * void_coord);
-// extern "C" void odr_manager_setpos_track_coord(void * void_odr_manager, void * void_track_coord);
+extern "C" void  * odr_manager_setpos_track_coord(void * void_odr_manager, void * void_track_coord);
 extern "C" void odr_manager_set_track_pos_s_t(void * void_odr_manager, int id, double s, double t);
-// extern "C" void odr_manager_set_track_pos_track_coord(void * void_odr_manager, void * void_track_coord);
+extern "C" void * odr_manager_set_track_pos_track_coord(void * void_odr_manager, void * void_track_coord);
 // extern "C" void odr_manager_setpos_lane_coord(void * void_odr_manager, void * void_lane_coord);
 extern "C" void odr_manager_setLanePos(void * void_odr_manager, int trackId, int laneId, double s, double offset);
 // extern "C" void odr_manager_setLanePos_with_lanecoord(void * void_odr_manager, void * void_lane_coord);
