@@ -20,7 +20,7 @@ type LaneCoord <: AbstractTrackCoord
 
     LaneCoord() = new() # create one without setting any values
     	   
-	LaneCoord(track::Integer, lane::Integer, s::Real, offset::Real = 0.0 ) =
+	LaneCoord(trackId::Integer, s::Real, t::Real, z::Real = 0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0, laneid::Real, offset::Real ) =
 	    new(trackid, s, t, z, h, p, r)
 end
 
