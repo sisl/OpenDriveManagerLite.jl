@@ -101,17 +101,17 @@ function get_trackpos(mgr::OdrManagerLite)
     end
 end
 
-fucntion get_lanepos(mgr::OdrManagerLite)
+function get_lanepos(mgr::OdrManagerLite)
     ptr = ccall((:odr_manager_getLanePos, LIB_ODRMGR), Ptr{LaneCoord}, (Ptr{Void},), mgr.ptr )
     return unsafe_load(ptr, 1)::LaneCoord
 end
 
-fucntion get_inertialpos(mgr::OdrManagerLite)
+function get_inertialpos(mgr::OdrManagerLite)
     ptr = ccall((:odr_manager_getInertialPos, LIB_ODRMGR), Ptr{Coord}, (Ptr{Void},), mgr.ptr )
     return unsafe_load(ptr, 1)::Coord
 end
 
-fucntion get_footpoint(mgr::OdrManagerLite)
+function get_footpoint(mgr::OdrManagerLite)
     ptr = ccall((:odr_manager_getFootPoint, LIB_ODRMGR), Ptr{Coord}, (Ptr{Void},), mgr.ptr )
     return unsafe_load(ptr, 1)::Coord
 end
