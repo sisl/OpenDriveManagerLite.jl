@@ -27,12 +27,12 @@ type Coord
 end
 
 function coord_get_dist(a::Coord, b::Coord)
-    (ccall( (:coord_getdist, LIB_ODRMGR), Cdouble, (Ptr{Coord},Ptr{Coord}), 
+    (ccall( (:coord_getDist, LIB_ODRMGR), Cdouble, (Ptr{Coord},Ptr{Coord}), 
         pointer_from_objref(a), pointer_from_objref(b)))
 end
 
 function coord_get_dist2d(a::Coord, b::Coord)
-    (ccall( (:coord_getdist2d, LIB_ODRMGR), Cdouble, (Ptr{Coord},Ptr{Coord}), 
+    (ccall( (:coord_getDist2d, LIB_ODRMGR), Cdouble, (Ptr{Coord},Ptr{Coord}), 
         pointer_from_objref(a), pointer_from_objref(b)))
 end
 
