@@ -39,7 +39,7 @@ type TrackCoord
     # TrackCoord(trackid::Int, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
     #     new(trackid, s, t, z, h, p, r)
 
- TODO(Deon) check this part 
+ #TODO(Deon) check this part 
     function TrackCoord() 
         trackcoord = new() # create one without setting any values
         finalizer(trackcoord, obj ->begin
