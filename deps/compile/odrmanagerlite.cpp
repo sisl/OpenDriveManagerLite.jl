@@ -16,12 +16,12 @@ void free_Position(void * void_odr_manager)
     delete mgr;
 }
 
-// bool odr_manager_loadFile(void * void_odr_manager, char * odr_name)
-// {
-//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-//     OpenDrive::OdrManagerLite * name = reinterpret_cast<OpenDrive::OdrManagerLite*>(odr_name);
-//     return mgr->loadFile(name);
-// }
+bool odr_manager_loadFile(void * void_odr_manager, char * odr_name)
+{
+    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+    OpenDrive::OdrManagerLite * name = reinterpret_cast<OpenDrive::OdrManagerLite*>(odr_name);
+    return mgr->loadFile(name);
+}
 
 void odr_manager_printData(void * void_odr_manager) 
 {     
