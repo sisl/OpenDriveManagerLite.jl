@@ -22,7 +22,7 @@ export
     convert_track_to_inertial,
     convert_inertial_to_track,
     convert_lane_to_inertial,
-    print,
+    print_odrmanagerlite,
     get_curvature,
     get_track_len,
     get_lane_width,
@@ -155,7 +155,7 @@ convert_lane_to_inertial(mgr::OdrManagerLite) =
 convert_inertial_to_lane(mgr::OdrManagerLite) = 
      ccall((:odr_manager_inertial2lane, LIB_ODRMGR), Bool, (Ptr{Void},), mgr.ptr)
 
-print(mgr::OdrManagerLite) = 
+print_odrmanagerlite(mgr::OdrManagerLite) = 
     ccall((:odr_manager_print, LIB_ODRMGR), Void, (Ptr{Void},), mgr.ptr)
 
 function get_curvature(mgr::OdrManagerLite)
