@@ -44,22 +44,22 @@ extern "C" void odr_manager_footPoint2inertial(void * void_odr_manager);
 ///////////////////////////////////////
 
 extern "C" void * createOdrManagerLite_trackCoord();
-extern "C" void freeTrackCoord(void * void_coord);
-extern "C" void trackcoord_plusequal(void * void_coordA, void * void_coordB);
+extern "C" void freeTrackCoord(void * void_trackcoord);
+extern "C" void trackcoord_plusequal(void * void_trackcoordA, void * void_trackcoordB);
 extern "C" int trackcoord_get_trackid(void * void_coord);
-extern "C" double trackcoord_getS(void * void_coord);
-extern "C" double trackcoord_getT(void * void_coord);
-extern "C" double trackcoord_getZ(void * void_coord);
-extern "C" double trackcoord_getH(void * void_coord);
-extern "C" double trackcoord_getP(void * void_coord);
-extern "C" double trackcoord_getR(void * void_coord);
-extern "C" void trackcoord_set_trackid(void * void_coord, int * value);
-extern "C" void trackcoord_setS(void * void_coord, double * value);
-extern "C" void trackcoord_setT(void * void_coord, double * value);
-extern "C" void trackcoord_setZ(void * void_coord, double * value);
-extern "C" void trackcoord_setH(void * void_coord, double * value);
-extern "C" void trackcoord_setP(void * void_coord, double * value);
-extern "C" void trackcoord_setR(void * void_coord, double * value);
+extern "C" double trackcoord_getS(void * void_trackcoord);
+extern "C" double trackcoord_getT(void * void_trackcoord);
+extern "C" double trackcoord_getZ(void * void_trackcoord);
+extern "C" double trackcoord_getH(void * void_trackcoord);
+extern "C" double trackcoord_getP(void * void_trackcoord);
+extern "C" double trackcoord_getR(void * void_trackcoord);
+extern "C" void trackcoord_set_trackid(void * void_trackcoord, int * value);
+extern "C" void trackcoord_setS(void * void_trackcoord, double * value);
+extern "C" void trackcoord_setT(void * void_trackcoord, double * value);
+extern "C" void trackcoord_setZ(void * void_trackcoord, double * value);
+extern "C" void trackcoord_setH(void * void_trackcoord, double * value);
+extern "C" void trackcoord_setP(void * void_trackcoord, double * value);
+extern "C" void trackcoord_setR(void * void_trackcoord, double * value);
 extern "C" void trackcoord_init();
 extern "C" void trackcoord_print();
 
