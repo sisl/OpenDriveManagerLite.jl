@@ -42,20 +42,6 @@ extern "C" void odr_manager_footPoint2inertial(void * void_odr_manager);
 ///////////////////////////////////////
 
 extern "C" void trackcoord_plusequal(void * void_trackcoordA, void * void_trackcoordB);
-extern "C" int trackcoord_get_trackid(void * void_coord);
-extern "C" double trackcoord_getS(void * void_trackcoord);
-extern "C" double trackcoord_getT(void * void_trackcoord);
-extern "C" double trackcoord_getZ(void * void_trackcoord);
-extern "C" double trackcoord_getH(void * void_trackcoord);
-extern "C" double trackcoord_getP(void * void_trackcoord);
-extern "C" double trackcoord_getR(void * void_trackcoord);
-extern "C" void trackcoord_set_trackid(void * void_trackcoord, int * value);
-extern "C" void trackcoord_setS(void * void_trackcoord, double * value);
-extern "C" void trackcoord_setT(void * void_trackcoord, double * value);
-extern "C" void trackcoord_setZ(void * void_trackcoord, double * value);
-extern "C" void trackcoord_setH(void * void_trackcoord, double * value);
-extern "C" void trackcoord_setP(void * void_trackcoord, double * value);
-extern "C" void trackcoord_setR(void * void_trackcoord, double * value);
 extern "C" void trackcoord_init();
 extern "C" void trackcoord_print();
 
@@ -63,14 +49,8 @@ extern "C" void trackcoord_print();
 //         ODR LANE COORD          //
 /////////////////////////////////////
 
-extern "C" void * createOdrManagerLite_laneCoord();
-extern "C" void freeOdrManagerLite(void * void_coord);
 extern "C" void track_coord_plusequal(void * void_coordA, void * void_coordB);
 extern "C" void lane_coord_plusequal(void * void_coordA, void * void_coordB);
-extern "C" int lane_coord_get_laneid(void * void_coord);
-extern "C" double lane_coord_get_offset(void * void_coord);
-extern "C" void lane_coord_set_laneid(void * void_coord, int value);
-extern "C" void lane_coord_set_offset(void * void_coord,  double value);
 extern "C" void lane_coord_initialize(void * void_coord);
 extern "C" void lane_coord_print(void * void_coord);
 
@@ -78,9 +58,6 @@ extern "C" void lane_coord_print(void * void_coord);
 //              COORD              //
 /////////////////////////////////////
 
-
-extern "C" void * createCoord();
-extern "C" void freeCoord(void * void_coord);
 extern "C" double coord_getDist(void * void_coord1, void * void_coord2 ); 
 extern "C" double coord_getDist2d(void * void_coord1, void * void_coord2 );  
 extern "C" void coord_equal(void * void_coordA, void * void_coordB);
@@ -89,19 +66,6 @@ extern "C" void coord_plus(void * void_coordA, void * void_coordB);
 extern "C" void coord_subtract(void * void_coordA, void * void_coordB);
 extern "C" void coord_plusequal(void * void_coordA, void * void_coordB);
 extern "C" void coord_minusequal(void * void_coordA, void * void_coordB);
-extern "C" double coord_getX(void * void_coord, double * value );
-extern "C" double coord_getY(void * void_coord, double * value );
-extern "C" double coord_getZ(void * void_coord, double * value );
-extern "C" double coord_getH(void * void_coord, double * value );
-extern "C" double coord_getP(void * void_coord, double * value );
-extern "C" double coord_getR(void * void_coord, double * value );
-extern "C" void coord_set(void * void_coord, double * x, double * y, double * z, double * h,  double * p, double * r);
-extern "C" void coord_setX(void * void_coord, double * value );
-extern "C" void coord_setY(void * void_coord, double * value );
-extern "C" void coord_setZ(void * void_coord, double * value );
-extern "C" void coord_setH(void * void_coord, double * value );
-extern "C" void coord_setP(void * void_coord, double * value );
-extern "C" void coord_setR(void * void_coord, double * value );
 extern "C" void coord_init(void * void_coord);
 extern "C" void coord_print(void * void_coord) ;
 extern "C" double coord_getValue(void * void_coord);

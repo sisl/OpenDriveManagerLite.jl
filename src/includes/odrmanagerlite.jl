@@ -1,7 +1,6 @@
 export
     OdrManagerLite,
     Position,
-    RoadData,
 
     loadfile,
     printdata,
@@ -51,24 +50,8 @@ end
 
 type Position
     ptr::Ptr{Void}
-    function Position(ptr::Ptr{Void})
-        pos = new(ptr)
-        finalizer(pos, obj -> begin
-            ccall( (:free_Position, LIB_ODRMGR), Void, (Ptr{Void},), obj.ptr )
-        end)
-        pos 
-    end
-end
-
-type RoadData 
-    ptr::Ptr{Void}
-    function RoadData(ptr::Ptr{Void})
-        data = new(ptr)
-        finalizer(data, obj -> begin
-            ccall( (:free_RoadData, LIB_ODRMGR), Void, (Ptr{Void},), obj.ptr )
-        end)
-        data 
-    end
+    Position(ptr::Ptr{Void}) = new(ptr)
+       
 end
 
 loadfile(mgr::OdrManagerLite, name::AbstractString) =
