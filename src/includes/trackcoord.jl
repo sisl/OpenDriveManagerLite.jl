@@ -34,25 +34,25 @@ type TrackCoord
     p::Cdouble    # pitch [rad]
     r::Cdouble    # roll [rad]
 
-    TrackCoord() = new() # create one without setting any values
-    TrackCoord(trackid::Cint, s::Cdouble, t::Cdouble, z::Cdouble=0.0, h::Cdouble=0.0, p::Cdouble=0.0, r::Cdouble=0.0) =
-        new(trackid, s, t, z, h, p, r)
+    # TrackCoord() = new() # create one without setting any values
+    # TrackCoord(trackid::Cint, s::Cdouble, t::Cdouble, z::Cdouble=0.0, h::Cdouble=0.0, p::Cdouble=0.0, r::Cdouble=0.0) =
+    #     new(trackid, s, t, z, h, p, r)
 
  # #TODO(Deon) check this part 
- #    function TrackCoord() 
- #        trackcoord = new() # create one without setting any values
- #        finalizer(trackcoord, obj ->begin
- #            ccall((:freeTrackCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
- #        end)
- #        trackcoord
- #    end
- #     function TrackCoord(trackid::Cint, s::Cdouble, t::Cdouble, z::Cdouble=0.0, h::Cdouble=0.0, p::Cdouble=0.0, r::Cdouble=0.0)
- #        trackcoord =  new(trackid, s, t, z, h, p, r)
- #        finalizer(trackcoord, obj ->begin
- #            ccall((:freeTrackCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
- #        end)
- #        trackcoord
- #    end
+    function TrackCoord() 
+        trackcoord = new() # create one without setting any values
+        finalizer(trackcoord, obj ->begin
+            ccall((:freeTrackCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
+        end)
+        trackcoord
+    end
+     function TrackCoord(trackid::Cint, s::Cdouble, t::Cdouble, z::Cdouble=0.0, h::Cdouble=0.0, p::Cdouble=0.0, r::Cdouble=0.0)
+        trackcoord =  new(trackid, s, t, z, h, p, r)
+        finalizer(trackcoord, obj ->begin
+            ccall((:freeTrackCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
+        end)
+        trackcoord
+    end
 
 end
 
@@ -84,29 +84,29 @@ function get_trackid(coord::TrackCoord)
     # return coord->getS();
 end
 function get_S(coord::TrackCoord) 
-    ccall((:trackcoord_getS, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
+    ccall((:trackcoord_getS, LIB_ODRMGR), Cdouble, (Ptr{Void},), coord.ptr)
     # return coord->getS();
 end
 
 function get_T(coord::TrackCoord) 
-    ccall((:trackcoord_getT, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
+    ccall((:trackcoord_getT, LIB_ODRMGR), Cdouble, (Ptr{Void},), coord.ptr)
     # return coord->getT();
 end
 
 function get_Z(coord::TrackCoord) 
-    ccall((:trackcoord_getZ, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
+    ccall((:trackcoord_getZ, LIB_ODRMGR), Cdouble, (Ptr{Void},), coord.ptr)
     # return coord->getZ();
 end
 function get_H(coord::TrackCoord) 
-    ccall((:trackcoord_getH, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
+    ccall((:trackcoord_getH, LIB_ODRMGR), Cdouble, (Ptr{Void},), coord.ptr)
     # return coord->getH();
 end
 function get_P(coord::TrackCoord) 
-    ccall((:trackcoord_getP, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
+    ccall((:trackcoord_getP, LIB_ODRMGR), Cdouble, (Ptr{Void},), coord.ptr)
     # return coord->getP();
 end
 function get_R(coord::TrackCoord) 
-    ccall((:trackcoord_getR, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
+    ccall((:trackcoord_getR, LIB_ODRMGR), Cdouble, (Ptr{Void},), coord.ptr)
     # return coord->getR();
 end
 
