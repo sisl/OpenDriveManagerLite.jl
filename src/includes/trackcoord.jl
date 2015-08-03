@@ -25,7 +25,6 @@ export
     print_track_coord
 
 
-
 type TrackCoord
     trackid::Cint # id of the corresponding track
     s::Cdouble    # distance along the track
@@ -39,21 +38,21 @@ type TrackCoord
     TrackCoord(trackid::Cint, s::Cdouble, t::Cdouble, z::Cdouble=0.0, h::Cdouble=0.0, p::Cdouble=0.0, r::Cdouble=0.0) =
         new(trackid, s, t, z, h, p, r)
 
- #TODO(Deon) check this part 
-    function TrackCoord() 
-        trackcoord = new() # create one without setting any values
-        finalizer(trackcoord, obj ->begin
-            ccall((:freeTrackCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
-        end)
-        trackcoord
-    end
-     function TrackCoord(trackid::Cint, s::Cdouble, t::Cdouble, z::Cdouble=0.0, h::Cdouble=0.0, p::Cdouble=0.0, r::Cdouble=0.0)
-        trackcoord =  new(trackid, s, t, z, h, p, r)
-        finalizer(trackcoord, obj ->begin
-            ccall((:freeTrackCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
-        end)
-        trackcoord
-    end
+ # #TODO(Deon) check this part 
+ #    function TrackCoord() 
+ #        trackcoord = new() # create one without setting any values
+ #        finalizer(trackcoord, obj ->begin
+ #            ccall((:freeTrackCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
+ #        end)
+ #        trackcoord
+ #    end
+ #     function TrackCoord(trackid::Cint, s::Cdouble, t::Cdouble, z::Cdouble=0.0, h::Cdouble=0.0, p::Cdouble=0.0, r::Cdouble=0.0)
+ #        trackcoord =  new(trackid, s, t, z, h, p, r)
+ #        finalizer(trackcoord, obj ->begin
+ #            ccall((:freeTrackCoord, LIB_ODRMGR), Void, (Ptr{Void},), obj.prt)
+ #        end)
+ #        trackcoord
+ #    end
 
 end
 
