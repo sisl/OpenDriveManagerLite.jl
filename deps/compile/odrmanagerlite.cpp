@@ -65,14 +65,14 @@ void * odr_manager_getFootPoint(void * void_odr_manager, void * void_coord)
     void * retval = &coord;
     return retval;
 }
-void * odr_manager_setpos_track_coord(void * void_odr_manager, void * void_track_coord)
-{
-    OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
-    OpenDrive::OdrManagerLite * coord = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_track_coord);
-    mgr->setPos();
-    void * retval = &coord;
-    return retval;
-}
+// void odr_manager_setpos_track_coord(void * void_odr_manager, void * void_track_coord)
+// {
+//     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
+//     OpenDrive::OdrManagerLite * coord = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_track_coord);
+//     mgr->setPos();
+//     void * retval = &coord;
+//     return retval;
+// }
 void odr_manager_set_track_pos_s_t(void * void_odr_manager, int id, double s, double t)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
