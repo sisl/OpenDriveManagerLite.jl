@@ -13,7 +13,7 @@
  set_trackpos_track_coord(mgr, value)
  value = LaneCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0, 1, 0.0)
  set_pos_with_lanecoord(mgr, value)
- # set_lanepos(mgr, trackId, laneId, s, offset)
+ set_lanepos(mgr, 1, 1, 2.0, 3.0)
  # set_lanepos_with_lanecoord(mgr, value)
  # set_pos_with_coord(mgr, value)
  # set_inertialpos(mgr, x, y, z)
