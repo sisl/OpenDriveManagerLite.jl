@@ -32,13 +32,12 @@ type OdrManagerLite
     has_activated_position::Bool
     
     function OdrManagerLite()
-        # ptr = ccall( (:createOdrManagerLite, LIB_ODRMGR), (Ptr{Void},), () )
         ptr = ccall( (:createOdrManagerLite, LIB_ODRMGR), Ptr{Void}, () )
         odrmanager = new(ptr, false)
-        # finalizer(odrmanager, obj -> begin
-        #     ccall( (:free_OdrManagerLite, LIB_ODRMGR), Void, (Ptr{Void},), obj.ptr )
-        # end)
-        # odrmanager
+        finalizer(odrmanager, obj -> begin
+            ccall( (:free_OdrManagerLite, LIB_ODRMGR), Void, (Ptr{Void},), obj.ptr )
+        end)
+        odrmanager
     end
 end
 
