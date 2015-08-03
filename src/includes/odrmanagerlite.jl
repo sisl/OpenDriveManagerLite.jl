@@ -88,7 +88,7 @@ function get_footpoint(mgr::OdrManagerLite)
 end
 
 set_pos(mgr::OdrManagerLite, value::TrackCoord) =
-    ccall((:odr_manager_setpos_track_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{TrackCoord}), mgr.ptr, value)
+    ccall((:odr_manager_setpos_track_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{TrackCoord}), mgr.ptr, unsafe_convert(Ptr{TrackCoord},value))
 
 set_trackpos_s_t(mgr::OdrManagerLite, id::Cint, s::Cdouble, t::Cdouble=0.0) =
     ccall((:odr_manager_set_track_pos_s_t, LIB_ODRMGR), Void, (Ptr{Void}, Int, Cdouble, Cdouble), mgr.ptr, id, s, t)
