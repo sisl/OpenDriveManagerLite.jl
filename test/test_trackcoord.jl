@@ -37,7 +37,7 @@ copy!(coordC, coord)
 
 coordB.s = 5.5
 coordC = plus!(copy(coordA), coordB)
-
+coordC = plus(copy(coordA), coordB)
 @test coordC.trackid == coordB.trackid == coordA.trackid
 @test coordC.s == coordA.s + coordB.s
 @test coordC.t == coordA.t + coordB.t
