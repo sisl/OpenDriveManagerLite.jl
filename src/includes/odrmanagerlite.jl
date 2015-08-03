@@ -167,7 +167,7 @@ get_track_len(mgr::OdrManagerLite, trackId::Cint) =
     ccall((:odr_manager_getTrackLen, LIB_ODRMGR), Double, (Ptr{Void}, Ptr{Int}), mgr.ptr, trackId)
 
 function get_lane_width(mgr::OdrManagerLite)
-    ptr = ccall((:odr_manager_getLaneWidth, LIB_ODRMGR), Double, Ptr{Double}, (Ptr{Void},), mgr.ptr)
+    ptr = ccall((:odr_manager_getLaneWidth, LIB_ODRMGR), Double, (Ptr{Void},), mgr.ptr)
     return unsafe_load(ptr, 1)::Cdouble
 end
 
