@@ -61,7 +61,7 @@ type Position
     end
 end
 
-type class RoadData 
+type RoadData 
     ptr::Ptr{Void}
 
     function RoadData(ptr::Ptr{Void})
