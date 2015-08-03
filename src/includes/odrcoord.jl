@@ -24,32 +24,32 @@ type Coord
 
 end
 
-function coord_equal(a::CoordA, b::CoordB)
+function coord_equal(a::Coord, b::Coord)
     (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
 end
-function coord_multiply(a::CoordA, b::CoordB)
+function coord_multiply(a::Coord, b::Coord)
     (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
 end
-function coord_plus(a::CoordA, b::CoordB)
+function coord_plus(a::Coord, b::Coord)
     (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
 end
-function coord_subtract(a::CoordA, b::CoordB)
+function coord_subtract(a::Coord, b::Coord)
     (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
 end
-function coord_plusequal(a::CoordA, b::CoordB)
+function coord_plusequal(a::Coord, b::Coord)
     (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
 end
-function coord_minusequal(a::CoordA, b::CoordB)
+function coord_minusequal(a::Coord, b::Coord)
     (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
@@ -62,5 +62,5 @@ print_coord(coord::Coord) =
     ccall((:coord_print, LIB_ODRMGR), Void, (Ptr{Void}, ), coord.ptr)
 
 get_value_coord(coord::Coord) =
-    ccall((:coord_getValue, LIB_ODRMGR), Double, (Ptr{Void},), coord.ptr)
+    ccall((:coord_getValue, LIB_ODRMGR), Cdouble, (Ptr{Void},), coord.ptr)
     
