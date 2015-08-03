@@ -51,7 +51,6 @@ end
 
 type Position
     ptr::Ptr{Void}
-
     function Position(ptr::Ptr{Void})
         pos = new(ptr)
         finalizer(pos, obj -> begin
@@ -63,7 +62,6 @@ end
 
 type RoadData 
     ptr::Ptr{Void}
-
     function RoadData(ptr::Ptr{Void})
         data = new(ptr)
         finalizer(data, obj -> begin
@@ -125,7 +123,6 @@ set_trackpos_s_t(mgr::OdrManagerLite, id::Cint, s::Cdouble, t::Cdouble=0.0) =
 set_trackpos_track_coord(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_set_track_pos_track_coord, LIB_ODRMGR), Void, (Ptr{Void},
     Ptr{TrackCoord}), mgr.ptr, value)
-
 
 set_pos_with_lanecoord(mgr::OdrManagerLite, value::OdrManagerLite) =
     ccall((:odr_manager_setpos_lane_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{LaneCoord}), mgr.ptr, value.ptr)
