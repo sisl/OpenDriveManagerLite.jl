@@ -69,7 +69,7 @@ void * odr_manager_setpos_track_coord(void * void_odr_manager, void * void_track
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     OpenDrive::OdrManagerLite * coord = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_track_coord);
-    mgr->setPos();
+    mgr->setPos(coord);
     void * retval = &coord;
     return retval;
 }
@@ -82,7 +82,7 @@ void * odr_manager_set_track_pos_track_coord(void * void_odr_manager, void * voi
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     OpenDrive::OdrManagerLite * coord = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_track_coord);
-    mgr->setTrackPos();
+    mgr->setTrackPos(coord);
     void * retval = &coord;
     return retval;
 }
