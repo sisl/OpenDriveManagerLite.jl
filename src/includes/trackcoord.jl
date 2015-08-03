@@ -112,10 +112,10 @@ function get_R(coord::TrackCoord)
 end
 
 set_trackid(coord::TrackCoord, value::Cint) =
-    ccall((:trackcoord_setS, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Int}), coord.ptr, value)
+    ccall((:trackcoord_set, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Int}), coord.ptr, value)
 
 set_S(coord::TrackCoord, value::Cdouble) =
-    ccall((:trackcoord_setS, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
+    ccall((:trackcoord_set_trackid, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)
 
 set_T(coord::TrackCoord, value::Cdouble) =
     ccall((:trackcoord_setT, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Double}), coord.ptr, value)

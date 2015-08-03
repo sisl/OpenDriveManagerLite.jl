@@ -1,4 +1,4 @@
-coord = TrackCoord(0,1.0,2.0,3.0,4.0,5.0,6.0)
+coord = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
 @test coord.trackid == 0
 @test coord.s == 1.0
 @test coord.t == 2.0
@@ -37,7 +37,7 @@ copy!(coordC, coord)
 
 coordB.s = 5.5
 coordC = plus!(copy(coordA), coordB)
-coordC = plus(copy(coordA), coordB)
+
 @test coordC.trackid == coordB.trackid == coordA.trackid
 @test coordC.s == coordA.s + coordB.s
 @test coordC.t == coordA.t + coordB.t
