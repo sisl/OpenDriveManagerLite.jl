@@ -105,7 +105,7 @@ set_lanepos(mgr::OdrManagerLite, trackId::Cint, laneId::Cint, s::Cdouble, offset
     ccall((:odr_manager_setLanePos, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Int}, Ptr{Int}, Ptr{Cdouble}, Ptr{Cdouble}), mgr.ptr, trackId, laneId, s, offset)
 
 set_lanepos_with_lanecoord(mgr::OdrManagerLite, value::LaneCoord) =
-    ccall((:odr_manager_setLanePos_with_lanecoord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Void}), mgr.ptr, value)
+    ccall((:odr_manager_setLanePos_with_lanecoord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Void}), mgr.ptr, value.ptr)
 
 set_pos_with_coord(mgr::OdrManagerLite, value::Coord) =
     ccall((:odr_manager_setpos_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Void}), mgr.ptr, value.ptr)
