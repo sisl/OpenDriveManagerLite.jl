@@ -129,7 +129,7 @@ print_odrmanagerlite(mgr::OdrManagerLite, ident::Integer) =
 
 function get_curvature(mgr::OdrManagerLite)
     ptr = ccall((:odr_manager_getCurvature, LIB_ODRMGR), Cdouble, (Ptr{Void},), mgr.ptr)
-    return unsafe_load(ptr, 1)::Cdouble
+    return unsafe_load(ptr, 1)
 end
 
 get_track_len(mgr::OdrManagerLite, trackId::Cint) =
