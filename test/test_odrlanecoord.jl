@@ -20,20 +20,20 @@ coordA = coord
 @test coord.laneid == 1
 @test coord.offset == 1.0
 
-# coordB = coord
-# @test coordB.trackid == 0
-# @test coordB.s == 1.0
-# @test coordB.t == 2.0
-# @test coordB.z == 3.0
-# @test coordB.h == 4.0
-# @test coordB.p == 5.0
-# @test coordB.r == 6.0
-# @test coord.laneid == 1
-# @test coord.offset == 1.0
+coordB = coord
+@test coordB.trackid == 0
+@test coordB.s == 1.0
+@test coordB.t == 2.0
+@test coordB.z == 3.0
+@test coordB.h == 4.0
+@test coordB.p == 5.0
+@test coordB.r == 6.0
+@test coord.laneid == 1
+@test coord.offset == 1.0
 
-# coordB.s = 5.5
+coordB.s = 5.5
 
-# track_coord_plusequal(copy(coordA), coordB)
+track_coord_plusequal(coordA, coordB)
 
 # lane_coord_plusequal(copy(coordA), coordB)
 
