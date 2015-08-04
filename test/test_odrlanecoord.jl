@@ -37,7 +37,7 @@ lane_coord_plusequal(coordA, coordB)
 
 
 
-# print_lanecoord(coord)
+print_lanecoord(coordB)
 
 
 

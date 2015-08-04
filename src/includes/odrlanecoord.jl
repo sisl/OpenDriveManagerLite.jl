@@ -37,7 +37,7 @@ end
 intitialize_lanecoord(coord::TrackCoord) =
     ccall((:lane_coord_initialize, LIB_ODRMGR), Void, (Ptr{TrackCoord},), pointer_from_objref(coord))
   
-print_lanecoord(coord::TrackCoord) =
-    ccall((:lane_coord_print, LIB_ODRMGR), Void, (Ptr{Void}, ), coord.ptr)
+print_lanecoord(coord::LaneCoord) =
+    ccall((:lane_coord_print, LIB_ODRMGR), Void, (Ptr{LaneCoord}, ), coord.ptr)
 
 
