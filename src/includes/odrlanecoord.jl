@@ -15,12 +15,12 @@ type LaneCoord <: AbstractTrackCoord
     h::Cdouble    # heading [rad]
     p::Cdouble    # pitch [rad]
     r::Cdouble 
-	laneid::Cint
+    laneid::Cint
     offset::Cdouble
 
     LaneCoord() = new() # create one without setting any values
-	LaneCoord(trackid::Integer, s::Real, t::Real, z::Real = 0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0, laneid::Real=1, offset::Real=0.0 ) =
-	    new(trackid, s, t, z, h, p, r, laneid, offset)
+    LaneCoord(trackid::Integer, s::Real, t::Real, z::Real = 0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0, laneid::Real=1, offset::Real=0.0 ) =
+        new(trackid, s, t, z, h, p, r, laneid, offset)
 end
 
 function track_coord_plusequal(a::TrackCoord, b::TrackCoord)
