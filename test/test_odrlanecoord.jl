@@ -35,9 +35,9 @@ coordB.s = 5.5
 
 lane_coord_plusequal(coordA, coordB)
 
-intitialize_lanecoord(coord)
 
-print_lanecoord(coord)
+
+# print_lanecoord(coord)
 
 
 
@@ -52,5 +52,5 @@ coordA = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
  
  coordB = coordA
  coordB.s = 4.0
-
+intitialize_lanecoord(coord)
 track_coord_plusequal(coordA, coordB)
