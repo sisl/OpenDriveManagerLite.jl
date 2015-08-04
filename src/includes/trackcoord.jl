@@ -12,6 +12,7 @@ export
 
 abstract AbstractTrackCoord
 type TrackCoord
+
     trackid::Cint # id of the corresponding track
     s::Cdouble    # distance along the track
     t::Cdouble    # distance perpendicular to the track
