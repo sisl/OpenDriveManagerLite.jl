@@ -52,5 +52,5 @@ coordA = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
  
  coordB = coordA
  coordB.s = 4.0
-intitialize_lanecoord(coordA)
+# intitialize_lanecoord(coordA)
 track_coord_plusequal(coordA, coordB)
