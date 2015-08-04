@@ -33,7 +33,7 @@ extern "C" bool odr_manager_track2inertial(void * void_odr_manager);
 extern "C" bool odr_manager_inertial2track(void * void_odr_manager);
 extern "C" bool odr_manager_lane2inertial(void * void_odr_manager);
 extern "C" bool odr_manager_inertial2lane(void * void_odr_manager);
-extern "C" void odr_manager_print(void * void_odr_manager, int * ident);
+extern "C" void odr_manager_print(void * void_odr_manager, int ident);
 extern "C" double odr_manager_getCurvature(void * void_odr_manager);
 extern "C" double odr_manager_getTrackLen(void * void_odr_manager, int * trackId);
 extern "C" double odr_manager_getLaneWidth(void * void_odr_manager);

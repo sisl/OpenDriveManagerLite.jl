@@ -124,8 +124,8 @@ convert_lane_to_inertial(mgr::OdrManagerLite) =
 convert_inertial_to_lane(mgr::OdrManagerLite) = 
      ccall((:odr_manager_inertial2lane, LIB_ODRMGR), Bool, (Ptr{Void},), mgr.ptr)
 
-print_odrmanagerlite(mgr::OdrManagerLite) = 
-    ccall((:odr_manager_print, LIB_ODRMGR), Void, (Ptr{Void},), mgr.ptr)
+print_odrmanagerlite(mgr::OdrManagerLite, ident::Integer) = 
+    ccall((:odr_manager_print, LIB_ODRMGR), Void, (Ptr{Void},), mgr.ptr, ident)
 
 function get_curvature(mgr::OdrManagerLite)
     ptr = ccall((:odr_manager_getCurvature, LIB_ODRMGR), Cdouble, (Ptr{Void},), mgr.ptr)
