@@ -17,7 +17,7 @@
  set_pos_with_lanecoord(mgr, value)
  set_lanepos(mgr, 1, 1, 2.0, 3.0)
  set_lanepos_with_lanecoord(mgr, value)
- value = Coord(1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
+ # value = Coord(1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
  set_pos_with_coord(mgr, value)
  set_inertialpos(mgr, 1.0, 2.0, 3.0)
 
