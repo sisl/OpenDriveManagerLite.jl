@@ -9,16 +9,16 @@ coord = LaneCoord(0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 1, 1.0)   # distance perpendi
 @test coord.laneid == 1
 @test coord.offset == 1.0
 
-# coordA = coord
-# @test coordA.trackid == 0
-# @test coordA.s == 1.0
-# @test coordA.t == 2.0
-# @test coordA.z == 3.0
-# @test coordA.h == 4.0
-# @test coordA.p == 5.0
-# @test coordA.r == 6.0
-# @test coord.laneid == 1
-# @test coord.offset == 1.0
+coordA = coord
+@test coordA.trackid == 0
+@test coordA.s == 1.0
+@test coordA.t == 2.0
+@test coordA.z == 3.0
+@test coordA.h == 4.0
+@test coordA.p == 5.0
+@test coordA.r == 6.0
+@test coord.laneid == 1
+@test coord.offset == 1.0
 
 # coordB = coord
 # @test coordB.trackid == 0
