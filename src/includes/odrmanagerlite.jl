@@ -21,6 +21,7 @@ export
     convert_track_to_inertial,
     convert_inertial_to_track,
     convert_lane_to_inertial,
+    convert_inertial_to_lane,
     print_odrmanagerlite,
     get_curvature,
     get_track_len,
