@@ -1,9 +1,10 @@
 #include "odr_manager_wrapper.hpp"
 
-#include "inc/OdrManagerLite.hh"
+
 #include "inc/OdrTrackCoord.hh"
 #include "inc/OdrLaneCoord.hh"
 #include "inc/OdrCoord.hh"
+#include "inc/OdrManagerLite.hh"
 #include <cstring>
 #include <sstream>
 #include <stdio.h>
