@@ -109,7 +109,7 @@ set_pos_with_coord(mgr::OdrManagerLite, value::Coord) =
     ccall((:odr_manager_setpos_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Coord}), mgr.ptr, value.ptr)
 
 set_inertialpos(mgr::OdrManagerLite, x::Cdouble, y::Cdouble, z::Cdouble) =
-    ccall((:odr_manager_setInertialPos, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), mgr.ptr, x, y, z)
+    ccall((:odr_manager_setInertialPos, LIB_ODRMGR), Void, (Ptr{Void}, Cdouble, Cdouble, Cdouble), mgr.ptr, x, y, z)
 
 convert_track_to_inertial(mgr::OdrManagerLite) = 
      ccall((:odr_manager_track2inertial, LIB_ODRMGR), Bool, (Ptr{Void},), mgr.ptr)
