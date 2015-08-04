@@ -1,16 +1,17 @@
 export
+    Coord,
 
-coord_get_dist,
-coord_get_dist2d,
-coord_equal,
-coord_multiply,
-coord_plus,
-coord_subtract,
-coord_plusequal,
-coord_minusequal,
-intitialize_coord,
-print_coord,
-get_value_coord
+    coord_get_dist,
+    coord_get_dist2d,
+    coord_equal,
+    coord_multiply,
+    coord_plus,
+    coord_subtract,
+    coord_plusequal,
+    coord_minusequal,
+    intitialize_coord,
+    print_coord,
+    get_value_coord
 
 type Coord
     x::Cdouble
