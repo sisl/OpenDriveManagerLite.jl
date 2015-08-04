@@ -129,6 +129,7 @@ print_odrmanagerlite(mgr::OdrManagerLite, ident::Integer) =
 
 function get_curvature(mgr::OdrManagerLite)
     ptr = ccall((:odr_manager_getCurvature, LIB_ODRMGR), Cdouble, (Ptr{Void},), mgr.ptr)
+    ptr = unsafe_pointer_to_objref(ptr)
     return unsafe_load(ptr, 1)::Cdouble
 end
 
@@ -137,7 +138,6 @@ get_track_len(mgr::OdrManagerLite, trackId::Cint) =
 
 function get_lane_width(mgr::OdrManagerLite)
     ptr = ccall((:odr_manager_getLaneWidth, LIB_ODRMGR), Cdouble, (Ptr{Void},), mgr.ptr)
-    ptr = unsafe_pointer_to_objref(ptr)
     return unsafe_load(ptr, 1)::Cdouble
 end
 
