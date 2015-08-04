@@ -20,13 +20,13 @@
  # value = Coord(1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
  # set_pos_with_coord(mgr, value)
  set_inertialpos(mgr, 1.0, 2.0, 3.0)
-
  convert_track_to_inertial(mgr)
  convert_inertial_to_track(mgr)
  convert_lane_to_inertial(mgr)
  convert_inertial_to_lane(mgr)
  print_odrmanagerlite(mgr, 0)
  get_curvature(mgr)
- # get_track_len(mgr, trackId)
- # get_lane_width(mgr)
- # copy_foot_point_to_inertial(mgr)
+
+ get_track_len(mgr, 1)
+ get_lane_width(mgr)
+ copy_foot_point_to_inertial(mgr)
