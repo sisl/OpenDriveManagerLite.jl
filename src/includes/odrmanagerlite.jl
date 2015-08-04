@@ -137,7 +137,8 @@ get_track_len(mgr::OdrManagerLite, trackId::Cint) =
 
 function get_lane_width(mgr::OdrManagerLite)
     ptr = ccall((:odr_manager_getLaneWidth, LIB_ODRMGR), Cdouble, (Ptr{Void},), mgr.ptr)
-    return unsafe_load(pointer_from_objref(ptr), 1)::Cdouble
+    ptr = unsafe_pointer_to_objref(ptr)
+    return unsafe_load(ptr, 1)::Cdouble
 end
 
 copy_foot_point_to_inertial(mgr::OdrManagerLite) = 
