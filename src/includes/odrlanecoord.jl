@@ -34,8 +34,8 @@ function lane_coord_plusequal(a::LaneCoord, b::LaneCoord)
     a
 end
 
-intitialize_lanecoord(coord::LaneCoord) =
-    ccall((:lane_coord_initialize, LIB_ODRMGR), Void, (Ptr{LaneCoord},), pointer_from_objref(coord))
+intitialize_lanecoord(coord::TrackCoord) =
+    ccall((:lane_coord_initialize, LIB_ODRMGR), Void, (Ptr{TrackCoord},), pointer_from_objref(coord))
   
 print_lanecoord(coord::TrackCoord) =
     ccall((:lane_coord_print, LIB_ODRMGR), Void, (Ptr{Void}, ), coord.ptr)
