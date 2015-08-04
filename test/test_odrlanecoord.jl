@@ -33,7 +33,7 @@ coordB = coord
 
 coordB.s = 5.5
 
-lane_coord_plusequal(copy(coordA), coordB)
+lane_coord_plusequal(coordA, coordB)
 
 intitialize_lanecoord(coord)
 
