@@ -33,8 +33,6 @@ coordB = coord
 
 coordB.s = 5.5
 
-track_coord_plusequal(coordA, coordB)
-
 lane_coord_plusequal(copy(coordA), coordB)
 
 intitialize_lanecoord(coord)
