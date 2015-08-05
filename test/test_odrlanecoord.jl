@@ -59,3 +59,5 @@ intitialize_lanecoord!(coord)
 coordB = coordA
 coordB.s = 4.0
 track_coord_plusequal(coordA, coordB)
+
+vires_print(coord)

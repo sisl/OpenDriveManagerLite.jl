@@ -8,9 +8,7 @@ coord = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
 @test coord.r == 6.0
 
 show(coord)
-# "(0, 1.0000000000000000e+00, 2.0000000000000000e+00, 3.0000000000000000e+00, 4.0000000000000000e+00, 5.0000000000000000e+00, 6.0000000000000000e+00)"
 print(coord) 
-# "(0, 1.000, 2.000, 3.000, 4.000, 5.000, 6.000)"
 
 coordA = copy(coord)
 @test coordA.trackid == 0
@@ -51,9 +49,6 @@ coordC = plus!(copy(coordA), coordB)
 @test coordC.p == coordA.p + coordB.p
 @test coordC.r == coordA.r + coordB.r
 
-
-
-
 coord = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
 initialize!(coord)
 @test coord.trackid == 0
@@ -63,6 +58,7 @@ initialize!(coord)
 @test coord.h == 0.0
 @test coord.p == 0.0
 @test coord.r == 0.0
-# print_track_coord(coordC)
+
+vires_print(coordC)
 
 

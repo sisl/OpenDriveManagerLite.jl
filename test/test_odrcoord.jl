@@ -20,8 +20,8 @@ coordB = Coord(1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
 # dist = coord_get_dist2d(coordB,coord)
 # println(dist)
 
-# coord_equal(coordA,coordB)
-# @test coordA==coordB
+coord_equal(coordA,coordB)
+@test coordA==coordB
 
 # coord_multiply(coordA,coordB)
 # @test coordA ==(coordA*coordB)
@@ -50,5 +50,4 @@ intitialize_coord!(coord)
 
 val=get_value_coord(coord)
 println(val)
-# println("ODR COORD TSET PASSED!!!!!!!")
 
