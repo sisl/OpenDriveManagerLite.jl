@@ -37,11 +37,19 @@ pos = create_position(mgr)
  @test convert_inertial_to_lane(mgr)
  
  print_odrmanagerlite(mgr, 0)
+
  curvature = get_curvature(mgr)
  @test isdefined(:curvature)
- println("******")
- println(curvature)
  @test get_curvature(mgr)==0.0
- get_track_len(mgr, 1)
- get_lane_width(mgr)
+
+ length = get_track_len(mgr, 1)
+ @test isdefined(:length)
+ println(length)
+
+ width = get_lane_width(mgr)
+ @test isdefined(:width)
+ println(length)
+
  copy_foot_point_to_inertial(mgr)
+ 
+
