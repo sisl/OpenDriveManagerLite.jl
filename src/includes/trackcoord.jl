@@ -51,7 +51,7 @@ Base.show(io::IO, coord::TrackCoord) = @printf(io, "(%d, %.16e, %.16e, %.16e, %.
 Base.print(io::IO, coord::TrackCoord) = @printf(io, "(%d, %.3f, %.3f, %.3f, %.3f, %.3f, %.3f)", coord.trackid, coord.s, coord.t, coord.z, coord.h, coord.p, coord.r)
 
 initialize(coord::TrackCoord) =
-    ccall((:trackcoord_init, LIB_ODRMGR), Void, (Ptr{Void},), pointer_from_objref(coord))
+    ccall((:trackcoord_init, LIB_ODRMGR), Void, (Ptr{Void},), coord) #pointer_from_objref(coord))
 
 print_track_coord(coord::TrackCoord) =
     ccall((:trackcoord_print, LIB_ODRMGR), Void, (Ptr{Void},), coord.ptr)
