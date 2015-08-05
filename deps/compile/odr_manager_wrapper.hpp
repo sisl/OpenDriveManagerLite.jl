@@ -44,7 +44,8 @@ extern "C" void odr_manager_footPoint2inertial(void * void_odr_manager);
 ///////////////////////////////////////
 
 extern "C" void trackcoord_plusequal(void * void_trackcoordA, void * void_trackcoordB);
-extern "C" void trackcoord_init(void * void_trackcoord);
+extern "C" void trackcoord_i
+nit(void * void_trackcoord);
 extern "C" void trackcoord_print(void * void_trackcoord);
 
 /////////////////////////////////////
