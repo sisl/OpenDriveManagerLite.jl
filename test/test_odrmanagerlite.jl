@@ -38,7 +38,7 @@ pos = create_position(mgr)
  
  print_odrmanagerlite(mgr, 0)
  curvature = get_curvature(mgr)
- @test isdefined(curvature)
+ @test isdefined(:curvature)
  println("******")
  println(curvature)
  @test get_curvature(mgr)==0.0
