@@ -7,7 +7,7 @@ export
     minus!,
     intitialize_coord!,
     # print_coord,
-    get_value_coord
+    get_value
 
 type Coord
     x::Cdouble

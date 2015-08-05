@@ -1,7 +1,7 @@
 using Base.Test
 using Lint
 
-# lintpkg("OpenDriveManagerLite")
+lintpkg("OpenDriveManagerLite")
 
 using OpenDriveManagerLite
 

@@ -22,22 +22,6 @@ coordB = Coord(1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
 # dist = coord_get_dist2d(coordB,coord)
 # println(dist)
 
-
-coord_multiply(coordA,coordB)
-@test coordA ==(coordA*coordB)
-
-# coord_plus(coordA,coordB)
-# @test coordA ==(coordA+coordB)
-
-# coord_subtract(coordA,coordB)
-# @test coordA ==(coordA-coordB)
-
-# coord_plusequal(coordA,coordB)
-# @test coordA ==(coordA+coordB)
-
-# coord_minusequal(coordA,coordB)
-# @test coordA ==(coordA-coordB)
-
 coord = Coord(1.0,2.0,3.0,4.0,5.0,6.0)
 @test isapprox(get_value(coord), norm([coord.x, coord.y, coord.z])) 
 
