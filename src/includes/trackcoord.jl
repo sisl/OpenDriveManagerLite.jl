@@ -7,8 +7,7 @@ export
     copy!,
     show,
     print,
-    initialize!,
-    vires_print
+    initialize!
 
 abstract AbstractTrackCoord
 type TrackCoord <: AbstractTrackCoord
