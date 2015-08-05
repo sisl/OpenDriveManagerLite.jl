@@ -33,26 +33,26 @@ function coord_get_dist2d(a::Coord, b::Coord)
         pointer_from_objref(a), pointer_from_objref(b)))
 end
 
-function Base.==(a::Coord, b::Coord)
-    (isapprox(a.x, b.x) &&
+function ==(a::Coord, b::Coord)
+    isapprox(a.x, b.x) &&
     isapprox(a.y, b.y) &&
     isapprox(a.z, b.z) &&
     isapprox(a.h, b.h) &&
     isapprox(a.p, b.p) &&
-    isapprox(a.r, b.r) )
+    isapprox(a.r, b.r) 
 end
 
-function Base.*(a::Coord, b::Coord)
+function *(a::Coord, b::Coord)
     cptr = (ccall( (:coord_multiply, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     unsafe_load(cptr, 1)::Coord
 end
-function Base.+(a::Coord, b::Coord)
+function +(a::Coord, b::Coord)
     cptr = (ccall( (:coord_plus, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     unsafe_load(cptr, 1)::Coord
 end
-function Base.-(a::Coord, b::Coord)
+function -(a::Coord, b::Coord)
     cptr = (ccall( (:coord_subtract, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     unsafe_load(cptr, 1)::Coord

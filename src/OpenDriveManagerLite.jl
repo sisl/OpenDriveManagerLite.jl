@@ -14,7 +14,7 @@ end
 # export
 # 	vires_print
 	
-import Base: copy, copy!, deepcopy, show, print
+import Base: copy, copy!, deepcopy, show, print, ==, *, +, -
 
 const LIB_ODRMGR = let
     curpath = dirname(@__FILE__() )
