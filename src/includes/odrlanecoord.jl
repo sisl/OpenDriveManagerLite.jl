@@ -4,7 +4,7 @@ LaneCoord,
 track_coord_plusequal,
 lane_coord_plusequal,
 intitialize_lanecoord!,
-vires_print
+vires_print_lanecoord
 
 abstract AbstractTrackCoord
 type LaneCoord <: AbstractTrackCoord
@@ -48,7 +48,7 @@ function intitialize_lanecoord!(coord::LaneCoord)
     coord
 end
 
-vires_print(coord::LaneCoord) =
+vires_print_lanecoord(coord::LaneCoord) =
     ccall((:lane_coord_print, LIB_ODRMGR), Void, (Ptr{LaneCoord}, ), coord.ptr)
 
 
