@@ -10,22 +10,28 @@ double coord_getDist2d(void * void_coord1,  void * void_coord2 )
     OpenDrive::Coord * coord2 = reinterpret_cast<OpenDrive::Coord*>(void_coord2);
     return OpenDrive::Coord::getDist2d(*coord1, *coord2);
 }
-void coord_multiply(void * void_coordA, double coordB)
+void * coord_multiply(void * void_coordA, double coordB)
 {
     OpenDrive::Coord * coordA = reinterpret_cast<OpenDrive::Coord*>(void_coordA);
-    (*coordA) * (coordB);
+    OpenDrive::Coord coordC = (*coordA) * (*coordB);
+    void * retval = *coordC;
+    return retval;
 }
-void coord_plus(void * void_coordA, void * void_coordB)
+void * coord_plus(void * void_coordA, void * void_coordB)
 {
     OpenDrive::Coord * coordA = reinterpret_cast<OpenDrive::Coord*>(void_coordA);
     OpenDrive::Coord * coordB = reinterpret_cast<OpenDrive::Coord*>(void_coordB);
-    (*coordA) + (*coordB);
+    OpenDrive::Coord coordC = (*coordA) + (*coordB);
+    void * retval = *coordC;
+    return retval;
 }
-void coord_subtract(void * void_coordA, void * void_coordB)
+void * coord_subtract(void * void_coordA, void * void_coordB)
 {
     OpenDrive::Coord * coordA = reinterpret_cast<OpenDrive::Coord*>(void_coordA);
     OpenDrive::Coord * coordB = reinterpret_cast<OpenDrive::Coord*>(void_coordB);
-    (*coordA) - (*coordB);
+    OpenDrive::Coord coordC = (*coordA) - (*coordB);
+    void * retval = *coordC;
+    return retval;
 }
 void coord_plusequal(void * void_coordA, void * void_coordB)
 {
