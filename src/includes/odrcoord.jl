@@ -75,5 +75,5 @@ print_coord(coord::Coord) =
     ccall((:coord_print, LIB_ODRMGR), Void, (Ptr{Void}, ), coord.ptr)
 
 get_value_coord(coord::Coord) =
-    ccall((:coord_getValue, LIB_ODRMGR), Cdouble, (Ptr{Void},), coord.ptr)
+    ccall((:coord_getValue, LIB_ODRMGR), Cdouble, (Ptr{Void},), pointer_from_objref(coord))
     
