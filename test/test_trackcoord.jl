@@ -60,7 +60,7 @@ initialize!(coord)
 @test coord.p == 0.0
 @test coord.r == 0.0
 
-vires_print(coordC)
+vires_print2(coordC)
 print(coordC)
 
 

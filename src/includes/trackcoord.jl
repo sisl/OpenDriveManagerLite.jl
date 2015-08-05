@@ -7,7 +7,8 @@ export
     copy!,
     show,
     print,
-    initialize!
+    initialize!,
+    vires_print2
 
 abstract AbstractTrackCoord
 type TrackCoord <: AbstractTrackCoord
@@ -61,5 +62,5 @@ function initialize!(coord::TrackCoord)
     coord
 end
 
-vires_print(coord::TrackCoord) =
+vires_print2(coord::TrackCoord) =
     ccall((:trackcoord_print, LIB_ODRMGR), Void, (Ptr{Void},), &coord)
