@@ -40,7 +40,6 @@ coordB = Coord(1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
 
 coord = Coord(1.0,2.0,3.0,4.0,5.0,6.0)
 intitialize_coord!(coord)
-@test coord.trackid == 0
 @test coord.x == 0.0
 @test coord.y == 0.0
 @test coord.z == 0.0
