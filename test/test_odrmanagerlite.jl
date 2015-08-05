@@ -2,15 +2,12 @@
  @test loadfile(mgr, "sample1.1.xodr")
 # printdata(mgr)
 pos = create_position(mgr)
-isdefined(:pos)
- println("***********")
- # print(pos)
- # @test pos != NULL
+@test isdefined(:pos) #used to check if its null or not
 
  activate_position(mgr, pos)
  
- @test get_trackpos(mgr) == TrackCoord.s
- @test get_lanepos(mgr) == LaneCoord.s
+ @test get_trackpos(mgr) == TrackCoord
+ @test get_lanepos(mgr) == LaneCoord
  
  get_inertialpos(mgr) == Coord
  get_footpoint(mgr)
