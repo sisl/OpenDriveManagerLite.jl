@@ -32,15 +32,15 @@ coordB = Coord(1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
 # coord_subtract(coordA,coordB)
 # @test coordA ==(coordA-coordB)
 
-coord_plusequal(coordA,coordB)
-@test coordA ==(coordA+coordB)
+# coord_plusequal(coordA,coordB)
+# @test coordA ==(coordA+coordB)
 
-coord_minusequal(coordA,coordB)
-@test coordA ==(coordA-coordB)
+# coord_minusequal(coordA,coordB)
+# @test coordA ==(coordA-coordB)
 
-intitialize_coord(coord)
+# intitialize_coord(coord)
 
-print_coord(coord)
+# print_coord(coord)
 
 get_value_coord(coord)
 
