@@ -37,7 +37,7 @@ pos = create_position(mgr)
  @test convert_inertial_to_lane(mgr)
  
  print_odrmanagerlite(mgr, 0)
- curvature = get_curvature(mgr))
+ curvature = get_curvature(mgr)
  @test isdefined(curvature)
  println("******")
  println(curvature)
