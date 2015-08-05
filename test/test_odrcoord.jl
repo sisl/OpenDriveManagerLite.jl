@@ -39,4 +39,4 @@ intitialize_coord!(coord)
 
 coordA = Coord(1.0,2.0,3.0,4.0,5.0,6.0)
 coordB = Coord(1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
-@test coordA + coordB == Coord(2.5, 4.5, 8.5 6.5, 10.5, 12.5)
+@test coordA + coordB == Coord(2.5, 4.5, 8.5, 6.5, 10.5, 12.5)
