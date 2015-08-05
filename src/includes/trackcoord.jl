@@ -62,4 +62,4 @@ function initialize!(coord::TrackCoord)
 end
 
 vires_print(coord::TrackCoord) =
-    ccall((:trackcoord_print, LIB_ODRMGR), Void, (Ptr{Void},), pointer_from_objref(coord))
+    ccall((:trackcoord_print, LIB_ODRMGR), Void, (Ptr{Void},), &coord)
