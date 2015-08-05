@@ -10,7 +10,7 @@ export
     coord_plusequal,
     coord_minusequal,
     intitialize_coord!,
-    print_coord,
+    # print_coord,
     get_value_coord
 
 type Coord
@@ -78,8 +78,8 @@ function intitialize_coord!(coord::Coord)
     coord
 end
 
-print_coord(coord::Coord) =
-    ccall((:coord_print, LIB_ODRMGR), Void, (Ptr{Void}, ), pointer_from_objref(coord))
+# print_coord(coord::Coord) =
+#     ccall((:coord_print, LIB_ODRMGR), Void, (Ptr{Void}, ), pointer_from_objref(coord))
 
 get_value_coord(coord::Coord) =
     ccall((:coord_getValue, LIB_ODRMGR), Cdouble, (Ptr{Void},), pointer_from_objref(coord))

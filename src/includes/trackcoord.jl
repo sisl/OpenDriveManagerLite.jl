@@ -8,7 +8,7 @@ export
     show,
     print,
     initialize!,
-    print_trackcoord
+    # print_trackcoord
 
 abstract AbstractTrackCoord
 type TrackCoord <: AbstractTrackCoord
@@ -62,5 +62,5 @@ function initialize!(coord::TrackCoord)
     coord
 end
 
-print_trackcoord(coord::TrackCoord) =
-    ccall((:trackcoord_print, LIB_ODRMGR), Void, (Ptr{Void},), pointer_from_objref(coord))
+# print_trackcoord(coord::TrackCoord) =
+#     ccall((:trackcoord_print, LIB_ODRMGR), Void, (Ptr{Void},), pointer_from_objref(coord))

@@ -6,7 +6,7 @@ coord = Coord(1.0,2.0,3.0,4.0,5.0,6.0)
 @test coord.p == 5.0
 @test coord.r == 6.0
 
-print_coord(coord)
+# print_coord(coord)
 
 coordA = coord
 coordB = Coord(1.5, 2.5, 3.5, 4.5, 5.5, 6.5)

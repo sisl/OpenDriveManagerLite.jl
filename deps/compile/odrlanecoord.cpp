@@ -12,10 +12,10 @@ void lane_coord_plusequal(void * void_coordA, void * void_coordB)
     // coordA->operator+=(); 
     (*coordA) += (*coordB);
 }
-void lane_coord_print(void * void_coord)
-{
-	OpenDrive::LaneCoord * coord = reinterpret_cast<OpenDrive::LaneCoord*>(void_coord);
-	coord->print();
-}
+// void lane_coord_print(void * void_coord)
+// {
+// 	OpenDrive::LaneCoord * coord = reinterpret_cast<OpenDrive::LaneCoord*>(void_coord);
+// 	coord->print();
+// }
 
 
