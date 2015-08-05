@@ -1,7 +1,6 @@
 export
     TrackCoord,
 
-    plus!,
     copy,
     deepcopy,
     copy!,

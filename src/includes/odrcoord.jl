@@ -3,7 +3,7 @@ export
 
     coord_get_dist,
     coord_get_dist2d,
-    plus!,
+    # plus!,
     minus!,
     intitialize_coord!,
     # print_coord,

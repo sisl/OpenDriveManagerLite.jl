@@ -11,8 +11,8 @@ end
 ## Ensure lib can be found
 ##
 ##############################################################################
-# export
-# 	vires_print
+export
+	plus!
 	
 import Base: copy, copy!, deepcopy, show, print, ==, *, +, -
 
