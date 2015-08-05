@@ -52,7 +52,6 @@ extern "C" void trackcoord_print(void * void_trackcoord);
 
 extern "C" void track_coord_plusequal(void * void_coordA, void * void_coordB);
 extern "C" void lane_coord_plusequal(void * void_coordA, void * void_coordB);
-extern "C" void lane_coord_initialize(void * void_coord);
 extern "C" void lane_coord_print(void * void_coord);
 
 /////////////////////////////////////

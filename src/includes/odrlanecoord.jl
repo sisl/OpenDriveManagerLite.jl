@@ -3,7 +3,7 @@ LaneCoord,
 
 track_coord_plusequal,
 lane_coord_plusequal,
-intitialize_lanecoord,
+intitialize_lanecoord!,
 print_lanecoord
 
 abstract AbstractTrackCoord
@@ -34,9 +34,20 @@ function lane_coord_plusequal(a::LaneCoord, b::LaneCoord)
     a
 end
 
-intitialize_lanecoord(coord::TrackCoord) =
-    ccall((:lane_coord_initialize, LIB_ODRMGR), Void, (Ptr{TrackCoord},), pointer_from_objref(coord))
-  
+
+function intitialize_lanecoord!(coord::LaneCoord)
+    coord.trackid = 0
+    coord.s = 0.0
+    coord.t = 0.0
+    coord.z = 0.0
+    coord.h = 0.0
+    coord.p = 0.0
+    coord.z = 0.0
+    coord.laneid = 0
+    coord.offset = 0.0
+    coord
+end
+
 print_lanecoord(coord::LaneCoord) =
     ccall((:lane_coord_print, LIB_ODRMGR), Void, (Ptr{LaneCoord}, ), coord.ptr)
 

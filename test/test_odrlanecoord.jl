@@ -44,7 +44,19 @@ coordA = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
 @test coordA.p == 5.0
 @test coordA.r == 6.0
  
- coordB = coordA
- coordB.s = 4.0
-# intitialize_lanecoord(coordA)
+
+coord = TrackCoord(0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+initialize!(coord)
+@test coord.trackid == 0
+@test coord.s == 0.0
+@test coord.t == 0.0
+@test coord.z == 0.0
+@test coord.h == 0.0
+@test coord.p == 0.0
+@test coord.z == 0.0 
+@test coord.laneid == 0
+@test coord.offset == 0.0 
+
+coordB = coordA
+coordB.s = 4.0
 track_coord_plusequal(coordA, coordB)
