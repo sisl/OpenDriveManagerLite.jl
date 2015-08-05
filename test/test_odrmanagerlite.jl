@@ -2,6 +2,8 @@
  @test loadfile(mgr, "sample1.1.xodr")
  printdata(mgr)
  pos = create_position(mgr)
+ println("***********")
+ print(pos)
  @test pos != NULL
 
  activate_position(mgr, pos)

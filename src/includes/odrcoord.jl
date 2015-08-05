@@ -69,10 +69,10 @@ function coord_minusequal(a::Coord, b::Coord)
 end
 
 intitialize_coord(coord::Coord) =
-    ccall((:coord_init, LIB_ODRMGR), Void, (Ptr{Void},), coord.ptr)
+    ccall((:coord_init, LIB_ODRMGR), Void, (Ptr{Void},), pointer_from_objref(coord))
   
 print_coord(coord::Coord) =
-    ccall((:coord_print, LIB_ODRMGR), Void, (Ptr{Void}, ), coord.ptr)
+    ccall((:coord_print, LIB_ODRMGR), Void, (Ptr{Void}, ), pointer_from_objref(coord))
 
 get_value_coord(coord::Coord) =
     ccall((:coord_getValue, LIB_ODRMGR), Cdouble, (Ptr{Void},), pointer_from_objref(coord))
