@@ -12,7 +12,10 @@ end
 ##
 ##############################################################################
 export
-	plus!
+    AbstractTrackCoord,
+
+	plus!,
+    minus!
 	
 import Base: copy, copy!, deepcopy, show, print, ==, *, +, -
 
@@ -27,8 +30,8 @@ if isempty(LIB_ODRMGR)
 end
     
 include("includes/trackcoord.jl")
-include("includes/odrlanecoord.jl")
-include("includes/odrcoord.jl")
+include("includes/lanecoord.jl")
+include("includes/coord.jl")
 include("includes/odrmanagerlite.jl")
 
 end # module

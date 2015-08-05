@@ -39,37 +39,29 @@ void odr_manager_activatePosition(void * void_odr_manager, void * void_pos)
     OpenDrive::Position * pos = reinterpret_cast<OpenDrive::Position*>(void_pos);
     mgr->activatePosition(pos);
 }
-void * odr_manager_getTrackPos(void * void_odr_manager, void * void_track_coord)
+void odr_manager_getTrackPos(void * void_odr_manager, void * void_track_coord)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_track_coord);
-    mgr->getTrackPos();
-    void * retval = &coord;
-    return retval;
+    (*coord) = mgr->getTrackPos();
 }
-void * odr_manager_getLanePos(void * void_odr_manager, void * void_lane_coord)
+void odr_manager_getLanePos(void * void_odr_manager, void * void_lane_coord)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     OpenDrive::LaneCoord * coord = reinterpret_cast<OpenDrive::LaneCoord*>(void_lane_coord);
-    mgr->getLanePos();
-    void * retval = &coord;
-    return retval;
+    (*coord) = mgr->getLanePos();
 }
-void * odr_manager_getInertialPos(void * void_odr_manager, void * void_coord)
+void odr_manager_getInertialPos(void * void_odr_manager, void * void_coord)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
-    mgr->getInertialPos();
-    void * retval = &coord;
-    return retval;
+    (*coord) = mgr->getInertialPos();
 }
 void * odr_manager_getFootPoint(void * void_odr_manager, void * void_coord)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
-    mgr->getFootPoint();
-    void * retval = &coord;
-    return retval;
+    (*coord) = mgr->getFootPoint();
 }
 void odr_manager_setpos_track_coord(void * void_odr_manager, void * void_track_coord)
 {
