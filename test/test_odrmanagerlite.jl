@@ -37,7 +37,7 @@ pos = create_position(mgr)
  @test convert_inertial_to_lane(mgr)
  
  print_odrmanagerlite(mgr, 0)
- @test isdefined(get_curvature(mgr))
+ @test isdefined(:get_curvature(mgr))
  @test get_curvature(mgr)==0.0
  get_track_len(mgr, 1)
  get_lane_width(mgr)
