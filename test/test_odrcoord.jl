@@ -42,6 +42,6 @@ coordB = Coord(1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
 
 # print_coord(coord)
 
-(x,y,z)=get_value_coord(coord)
-
+val=get_value_coord(coord)
+println(val)
 
