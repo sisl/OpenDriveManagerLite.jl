@@ -7,6 +7,9 @@ coord = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
 @test coord.p == 5.0
 @test coord.r == 6.0
 
+show(coord)
+print(coord)
+
 coordA = copy(coord)
 @test coordA.trackid == 0
 @test coordA.s == 1.0
@@ -45,3 +48,6 @@ coordC = plus!(copy(coordA), coordB)
 @test coordC.h == coordA.h + coordB.h
 @test coordC.p == coordA.p + coordB.p
 @test coordC.r == coordA.r + coordB.r
+
+initialize()
+# print_track_coord

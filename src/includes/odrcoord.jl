@@ -38,22 +38,22 @@ function coord_get_dist2d(a::Coord, b::Coord)
 end
 
 function coord_equal(a::Coord, b::Coord)
-    (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
+    (ccall( (:coord_equal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
 end
 function coord_multiply(a::Coord, b::Coord)
-    (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
+    (ccall( (:coord_multiply, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
 end
 function coord_plus(a::Coord, b::Coord)
-    (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
+    (ccall( (:coord_plus, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
 end
 function coord_subtract(a::Coord, b::Coord)
-    (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
+    (ccall( (:coord_subtract, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
 end
@@ -63,7 +63,7 @@ function coord_plusequal(a::Coord, b::Coord)
     a
 end
 function coord_minusequal(a::Coord, b::Coord)
-    (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
+    (ccall( (:coord_minusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
 end

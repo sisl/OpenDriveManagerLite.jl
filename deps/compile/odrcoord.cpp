@@ -16,11 +16,9 @@ void coord_equal(void * void_coordA, void * void_coordB)
     OpenDrive::Coord * coordB = reinterpret_cast<OpenDrive::Coord*>(void_coordB);
     (*coordA) = (*coordB);
 }
-//void coord_multiply(void * void_coordA, double void_coordB)
 void coord_multiply(void * void_coordA, double coordB)
 {
     OpenDrive::Coord * coordA = reinterpret_cast<OpenDrive::Coord*>(void_coordA);
-    //OpenDrive::Coord * coordB = reinterpret_cast<OpenDrive::Coord*>(void_coordB);
     (*coordA) * (coordB);
 }
 void coord_plus(void * void_coordA, void * void_coordB)
