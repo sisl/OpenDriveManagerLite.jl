@@ -23,7 +23,7 @@ coordB = Coord(1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
 # println(dist)
 
 coord_equal(coordA,coordB)
-@test coordA==coordB
+@test coordA == coordB
 
 # coord_multiply(coordA,coordB)
 # @test coordA ==(coordA*coordB)
@@ -41,6 +41,8 @@ coord_equal(coordA,coordB)
 # @test coordA ==(coordA-coordB)
 
 coord = Coord(1.0,2.0,3.0,4.0,5.0,6.0)
+@test isapprox(get_value(coord), norm([coord.x, coord.y, coord.z])) 
+
 intitialize_coord!(coord)
 @test coord.x == 0.0
 @test coord.y == 0.0
@@ -50,6 +52,5 @@ intitialize_coord!(coord)
 @test coord.r == 0.0 
 
 
-val=get_value_coord(coord)
-println(val)
-
+# val=get_value_coord(coord)
+# println(val)

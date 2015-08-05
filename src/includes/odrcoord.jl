@@ -3,12 +3,8 @@ export
 
     coord_get_dist,
     coord_get_dist2d,
-    coord_equal,
-    coord_multiply,
-    coord_plus,
-    coord_subtract,
-    coord_plusequal,
-    coord_minusequal,
+    plus!,
+    minus!,
     intitialize_coord!,
     # print_coord,
     get_value_coord
@@ -37,32 +33,38 @@ function coord_get_dist2d(a::Coord, b::Coord)
         pointer_from_objref(a), pointer_from_objref(b)))
 end
 
-function coord_equal(a::Coord, b::Coord)
-    (ccall( (:coord_equal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
-        pointer_from_objref(a), pointer_from_objref(b)))
-    a
+function Base.==(a::Coord, b::Coord)
+    isapprox(a.x, b.x) &&
+    isapprox(a.y, b.y) &&
+    isapprox(a.z, b.z) &&
+    isapprox(a.h, b.h) &&
+    isapprox(a.p, b.p) &&
+    isapprox(a.r, b.r) 
 end
-function coord_multiply(a::Coord, b::Coord)
-    (ccall( (:coord_multiply, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
+
+function Base.*(a::Coord, b::Coord)
+    cptr = (ccall( (:coord_multiply, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
-    a
+    unsafe_load(cptr, 1)::Coord
 end
-function coord_plus(a::Coord, b::Coord)
-    (ccall( (:coord_plus, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
+function Base.+(a::Coord, b::Coord)
+    cptr = (ccall( (:coord_plus, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
-    a
+    unsafe_load(cptr, 1)::Coord
 end
-function coord_subtract(a::Coord, b::Coord)
-    (ccall( (:coord_subtract, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
+function Base.-(a::Coord, b::Coord)
+    cptr = (ccall( (:coord_subtract, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
-    a
+    unsafe_load(cptr, 1)::Coord
 end
-function coord_plusequal(a::Coord, b::Coord)
+
+function plus!(a::Coord, b::Coord)
     (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
 end
-function coord_minusequal(a::Coord, b::Coord)
+
+function minus!(a::Coord, b::Coord)
     (ccall( (:coord_minusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
         pointer_from_objref(a), pointer_from_objref(b)))
     a
@@ -81,6 +83,5 @@ end
 # print_coord(coord::Coord) =
 #     ccall((:coord_print, LIB_ODRMGR), Void, (Ptr{Void}, ), pointer_from_objref(coord))
 
-get_value_coord(coord::Coord) =
+get_value(coord::Coord) =
     ccall((:coord_getValue, LIB_ODRMGR), Cdouble, (Ptr{Void},), pointer_from_objref(coord))
-    
