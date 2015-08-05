@@ -7,7 +7,7 @@ void trackcoord_plusequal(void * void_trackcoordA, void * void_trackcoordB)
 void trackcoord_init(void * void_trackcoord)
 {
  	OpenDrive::TrackCoord * coord = reinterpret_cast<OpenDrive::TrackCoord*>(void_trackcoord);
-    coord->init();
+    // coord->init();
 }
 void trackcoord_print(void * void_trackcoord) 
 {
