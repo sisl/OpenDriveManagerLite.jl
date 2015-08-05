@@ -7,7 +7,7 @@ export
     copy!,
     show,
     print,
-    initialize!,
+    initialize!
     # print_trackcoord
 
 abstract AbstractTrackCoord
