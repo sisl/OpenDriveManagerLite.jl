@@ -7,7 +7,7 @@ export
     copy!,
     show,
     print,
-    initialize,
+    initialize!,
     print_track_coord
 
 abstract AbstractTrackCoord
@@ -45,14 +45,21 @@ function Base.copy!(dest::TrackCoord, src::TrackCoord)
     dest.h = src.h   
     dest.p = src.p
     dest.r = src.r
+    dest
 end
 
 Base.show(io::IO, coord::TrackCoord) = @printf(io, "(%d, %.16e, %.16e, %.16e, %.16e, %.16e, %.16e)", coord.trackid, coord.s, coord.t, coord.z, coord.h, coord.p, coord.r)
 Base.print(io::IO, coord::TrackCoord) = @printf(io, "(%d, %.3f, %.3f, %.3f, %.3f, %.3f, %.3f)", coord.trackid, coord.s, coord.t, coord.z, coord.h, coord.p, coord.r)
 
-function initialize(coord::TrackCoord)
-    ptr = pointer_from_objref(coord)
-    ccall((:trackcoord_init, LIB_ODRMGR), Void, (Ptr{Void},), ptr)
+function initialize!(coord::TrackCoord)
+    coord.trackid = 0
+    coord.s = 0.0
+    coord.t = 0.0
+    coord.z = 0.0
+    coord.h = 0.0
+    coord.p = 0.0
+    coord.z = 0.0
+    coord
 end
 
 print_track_coord(coord::TrackCoord) =

@@ -51,7 +51,18 @@ coordC = plus!(copy(coordA), coordB)
 @test coordC.p == coordA.p + coordB.p
 @test coordC.r == coordA.r + coordB.r
 
-initialize(coord)
+
+
+
+coord(0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+initialize!(coord)
+@test coord.trackid == 0
+@test coord.s == 0.0
+@test coord.t == 0.0
+@test coord.z == 0.0
+@test coord.h == 0.0
+@test coord.p == 0.0
+@test coord.z == 0.0
 # print_track_coord(coordC)
 
 
