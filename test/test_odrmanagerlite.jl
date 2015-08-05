@@ -1,7 +1,8 @@
  mgr = OdrManagerLite()
  @test loadfile(mgr, "sample1.1.xodr")
  printdata(mgr)
-@test isdefined(create_position(mgr))
+pos = create_position(mgr)
+isdefined(pos)
  println("***********")
  # print(pos)
  # @test pos != NULL
