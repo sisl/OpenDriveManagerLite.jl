@@ -45,11 +45,6 @@ void coord_minusequal(void * void_coordA, void * void_coordB)
     OpenDrive::Coord * coordB = reinterpret_cast<OpenDrive::Coord*>(void_coordB);
     (*coordA)-=(*coordB);
 }
-void coord_init(void * void_coord)
-{
-    OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
-    coord->init();
-}
 void coord_print(void * void_coord) 
 {     
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);

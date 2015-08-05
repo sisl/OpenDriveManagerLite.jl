@@ -66,7 +66,6 @@ extern "C" void coord_plus(void * void_coordA, void * void_coordB);
 extern "C" void coord_subtract(void * void_coordA, void * void_coordB);
 extern "C" void coord_plusequal(void * void_coordA, void * void_coordB);
 extern "C" void coord_minusequal(void * void_coordA, void * void_coordB);
-extern "C" void coord_init(void * void_coord);
 extern "C" void coord_print(void * void_coord) ;
 extern "C" double coord_getValue(void * void_coord);
 

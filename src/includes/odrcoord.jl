@@ -9,7 +9,7 @@ export
     coord_subtract,
     coord_plusequal,
     coord_minusequal,
-    intitialize_coord,
+    intitialize_coord!,
     print_coord,
     get_value_coord
 
@@ -68,9 +68,16 @@ function coord_minusequal(a::Coord, b::Coord)
     a
 end
 
-intitialize_coord(coord::Coord) =
-    ccall((:coord_init, LIB_ODRMGR), Void, (Ptr{Void},), pointer_from_objref(coord))
-  
+function intitialize_coord!(coord::Coord) 
+    coord.s = 0.0
+    coord.t = 0.0
+    coord.z = 0.0
+    coord.h = 0.0
+    coord.p = 0.0
+    coord.z = 0.0
+    coord
+end
+
 print_coord(coord::Coord) =
     ccall((:coord_print, LIB_ODRMGR), Void, (Ptr{Void}, ), pointer_from_objref(coord))
 
