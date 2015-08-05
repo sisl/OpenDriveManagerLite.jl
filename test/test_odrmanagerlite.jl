@@ -42,13 +42,13 @@ pos = create_position(mgr)
  @test isdefined(:curvature)
  @test get_curvature(mgr)==0.0
 
- length = get_track_len(mgr, 1)
- @test isdefined(:length)
- println(length)
+ tracklength = get_track_len(mgr, 1)
+ @test isdefined(:tracklength)
+ # println(length)
 
  width = get_lane_width(mgr)
  @test isdefined(:width)
- println(length)
+ println(width)
 
  copy_foot_point_to_inertial(mgr)
  
