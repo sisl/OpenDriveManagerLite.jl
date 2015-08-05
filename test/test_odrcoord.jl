@@ -7,7 +7,7 @@ coord = Coord(1.0,2.0,3.0,4.0,5.0,6.0)
 @test coord.r == 6.0
 
 coordA = coord
-coordB = Coord(1.5, 2.5, 3.5, 4.5. 5.5, 6.5)
+coordB = Coord(1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
 @test coord_get_dist(coordA,coord) == 0
 @test coord_get_dist(coordB,coord) != 0
 dist = coord_get_dist(coordB,coord)
