@@ -69,12 +69,12 @@ function coord_minusequal(a::Coord, b::Coord)
 end
 
 function intitialize_coord!(coord::Coord) 
-    coord.s = 0.0
-    coord.t = 0.0
+    coord.x = 0.0
+    coord.y = 0.0
     coord.z = 0.0
     coord.h = 0.0
     coord.p = 0.0
-    coord.z = 0.0
+    coord.r = 0.0
     coord
 end
 

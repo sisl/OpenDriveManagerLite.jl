@@ -42,7 +42,7 @@ function intitialize_lanecoord!(coord::LaneCoord)
     coord.z = 0.0
     coord.h = 0.0
     coord.p = 0.0
-    coord.z = 0.0
+    coord.r = 0.0
     coord.laneid = 0
     coord.offset = 0.0
     coord

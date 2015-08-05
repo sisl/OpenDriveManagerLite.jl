@@ -54,7 +54,7 @@ coordC = plus!(copy(coordA), coordB)
 
 
 
-coord = TrackCoord(0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+coord = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
 initialize!(coord)
 @test coord.trackid == 0
 @test coord.s == 0.0
@@ -62,7 +62,7 @@ initialize!(coord)
 @test coord.z == 0.0
 @test coord.h == 0.0
 @test coord.p == 0.0
-@test coord.z == 0.0
+@test coord.r == 0.0
 # print_track_coord(coordC)
 
 

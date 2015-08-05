@@ -58,7 +58,7 @@ function initialize!(coord::TrackCoord)
     coord.z = 0.0
     coord.h = 0.0
     coord.p = 0.0
-    coord.z = 0.0
+    coord.r = 0.0
     coord
 end
 

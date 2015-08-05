@@ -44,7 +44,7 @@ coordA = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
 @test coordA.p == 5.0
 @test coordA.r == 6.0
 
-coord = LaneCoord(0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.0)
+coord = LaneCoord(0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 1, 1.0) 
 intitialize_lanecoord!(coord)
 @test coord.trackid == 0
 @test coord.s == 0.0
@@ -52,7 +52,7 @@ intitialize_lanecoord!(coord)
 @test coord.z == 0.0
 @test coord.h == 0.0
 @test coord.p == 0.0
-@test coord.z == 0.0 
+@test coord.r == 0.0 
 @test coord.laneid == 0
 @test coord.offset == 0.0 
 
