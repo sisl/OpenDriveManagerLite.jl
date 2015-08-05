@@ -54,7 +54,7 @@ coordC = plus!(copy(coordA), coordB)
 
 
 
-coord(0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+coord = TrackCoord(0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
 initialize!(coord)
 @test coord.trackid == 0
 @test coord.s == 0.0
