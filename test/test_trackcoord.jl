@@ -49,5 +49,5 @@ coordC = plus!(copy(coordA), coordB)
 @test coordC.p == coordA.p + coordB.p
 @test coordC.r == coordA.r + coordB.r
 
-initialize()
-# print_track_coord
+initialize(coordC)
+print_track_coord(coordC)
