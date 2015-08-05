@@ -35,12 +35,6 @@ coordB.s = 5.5
 
 lane_coord_plusequal(coordA, coordB)
 
-
-
-# print_lanecoord(coordB)
-
-
-
 coordA = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
 @test coordA.trackid == 0
 @test coordA.s == 1.0

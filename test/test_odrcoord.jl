@@ -40,7 +40,7 @@ coordB = Coord(1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
 
 # intitialize_coord(coord)
 
-# print_coord(coord)
+
 
 val=get_value_coord(coord)
 println(val)
