@@ -1,8 +1,8 @@
  mgr = OdrManagerLite()
  @test loadfile(mgr, "sample1.1.xodr")
-# printdata(mgr)
-pos = create_position(mgr)
-@test isdefined(:pos) #used to check if its null or not
+ printdata(mgr)
+ pos = create_position(mgr)
+ @test isdefined(:pos) #used to check if its null or not
 
  activate_position(mgr, pos)
  
@@ -48,7 +48,7 @@ pos = create_position(mgr)
 
  width = get_lane_width(mgr)
  @test isdefined(:width)
- println(width)
+ # println(width)
 
  copy_foot_point_to_inertial(mgr)
  
