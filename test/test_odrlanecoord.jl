@@ -45,7 +45,7 @@ coordA = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
 @test coordA.r == 6.0
  
 
-coord = TrackCoord(0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+coord = TrackCoord(0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.0)
 initialize!(coord)
 @test coord.trackid == 0
 @test coord.s == 0.0
