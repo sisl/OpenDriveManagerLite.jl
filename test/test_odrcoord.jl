@@ -10,25 +10,27 @@ coordA = coord
 coordB = Coord(1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
 @test coord_get_dist(coordA,coord) == 0
 @test coord_get_dist(coordB,coord) != 0
-dist = coord_get_dist(coordB,coord)
-println(dist)
+@test coord_get_dist(coordB,coord) == 0.8660254037844386
+# dist = coord_get_dist(coordB,coord)
+# println(dist)
 
 @test coord_get_dist2d(coordA,coord) == 0
 @test coord_get_dist2d(coordB,coord) != 0
-dist = coord_get_dist2d(coordB,coord)
-println(dist)
+@test coord_get_dist2d(coordB,coord) == 0.7071067811865476
+# dist = coord_get_dist2d(coordB,coord)
+# println(dist)
 
-coord_equal(coordA,coordB)
-@test coordA==coordB
+# coord_equal(coordA,coordB)
+# @test coordA==coordB
 
-coord_multiply(coordA,coordB)
-@test coordA ==(coordA*coordB)
+# coord_multiply(coordA,coordB)
+# @test coordA ==(coordA*coordB)
 
-coord_plus(coordA,coordB)
-@test coordA ==(coordA+coordB)
+# coord_plus(coordA,coordB)
+# @test coordA ==(coordA+coordB)
 
-coord_subtract(coordA,coordB)
-@test coordA ==(coordA-coordB)
+# coord_subtract(coordA,coordB)
+# @test coordA ==(coordA-coordB)
 
 coord_plusequal(coordA,coordB)
 @test coordA ==(coordA+coordB)
