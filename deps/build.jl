@@ -11,6 +11,15 @@
 if isfile("odrMgrLite.1.4.3.zip")
     rm("odrMgrLite.1.4.3.zip")
 end
+if isdir("compile/lib")
+    rm("compile/lib", recursive=true)
+end
+if isdir("compile/inc")
+    rm("compile/inc", recursive=true)
+end
+if isfile("compile/libODriveLite.1.4.3.a")
+    rm("compile/libODriveLite.1.4.3.a")
+end
 
 run(`wget --user-agent="Chrome" http://www.vires.com/download/OpenDRIVE/odrMgrLite.1.4.3.zip`)
 run(`unzip odrMgrLite.1.4.3.zip`)
