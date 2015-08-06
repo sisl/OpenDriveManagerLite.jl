@@ -57,7 +57,7 @@ void odr_manager_getInertialPos(void * void_odr_manager, void * void_coord)
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);
     (*coord) = mgr->getInertialPos();
 }
-void * odr_manager_getFootPoint(void * void_odr_manager, void * void_coord)
+void odr_manager_getFootPoint(void * void_odr_manager, void * void_coord)
 {
     OpenDrive::OdrManagerLite * mgr = reinterpret_cast<OpenDrive::OdrManagerLite*>(void_odr_manager);
     OpenDrive::Coord * coord = reinterpret_cast<OpenDrive::Coord*>(void_coord);

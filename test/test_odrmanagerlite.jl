@@ -2,7 +2,9 @@
 mgr = OdrManagerLite()
 @test mgr.has_activated_position == false
 
-@test loadfile(mgr, "1lane.xodr")
+
+XODR_FILE = joinpath(Pkg.dir("OpenDriveManagerLite", "test"), "1lane.xodr")
+@test loadfile(mgr, XODR_FILE)
 printdata(mgr)
 
 pos = create_position(mgr)
