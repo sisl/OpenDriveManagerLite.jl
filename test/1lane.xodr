@@ -2,7 +2,7 @@
 <OpenDRIVE>
     <header revMajor="1" revMinor="1" name="Kosovo" version="1.00" date="Fri Jul 24 02:49:04 2015" north="3.0000000000000000e+03" south="-1.0000000000000000e+03" east="4.0000000000000000e+03" west="-2.0000000000000000e+03" originLat="0.0000000000000000e+00" originLong="0.0000000000000000e+00" originHdg="0.0000000000000000e+00">
     </header>
-    <road name="" length="7.5707963267948962e+03" id="0" junction="-1">
+    <road name="" length="7.1415926535897925e+03" id="0" junction="-1">
         <link>
             <predecessor elementType="road" elementId="0" contactPoint="start" />
             <successor elementType="road" elementId="0" contactPoint="end" />

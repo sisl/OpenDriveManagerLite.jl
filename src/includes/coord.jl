@@ -20,6 +20,7 @@ type Coord
 end
 
 copy(c::Coord) = Coord(c.x, c.y, c.z, c.h, c.p, c.r)
+deepcopy(c::Coord) = copy(c) 
 function copy!(dest::Coord, src::Coord)
     dest.x = src.x
     dest.y = src.y
@@ -29,6 +30,9 @@ function copy!(dest::Coord, src::Coord)
     dest.r = src.r
     dest
 end
+
+show(io::IO, coord::Coord) = @printf(io, "(%.16e, %.16e, %.16e, %.16e, %.16e, %.16e)", coord.x, coord.y, coord.z, coord.h, coord.p, coord.r)
+print(io::IO, coord::Coord) = @printf(io, "(%.3f, %.3f, %.3f, %.3f, %.3f, %.3f)", coord.x, coord.y, coord.z, coord.h, coord.p, coord.r)
 
 function coord_get_dist(a::Coord, b::Coord)
     (ccall( (:coord_getDist, LIB_ODRMGR), Cdouble, (Ptr{Coord},Ptr{Coord}), 

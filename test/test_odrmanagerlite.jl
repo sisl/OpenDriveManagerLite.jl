@@ -3,7 +3,7 @@ mgr = OdrManagerLite()
 @test mgr.has_activated_position == false
 
 @test loadfile(mgr, "1lane.xodr")
-# printdata(mgr)
+printdata(mgr)
 
 pos = create_position(mgr)
 @test pos.ptr != C_NULL
@@ -117,101 +117,89 @@ set_pos(mgr, LaneCoord(0, 2785.3981634, 500.0, 1.0, 0.0, 5.0, 6.0, -1, 0.0))
 check_pos(mgr, 0, 2785.3981634, 500.0, 1.0, 0.0,
                   2000.0,       500.0, 9.5, pi/2)
 
-set_track_pos(mgr, 0, 1.0, 2.0)
+set_trackpos(mgr, 0, 1.0, 2.0)
 check_pos(mgr, 0, 1.0, 2.0, 1.0, 0.0,
                   1.0, 2.0, 9.5, 0.0)
 
-set_track_pos(mgr, TrackCoord(0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0))
+set_trackpos(mgr, TrackCoord(0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0))
 check_pos(mgr, 0, 1.0, 2.0, 3.0, 4.0,
                   1.0, 2.0, 9.5, 4.0)
 
-set_track_pos(mgr, TrackCoord(0, 10.0, 2.0, 3.0, 1.0, 5.0, 6.0))
+set_trackpos(mgr, TrackCoord(0, 10.0, 2.0, 3.0, 1.0, 5.0, 6.0))
 check_pos(mgr, 0, 10.0, 2.0, 3.0, 1.0,
                   10.0, 2.0, 9.5, 1.0)
 
-set_track_pos(mgr, TrackCoord(0, 2785.3981634, 500.0, 1.0, 0.0, 5.0, 6.0))
+set_trackpos(mgr, TrackCoord(0, 2785.3981634, 500.0, 1.0, 0.0, 5.0, 6.0))
 check_pos(mgr, 0, 2785.3981634, 500.0, 1.0, 0.0,
                   2000.0,       500.0, 9.5, pi/2)
 
-set_lane_pos(mgr, LaneCoord(0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, -1, 0.0))
+set_lanepos(mgr, LaneCoord(0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, -1, 0.0))
 check_pos(mgr, 0, 1.0, 2.0, 3.0, 4.0, -1, 0.0,
                   1.0, -1.625, 9.5, 4.0)
 
-set_lane_pos(mgr, LaneCoord(0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, -1, 0.5))
+set_lanepos(mgr, LaneCoord(0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, -1, 0.5))
 check_pos(mgr, 0, 1.0, 2.0, 3.0, 4.0, -1, 0.5,
                   1.0, -1.625+0.5, 9.5, 4.0)
 
-set_lane_pos(mgr, 0, -1, 1.0, 0.0)
+set_lanepos(mgr, 0, -1, 1.0, 0.0)
 check_lanepos(mgr, 0, -1, 1.0, 0.0,
                       1.0, -1.625, 9.5, 4.0)
 
-set_lane_pos(mgr, 0, -1, 1.0, 0.5)
+set_lanepos(mgr, 0, -1, 1.0, 0.5)
 check_lanepos(mgr, 0, -1, 1.0, 0.5,
                   1.0, -1.625+0.5, 9.5, 4.0)
 
-println(get_trackpos(mgr))
-println(get_inertialpos(mgr))
-set_track_pos(mgr, 0, 0.0, 0.0)
+set_trackpos(mgr, 0, 0.0, 0.0)
 @test track2inertial(mgr)
-println(get_trackpos(mgr))
-println(get_inertialpos(mgr))
 set_pos(mgr, Coord(1.0, 2.0, 3.0, 4.0, 5.0, 6.0))
 @test inertial2track(mgr)
-println(get_trackpos(mgr))
-println(get_inertialpos(mgr))
+@test get_inertialpos(mgr) == Coord(1.0, 2.0, 3.0, 4.0, 5.0, 6.0)
+pos = get_trackpos(mgr)
+@test pos.trackid == 0
+@test isapprox(pos.s, 1.0, atol=1e-3)
+@test isapprox(pos.t, 2.0, atol=1e-3)
 
+set_inertialpos(mgr, 1000.0, -1.0, 0.0)
+@test inertial2track(mgr)
 
-# set_lane_pos(mgr, LaneCoord(0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 0, 0.0))
-# check_pos(mgr, 0, 1.0, 2.0, 3.0, 4.0,
-#                   1.0, 2.0, 9.5, 4.0)
+pos = get_inertialpos(mgr)
+@test isapprox(pos.x, 1000.0, atol=1e-3)
+@test isapprox(pos.y,   -1.0, atol=1e-3)
+@test isapprox(pos.z,    0.0, atol=1e-3)
 
-# set_lane_pos(mgr, LaneCoord(0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, -1, 0.5))
-# check_pos(mgr, 0, 1.0, 2.0, 3.0, 4.0,
-#                   1.0, 2.0, 9.5, 4.0)
+pos = get_trackpos(mgr)
+@test pos.trackid == 0
+@test isapprox(pos.s, 1000.0, atol=1e-3)
+@test isapprox(pos.t,   -1.0, atol=1e-3)
 
-# fpos = get_footpoint(mgr)
-# println(fpos)
-# @test isapprox(ipos.s, 1.0)
-# @test isapprox(ipos.t, 2.0)
-# @test isapprox(ipos.z, 3.0)
-# @test isapprox(ipos.h, 4.0)
+@test inertial2lane(mgr)
+pos = get_lanepos(mgr)
+@test pos.trackid == 0
+@test isapprox(pos.s, 1000.0, atol=1e-3)
+@test isapprox(pos.t,   -1.0, atol=1e-3)
+@test isapprox(pos.z,    9.5, atol=1e-3)
+@test pos.laneid == -1
+@test isapprox(pos.offset, 0.625)
 
+set_inertialpos(mgr, 1000.0, -2.0, 0.0)
+@test inertial2lane(mgr)
+pos = get_lanepos(mgr)
+@test pos.trackid == 0
+@test isapprox(pos.s, 1000.0, atol=1e-3)
+@test isapprox(pos.t,   -2.0, atol=1e-3)
+@test isapprox(pos.z,    9.5, atol=1e-3)
+@test pos.laneid == -1
+@test isapprox(pos.offset, 0.625-1.0)
 
+@test isapprox(get_curvature(mgr), 0.0, atol=1e-5)
 
- 
- # value = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
- # set_pos(mgr, value)
- # set_trackpos_s_t(mgr, 1, 1.0, 2.0)
- # set_trackpos_track_coord(mgr, value)
- 
- # value = LaneCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0, 1, 0.0)
- # set_pos_with_lanecoord(mgr, value)
- # set_lanepos(mgr, 1, 1, 2.0, 3.0)
- # set_lanepos_with_lanecoord(mgr, value)
- 
- # value = Coord(1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
- # set_pos_with_coord(mgr, value)
- # set_inertialpos(mgr, 1.0, 2.0, 3.0)
- 
- # @test convert_track_to_inertial(mgr)
- # @test convert_inertial_to_track(mgr)
- # # @test convert_lane_to_inertial(mgr)
- # @test convert_inertial_to_lane(mgr)
- 
- # print_odrmanagerlite(mgr, 0)
+set_inertialpos(mgr, 2500.0, 500.0, 0.0)
+@test inertial2track(mgr)
+@test isapprox(get_curvature(mgr), 1/500.0, atol=1e-5)
 
- # curvature = get_curvature(mgr)
- # @test isdefined(:curvature)
- # @test get_curvature(mgr)==0.0
+@test isapprox(get_track_len(mgr, 0), 2000.0*2 + 2*pi*500.0)
+@test isapprox(get_lane_width(mgr), 3.25)
 
- # tracklength = get_track_len(mgr, 1)
- # @test isdefined(:tracklength)
- # # println(length)
-
- # width = get_lane_width(mgr)
- # @test isdefined(:width)
- # # println(width)
-
- # copy_foot_point_to_inertial(mgr)
+print_odrmanagerlite(mgr)
  
 
