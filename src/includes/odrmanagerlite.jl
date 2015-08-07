@@ -10,7 +10,7 @@ export
     get_trackpos,
     get_lanepos,
     get_inertialpos,
-    # get_footpoint,
+    get_footpoint,
 
     set_pos,
     set_trackpos,
@@ -21,7 +21,7 @@ export
     inertial2track,
     lane2inertial,
     inertial2lane,
-    # footpoint2inertial,
+    footpoint2inertial,
 
     print_odrmanagerlite,
     get_curvature,
@@ -91,15 +91,15 @@ function get_inertialpos(mgr::OdrManagerLite)
         return coord
     end
 end
-# function get_footpoint(mgr::OdrManagerLite)
-#     if !mgr.has_activated_position
-#         warn("OdrManagerLite does not have an activated position")
-#     else
-#         coord = Coord()
-#         ccall((:odr_manager_getFootPoint, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), mgr.ptr, pointer_from_objref(coord))
-#         return coord
-#     end
-# end
+function get_footpoint(mgr::OdrManagerLite)
+    if !mgr.has_activated_position
+        warn("OdrManagerLite does not have an activated position")
+    else
+        coord = Coord()
+        ccall((:odr_manager_getFootPoint, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), mgr.ptr, pointer_from_objref(coord))
+        return coord
+    end
+end
 
 set_pos(mgr::OdrManagerLite, value::TrackCoord) =
     ccall((:odr_manager_setpos_track_coord, LIB_ODRMGR), Void, (Ptr{Void}, Ptr{TrackCoord}), mgr.ptr, pointer_from_objref(value))
@@ -133,8 +133,8 @@ lane2inertial(mgr::OdrManagerLite) =
 inertial2lane(mgr::OdrManagerLite) = 
      ccall((:odr_manager_inertial2lane, LIB_ODRMGR), Bool, (Ptr{Void},), mgr.ptr)
 
-# footpoint2inertial(mgr::OdrManagerLite) = 
-#     ccall((:odr_manager_footPoint2inertial, LIB_ODRMGR), Void, (Ptr{Void},), mgr.ptr)
+footpoint2inertial(mgr::OdrManagerLite) = 
+    ccall((:odr_manager_footPoint2inertial, LIB_ODRMGR), Void, (Ptr{Void},), mgr.ptr)
 
 print_odrmanagerlite(mgr::OdrManagerLite, indent::Integer=0) = 
     ccall((:odr_manager_print, LIB_ODRMGR), Void, (Ptr{Void},Cint), mgr.ptr, indent)
