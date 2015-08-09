@@ -14,8 +14,10 @@ end
 export
     AbstractTrackCoord,
 
+    times!,
 	plus!,
-    minus!
+    minus!,
+    init!
 	
 import Base: copy, copy!, deepcopy, show, print, ==, *, +, -
 

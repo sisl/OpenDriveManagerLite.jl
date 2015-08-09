@@ -1,12 +1,14 @@
 export
     Coord,
+    CoordIm,
+    AbstractCoord,
 
-    coord_get_dist,
-    coord_get_dist2d,
-    init!,
+    get_dist,
+    get_dist2d,
     get_value
 
-type Coord
+abstract AbstractCoord
+type Coord <: AbstractCoord
     x::Cdouble
     y::Cdouble
     z::Cdouble
@@ -18,10 +20,22 @@ type Coord
     Coord(x::Real, y::Real, z::Real, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
         new(x, y, z, h, p, r)
 end
+type CoordIm <: AbstractCoord
+    x::Cdouble
+    y::Cdouble
+    z::Cdouble
+    h::Cdouble
+    p::Cdouble
+    r::Cdouble
+
+    CoordIm(x::Real, y::Real, z::Real, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
+        new(x, y, z, h, p, r)
+end
 
 copy(c::Coord) = Coord(c.x, c.y, c.z, c.h, c.p, c.r)
-deepcopy(c::Coord) = copy(c) 
-function copy!(dest::Coord, src::Coord)
+copy(c::CoordIm) = CoordIm(c.x, c.y, c.z, c.h, c.p, c.r)
+deepcopy(c::AbstractCoord) = copy(c)
+function copy!(dest::Coord, src::AbstractCoord)
     dest.x = src.x
     dest.y = src.y
     dest.z = src.z
@@ -31,68 +45,66 @@ function copy!(dest::Coord, src::Coord)
     dest
 end
 
-show(io::IO, coord::Coord) = @printf(io, "(%.16e, %.16e, %.16e, %.16e, %.16e, %.16e)", coord.x, coord.y, coord.z, coord.h, coord.p, coord.r)
-print(io::IO, coord::Coord) = @printf(io, "(%.3f, %.3f, %.3f, %.3f, %.3f, %.3f)", coord.x, coord.y, coord.z, coord.h, coord.p, coord.r)
+Base.convert(::Type{CoordIm}, c::Coord) = CoordIm(c.x, c.y, c.z, c.h, c.p, c.r)
+Base.convert(::Type{Coord}, c::CoordIm) = Coord(c.x, c.y, c.z, c.h, c.p, c.r)
 
-function coord_get_dist(a::Coord, b::Coord)
-    (ccall( (:coord_getDist, LIB_ODRMGR), Cdouble, (Ptr{Coord},Ptr{Coord}), 
-        pointer_from_objref(a), pointer_from_objref(b)))
-end
-
-function coord_get_dist2d(a::Coord, b::Coord)
-    (ccall( (:coord_getDist2d, LIB_ODRMGR), Cdouble, (Ptr{Coord},Ptr{Coord}), 
-        pointer_from_objref(a), pointer_from_objref(b)))
-end
-
-function ==(a::Coord, b::Coord)
+function ==(a::AbstractCoord, b::AbstractCoord)
     isapprox(a.x, b.x) &&
     isapprox(a.y, b.y) &&
     isapprox(a.z, b.z) &&
     isapprox(a.h, b.h) &&
     isapprox(a.p, b.p) &&
-    isapprox(a.r, b.r) 
+    isapprox(a.r, b.r)
 end
 
-function *(a::Coord, d::Real)
-    c = Coord(a.x * d,
+show(io::IO, coord::AbstractCoord) = @printf(io, "(%.16e, %.16e, %.16e, %.16e, %.16e, %.16e)", coord.x, coord.y, coord.z, coord.h, coord.p, coord.r)
+print(io::IO, coord::AbstractCoord) = @printf(io, "(%.3f, %.3f, %.3f, %.3f, %.3f, %.3f)", coord.x, coord.y, coord.z, coord.h, coord.p, coord.r)
+
+function get_dist(a::AbstractCoord, b::AbstractCoord)
+    (ccall( (:coord_getDist, LIB_ODRMGR), Cdouble, (Ptr{Coord},Ptr{Coord}), 
+        pointer_from_objref(a), pointer_from_objref(b)))
+end
+
+function get_dist2d(a::AbstractCoord, b::AbstractCoord)
+    (ccall( (:coord_getDist2d, LIB_ODRMGR), Cdouble, (Ptr{Coord},Ptr{Coord}), 
+        pointer_from_objref(a), pointer_from_objref(b)))
+end
+
+function *(a::AbstractCoord, d::Real)
+    CoordIm(a.x * d,
               a.y * d,
               a.z * d,
               a.h * d,
               a.p * d,
               a.r * d)
 end
-function +(a::Coord, b::Coord)
-    c = Coord(a.x + b.x,
+function +(a::AbstractCoord, b::AbstractCoord)
+    CoordIm(a.x + b.x,
               a.y + b.y,
               a.z + b.z,
               a.h + b.h,
               a.p + b.p,
               a.r + b.r)
-    # cptr = (ccall( (:coord_plus, LIB_ODRMGR), Ptr{Cdouble}, (Ptr{Void},Ptr{Void}), 
-    #     pointer_from_objref(a), pointer_from_objref(b)))
-    # retval = Array(Cdouble, 7)
-    # for i = 1 : length(retval)
-    #     retval[i] = unsafe_load(cptr, i)
-    # end
-    # retval
-    # cptr = (ccall( (:coord_plus, LIB_ODRMGR), Ptr{Coord}, (Ptr{Void},Ptr{Void}), pointer_from_objref(a), pointer_from_objref(b)))
-    # unsafe_pointer_to_objref(cptr)::Coord
 end
-function -(a::Coord, b::Coord)
-    c = Coord(a.x - b.x,
+function -(a::AbstractCoord, b::AbstractCoord)
+    CoordIm(a.x - b.x,
               a.y - b.y,
               a.z - b.z,
               a.h - b.h,
               a.p - b.p,
               a.r - b.r)
-    # cptr = (ccall( (:coord_subtract, LIB_ODRMGR), Ptr{Void}, (Ptr{Void},Ptr{Void}), 
-    #     pointer_from_objref(a), pointer_from_objref(b)))
-    # unsafe_load(cptr, 1)::Coord
 end
 
-function plus!(a::Coord, b::Coord)
-    # (ccall( (:coord_plusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
-    #     pointer_from_objref(a), pointer_from_objref(b)))
+function times!(a::Coord, d::Real)
+    a.x *= d
+    a.y *= d
+    a.z *= d
+    a.h *= d
+    a.p *= d
+    a.r *= d
+    a
+end
+function plus!(a::Coord, b::AbstractCoord)
     a.x += b.x
     a.y += b.y
     a.z += b.z
@@ -101,10 +113,7 @@ function plus!(a::Coord, b::Coord)
     a.r += b.r
     a
 end
-
-function minus!(a::Coord, b::Coord)
-    # (ccall( (:coord_minusequal, LIB_ODRMGR), Void, (Ptr{Void},Ptr{Void}), 
-    #     pointer_from_objref(a), pointer_from_objref(b)))
+function minus!(a::Coord, b::AbstractCoord)
     a.x -= b.x
     a.y -= b.y
     a.z -= b.z
@@ -112,6 +121,33 @@ function minus!(a::Coord, b::Coord)
     a.p -= b.p
     a.r -= b.r
     a
+end
+function times!(retval::Coord, a::AbstractCoord, d::Real)
+    retval.x = a.x * d
+    retval.y = a.y * d
+    retval.z = a.z * d
+    retval.h = a.h * d
+    retval.p = a.p * d
+    retval.r = a.r * d
+    retval
+end
+function plus!(retval::Coord, a::AbstractCoord, b::AbstractCoord)
+    retval.x = a.x + b.x
+    retval.y = a.y + b.y
+    retval.z = a.z + b.z
+    retval.h = a.h + b.h
+    retval.p = a.p + b.p
+    retval.r = a.r + b.r
+    retval
+end
+function minus!(retval::Coord, a::AbstractCoord, b::AbstractCoord)
+    retval.x = a.x - b.x
+    retval.y = a.y - b.y
+    retval.z = a.z - b.z
+    retval.h = a.h - b.h
+    retval.p = a.p - b.p
+    retval.r = a.r - b.r
+    retval
 end
 
 function init!(coord::Coord) 
@@ -124,8 +160,7 @@ function init!(coord::Coord)
     coord
 end
 
-# print_coord(coord::Coord) =
-#     ccall((:coord_print, LIB_ODRMGR), Void, (Ptr{Void}, ), pointer_from_objref(coord))
-
-get_value(coord::Coord) =
+get_value(coord::AbstractCoord) =
     ccall((:coord_getValue, LIB_ODRMGR), Cdouble, (Ptr{Void},), pointer_from_objref(coord))
+
+

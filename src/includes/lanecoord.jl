@@ -31,7 +31,7 @@ immutable LaneCoordIm <: AbstractLaneCoord
     offset::Cdouble
 
     LaneCoordIm(trackid::Integer, s::Real, t::Real, z::Real = 0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0, laneid::Real=1, offset::Real=0.0 ) =
-        new(trackid, s, t, z, h, p, r, laneid, offset)    
+        new(trackid, s, t, z, h, p, r, laneid, offset)
 end
 
 function ==(a::AbstractLaneCoord, b::AbstractLaneCoord)

@@ -1,3 +1,4 @@
+coord = LaneCoord()
 coord = LaneCoord(0, 1.0, 2.0, 3.0)   # distance perpendicular to the track
 @test coord.trackid == 0
 @test coord.s == 1.0
