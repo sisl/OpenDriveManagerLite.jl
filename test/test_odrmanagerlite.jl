@@ -2,6 +2,16 @@
 mgr = OdrManagerLite()
 @test mgr.has_activated_position == false
 
+a = 0x00
+pos = Position(pointer_from_objref(a))
+pos = 2 # delete ptr
+
+# these should trigger warnings
+@test isa(get_trackpos(mgr), Nothing)
+@test isa(get_lanepos(mgr), Nothing)
+@test isa(get_inertialpos(mgr), Nothing)
+@test isa(get_footpoint(mgr), Nothing)
+
 
 XODR_FILE = joinpath(Pkg.dir("OpenDriveManagerLite", "test"), "1lane.xodr")
 @test loadfile(mgr, XODR_FILE)
