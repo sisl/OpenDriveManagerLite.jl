@@ -33,6 +33,8 @@ immutable LaneCoordIm <: AbstractLaneCoord
     LaneCoordIm(trackid::Integer, s::Real, t::Real, z::Real = 0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0, laneid::Real=1, offset::Real=0.0 ) =
         new(trackid, s, t, z, h, p, r, laneid, offset)
 end
+Base.convert(::Type{LaneCoordIm}, c::LaneCoord) = LaneCoordIm(c.trackid, c.s, c.t, c.z, c.h, c.p, c.r, c.laneid, c.offset)
+Base.convert(::Type{LaneCoord}, c::LaneCoordIm) = LaneCoord(c.trackid, c.s, c.t, c.z, c.h, c.p, c.r, c.laneid, c.offset)
 
 function ==(a::AbstractLaneCoord, b::AbstractLaneCoord)
     a.trackid == b.trackid &&
