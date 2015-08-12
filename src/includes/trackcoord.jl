@@ -29,8 +29,8 @@ immutable TrackCoordIm <: AbstractTrackCoord
     p::Cdouble    # pitch [rad]
     r::Cdouble    # roll [rad]
 
-    TrackCoord() = new() # create one without setting any values
-    TrackCoord(trackid::Integer, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
+    TrackCoordIm() = new() # create one without setting any values
+    TrackCoordIm(trackid::Integer, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
         new(trackid, s, t, z, h, p, r)
 end
 
