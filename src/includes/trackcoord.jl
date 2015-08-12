@@ -1,5 +1,8 @@
 export
-    TrackCoord
+    AbstractTrackCoord,
+    
+    TrackCoord,
+    TrackCoordIm
 
 abstract AbstractTrackCoord
 type TrackCoord <: AbstractTrackCoord
@@ -16,6 +19,23 @@ type TrackCoord <: AbstractTrackCoord
     TrackCoord(trackid::Integer, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
         new(trackid, s, t, z, h, p, r)
 end
+immutable TrackCoordIm <: AbstractTrackCoord
+
+    trackid::Cint # id of the corresponding track
+    s::Cdouble    # distance along the track
+    t::Cdouble    # distance perpendicular to the track
+    z::Cdouble    # height
+    h::Cdouble    # heading [rad]
+    p::Cdouble    # pitch [rad]
+    r::Cdouble    # roll [rad]
+
+    TrackCoord() = new() # create one without setting any values
+    TrackCoord(trackid::Integer, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
+        new(trackid, s, t, z, h, p, r)
+end
+
+Base.convert(::Type{TrackCoordIm}, c::TrackCoord) = TrackCoordIm(c.s, c.t, c.z, c.h, c.p, c.r)
+Base.convert(::Type{TrackCoord}, c::TrackCoordIm) = TrackCoord(c.s, c.t, c.z, c.h, c.p, c.r)
 
 function ==(a::TrackCoord, b::TrackCoord)
     a.trackid == b.trackid &&
