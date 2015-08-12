@@ -41,21 +41,15 @@ coordA = TrackCoord(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
 coordB = TrackCoord(1, 0.5 ,1.5 ,2.5 ,3.5 ,4.5 ,5.5)
 @test plus!(coordA, coordB) == TrackCoord(0, 1.5 ,3.5 ,5.5 ,7.5 ,9.5 ,11.5)
 
-coordIM = TrackCoordIm()
-coordIM = TrackCoordIm(0, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
+coordim = TrackCoordIm()
+coordim = TrackCoordIm(0, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
 
 @test isa(convert(TrackCoordIm, coordA), TrackCoordIm)
 @test isa(convert(TrackCoord, coordA), TrackCoord)
-@test isa(convert(TrackCoordIm, coordIM), TrackCoordIm)
-@test isa(convert(TrackCoord, coordIM), TrackCoord)
+@test isa(convert(TrackCoordIm, coordim), TrackCoordIm)
+@test isa(convert(TrackCoord, coordim), TrackCoord)
 
 @test convert(TrackCoord, coordA) == coordA
-@test convert(TrackCoord, coordIM) == coordIM
+@test convert(TrackCoord, coordim) == coordim
 @test convert(TrackCoordIm, coordA) == coordA
-@test convert(TrackCoordIm, coordIM) == coordIM
-
-
-
-
-
-
+@test convert(TrackCoordIm, coordim) == coordim
