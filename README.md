@@ -130,7 +130,7 @@ footpoint2inertial(mgr)
 get_footpoint(mgr)
 ```
 
-## For further documentation, see OpenDRIVE Manager Manuel
-[![OpenDRIVE Manager](http://www.vires.com/docs/OdrMgrUserManualRevI.pdf)]
+## For further documentation, see OpenDRIVE Manager Manual
+[OpenDRIVE Manager](http://www.vires.com/docs/OdrMgrUserManualRevI.pdf)
 
 
