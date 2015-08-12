@@ -215,5 +215,8 @@ set_inertialpos(mgr, 2500.0, 500.0, 0.0)
 @test isapprox(get_lane_width(mgr), 3.25)
 
 print_odrmanagerlite(mgr)
+
+mgr = 2
+gc()
  
 
