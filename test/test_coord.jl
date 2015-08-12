@@ -122,3 +122,7 @@ println(times!(convert(Coord, copy(coordB)), 2.0))
 @test minus!(Coord(), coordB,  convert(CoordIm, coordA)) == Coord(0.5, 0.5, 0.5, 0.5, 0.5, 0.5)
 
 @test init!(copy(coordA)) == Coord(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+
+coordimA = CoordIm(2.0,4.0,6.0)
+coordimB = CoordIm(1.0,2.0,3.0)
+@test minus!(retval::Coord, coordimA, coordimB) == Coord(1.0, 2.0, 3.0)
