@@ -34,8 +34,8 @@ immutable TrackCoordIm <: AbstractTrackCoord
         new(trackid, s, t, z, h, p, r)
 end
 
-Base.convert(::Type{TrackCoordIm}, c::TrackCoord) = TrackCoordIm(c.s, c.t, c.z, c.h, c.p, c.r)
-Base.convert(::Type{TrackCoord}, c::TrackCoordIm) = TrackCoord(c.s, c.t, c.z, c.h, c.p, c.r)
+Base.convert(::Type{TrackCoordIm}, c::TrackCoord) = TrackCoordIm(c.trackid, c.s, c.t, c.z, c.h, c.p, c.r)
+Base.convert(::Type{TrackCoord}, c::TrackCoordIm) = TrackCoord(c.trackid, c.s, c.t, c.z, c.h, c.p, c.r)
 
 function ==(a::TrackCoord, b::TrackCoord)
     a.trackid == b.trackid &&
