@@ -20,7 +20,7 @@ type Coord <: AbstractCoord
     Coord(x::Real, y::Real, z::Real, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
         new(x, y, z, h, p, r)
 end
-type CoordIm <: AbstractCoord
+immutable CoordIm <: AbstractCoord
     x::Cdouble
     y::Cdouble
     z::Cdouble
