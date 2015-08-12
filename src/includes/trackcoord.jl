@@ -78,6 +78,3 @@ function plus!(a::TrackCoord, b::TrackCoord)
        pointer_from_objref(a), pointer_from_objref(b)))
     a 
 end
-
-# print_trackcoord(coord::TrackCoord) =
-#     ccall((:trackcoord_print, LIB_ODRMGR), Void, (Ptr{Void},), pointer_from_objref(coord))
