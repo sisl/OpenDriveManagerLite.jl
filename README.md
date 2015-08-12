@@ -80,7 +80,7 @@ type CoordIm <: AbstractCoord
         new(x, y, z, h, p, r)
 end
 ```
-t
+
 ## Transformations 
 
 Create an instance of `OdrManagerLite`, load an XML file, and then initialize a position:
