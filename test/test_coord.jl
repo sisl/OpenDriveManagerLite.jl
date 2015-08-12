@@ -118,6 +118,7 @@ println(times!(convert(Coord, copy(coordB)), 2.0))
 @test coordB - coordA == Coord(0.5, 0.5, 0.5, 0.5, 0.5, 0.5)
 @test minus!(convert(Coord, copy(coordB)), coordA) == Coord(0.5, 0.5, 0.5, 0.5, 0.5, 0.5)
 @test minus!(Coord(), coordB, coordA) == Coord(0.5, 0.5, 0.5, 0.5, 0.5, 0.5)
-
+@test minus!(convert(Coord, copy(coordB)), convert(CoordIm, coordA)) == Coord(0.5, 0.5, 0.5, 0.5, 0.5, 0.5)
+@test minus!(Coord(), coordB,  convert(CoordIm, coordA)) == Coord(0.5, 0.5, 0.5, 0.5, 0.5, 0.5)
 
 @test init!(copy(coordA)) == Coord(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
