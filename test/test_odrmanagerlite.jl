@@ -23,6 +23,7 @@ pos = create_position(mgr)
 
 activate_position(mgr, pos)
 @test mgr.has_activated_position == true
+footpoint2inertial(mgr)
 @test isa(get_footpoint(mgr), Coord)
  
 @test get_trackpos(mgr) == init!(TrackCoord())
