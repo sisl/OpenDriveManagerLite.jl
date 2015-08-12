@@ -65,7 +65,7 @@ type LaneCoordIm <: AbstractLaneCoord
         new(trackid, s, t, z, h, p, r, laneid, offset)
 end
 ```
-Foot (AbstractCoord)
+Foot (AbstractCoord). `footpoint` coordinates are inertial coordinates of the lane closest to the vehicle. 
 ```Julia
 type CoordIm <: AbstractCoord
     x::Cdouble
@@ -80,8 +80,8 @@ type CoordIm <: AbstractCoord
         new(x, y, z, h, p, r)
 end
 ```
-
-## Use
+t
+## Transformations 
 
 Create an instance of `OdrManagerLite`, load an XML file, and then initialize a position:
 
@@ -97,7 +97,6 @@ Given any coordinate, one can set the inertal `OdrManagerLite` position and then
 
 Convert a track coordinate to an inertial coordinate:
 ```julia
-mgr = OdrManagerLite()
 set_trackpos(mgr, 0, 1.0, 2.0)
 set_trackpos(mgr::OdrManagerLite, value::AbstractTrackCoord)
 track2inertial(mgr)
@@ -106,7 +105,6 @@ pos = get_inertialpos(mgr)
 
 Convert an inertial coordinate to a track coordinate:
 ```julia
-mgr = OdrManagerLite()
 set_inertialpos(mgr::OdrManagerLite, x::Real, y::Real, z::Real)
 inertial2track(mgr)
 pos = get_trackpos(mgr)
@@ -114,7 +112,6 @@ pos = get_trackpos(mgr)
 
 Convert a lane coordinate to an inertial coordinate:
 ```julia
-mgr = OdrManagerLite()
 set_lanepos(mgr::OdrManagerLite, value::AbstractLaneCoord)
 lane2inertial(mgr)
 pos = get_inertialpos(mgr)
@@ -122,7 +119,6 @@ pos = get_inertialpos(mgr)
 
 Convert an inertial coordinate to a lane coordinate:
 ```julia
-mgr = OdrManagerLite()
 set_inertialpos(mgr::OdrManagerLite, x::Real, y::Real, z::Real)
 inertial2lane(mgr)
 pos = get_lanepos(mgr)
@@ -130,9 +126,11 @@ pos = get_lanepos(mgr)
 
 Copy a foot point into the inertial position. `get_footpoint` returns foot point inertial (real-world) co-ordinate. A position must be activate to using `footpoint`.
 ```julia
-mgr = OdrManagerLite()
-pos = create_position(mgr)
-activate_position(mgr, pos)
 footpoint2inertial(mgr)
 get_footpoint(mgr)
 ```
+
+## For further documentation, see OpenDRIVE Manager Manuel
+[![OpenDRIVE Manager](http://www.vires.com/docs/OdrMgrUserManualRevI.pdf)]
+
+
