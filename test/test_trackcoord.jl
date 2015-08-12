@@ -26,9 +26,7 @@ coordIM = TrackCoordIm(0, 1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0)
 @test coordIM.p == 5.0
 @test coordIM.r == 6.0
 
-@test coord == coordIM
-@test coordIM == coord
-@test coordIM == CoordIm(1.0,2.0,3.0,4.0,5.0,6.0)
+@test coordIM == TrackCoordIm(0, 1.0, 2.0, 3.0, 4.0 ,5.0, 6.0)
 
 
 show(coord); print("\n")
