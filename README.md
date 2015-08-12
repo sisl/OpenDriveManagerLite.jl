@@ -12,11 +12,74 @@ Pkg.build("OpenDriveManagerLite")
 ```
 
 ## Coordinate Frames
+The components of each coordinate frame and how to create new instances of each frame. 
 
-Inertial (Coord)
-Track (TrackCoord)
-Lane (LaneCoord)
-Foot (Coord)
+Inertial (AbstractCoord)
+```Julia
+type CoordIm <: AbstractCoord
+    x::Cdouble
+    y::Cdouble
+    z::Cdouble
+    h::Cdouble
+    p::Cdouble
+    r::Cdouble
+
+    Coord()=new()
+    Coord(x::Real, y::Real, z::Real, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
+        new(x, y, z, h, p, r)
+end
+```
+Track (AbstractTrackCoord)
+```Julia
+type TrackCoordIm <: AbstractTrackCoord
+
+    trackid::Cint # id of the corresponding track
+    s::Cdouble    # distance along the track
+    t::Cdouble    # distance perpendicular to the track
+    z::Cdouble    # height
+    h::Cdouble    # heading [rad]
+    p::Cdouble    # pitch [rad]
+    r::Cdouble    # roll [rad]
+
+    TrackCoord() = new() # create one without setting any values
+    TrackCoord(trackid::Integer, s::Real, t::Real, z::Real=0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
+        new(trackid, s, t, z, h, p, r)
+end
+```
+Lane (AbstractLaneCoord)
+```Julia
+type LaneCoordIm <: AbstractLaneCoord
+    trackid::Cint # id of the corresponding track
+    s::Cdouble    # distance along the track
+    t::Cdouble    # distance perpendicular to the track
+    z::Cdouble    # height
+    h::Cdouble    # heading [rad]
+    p::Cdouble    # pitch [rad]
+    r::Cdouble 
+    laneid::Cint
+    offset::Cdouble
+
+    LaneCoord() = new() # create one without setting any values
+    LaneCoord(trackid::Integer, s::Real, t::Real, z::Real = 0.0, h::Real=0.0, p::Real=0.0, r::Real=0.0, laneid::Real=1,       
+    offset::Real=0.0 ) =
+        new(trackid, s, t, z, h, p, r, laneid, offset)
+end
+```
+Foot (AbstractCoord)
+```Julia
+type CoordIm <: AbstractCoord
+    x::Cdouble
+    y::Cdouble
+    z::Cdouble
+    h::Cdouble
+    p::Cdouble
+    r::Cdouble
+
+    Coord()=new()
+    Coord(x::Real, y::Real, z::Real, h::Real=0.0, p::Real=0.0, r::Real=0.0) =
+        new(x, y, z, h, p, r)
+end
+```
 
 ## Use
 
@@ -65,9 +128,11 @@ inertial2lane(mgr)
 pos = get_lanepos(mgr)
 ```
 
-Copy a foot point into the inertial position. `get_footpoint` returns foot point inertial (real-world) co-ordinate.
+Copy a foot point into the inertial position. `get_footpoint` returns foot point inertial (real-world) co-ordinate. A position must be activate to using `footpoint`.
 ```julia
 mgr = OdrManagerLite()
+pos = create_position(mgr)
+activate_position(mgr, pos)
 footpoint2inertial(mgr)
 get_footpoint(mgr)
 ```
