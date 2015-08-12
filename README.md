@@ -23,16 +23,51 @@ Foot (Coord)
 Create an instance of `OdrManagerLite`, load an XML file, and then initialize a position:
 
 ```julia
-odr = OdrManagerLite()
-@assert(loadfile(odr, "myfile.xml"))
+mgr = OdrManagerLite()
+@assert(loadfile(mgr, "myfile.xml"))
 
-pos = create_position(odr)
-activate_position(odr, pos)
+pos = create_position(mgr)
+activate_position(mgr, pos)
 ```
 
 Given any coordinate, one can set the inertal `OdrManagerLite` position and then transform it to the other three forms.
 
+Convert a track coordinate to an inertial coordinate:
+```julia
+mgr = OdrManagerLite()
+set_trackpos(mgr, 0, 1.0, 2.0)
+set_trackpos(mgr::OdrManagerLite, value::AbstractTrackCoord)
+track2inertial(mgr)
+pos = get_inertialpos(mgr)
+```
+
 Convert an inertial coordinate to a track coordinate:
 ```julia
-x = 2
+mgr = OdrManagerLite()
+set_inertialpos(mgr::OdrManagerLite, x::Real, y::Real, z::Real)
+inertial2track(mgr)
+pos = get_trackpos(mgr)
+```
+
+Convert a lane coordinate to an inertial coordinate:
+```julia
+mgr = OdrManagerLite()
+set_lanepos(mgr::OdrManagerLite, value::AbstractLaneCoord)
+lane2inertial(mgr)
+pos = get_inertialpos(mgr)
+```
+
+Convert an inertial coordinate to a lane coordinate:
+```julia
+mgr = OdrManagerLite()
+set_inertialpos(mgr::OdrManagerLite, x::Real, y::Real, z::Real)
+inertial2lane(mgr)
+pos = get_lanepos(mgr)
+```
+
+Copy a foot point into the inertial position. `get_footpoint` returns foot point inertial (real-world) co-ordinate.
+```julia
+mgr = OdrManagerLite()
+footpoint2inertial(mgr)
+get_footpoint(mgr)
 ```
