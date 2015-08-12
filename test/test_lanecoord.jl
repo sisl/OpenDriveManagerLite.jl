@@ -51,4 +51,15 @@ print(coordim, "\n")
 @test copy(coordim) == LaneCoordIm(0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 1, 1.0)
 @test deepcopy(coord) == LaneCoord(0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 1, 1.0)
 
+coordA = LaneCoord(1, 0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 2, 6.5)
+coordim = LaneCoordIm(1, 0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 2, 6.5)
 
+@test isa(convert(LaneCoord, coordA), LaneCoord)
+@test isa(convert(LaneCoordIm, coordA), LaneCoordIm)
+@test isa(convert(LaneCoord, coordim), LaneCoord)
+@test isa(convert(LaneCoordIm, coordim), LaneCoordIm)
+
+@test convert(LaneCoord, coordA) == coordA
+@test convert(LaneCoord, coordim) == coordim
+@test convert(LaneCoordIm, coordA) == coordA
+@test convert(LaneCoordIm, coordim) == coordim
