@@ -13,7 +13,7 @@ coordIM = TrackCoordIm(0, 1.0, 2.0)
 @test coordIM.trackid == 0
 @test coordIM.s == 1.0
 @test coordIM.t == 2.0
-@test coordIM.z == 3.0
+@test coordIM.z == 0.0
 @test coordIM.h == 0.0
 @test coordIM.p == 0.0
 @test coordIM.r == 0.0
