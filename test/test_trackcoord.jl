@@ -50,6 +50,6 @@ coordIM = TrackCoordIm(0, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5)
 @test isa(convert(TrackCoord, coordIM), TrackCoord)
 
 @test convert(TrackCoord, coordA) == coordA
-@test convert(TrackCoord, coordIM) == coordIM
-@test convert(TrackCoordIm, coordA) == coordA
+@test convert(TrackCoord, coordIM) == coordA
+@test convert(TrackCoordIm, coordA) == coordIM
 @test convert(TrackCoordIm, coordIM) == coordIM
